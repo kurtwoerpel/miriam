@@ -1,17 +1,37 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  RouteComponentProps,
+  useParams
+} from "react-router-dom";
 import './App.css';
+import {Home} from './components'
 
-function App() {
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        err : null,
+        isLoaded : false,
+    };
+  }
+render() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <p className='text-large col-md-4 offset-md-4'>
-          Miriam!
-        </p>
-
-      </header>
+      <Switch>
+        <Route path="/">
+                <Home/>
+        </Route>
+      </Switch>
     </div>
+    </Router>
   );
+}
+
 }
 
 export default App;
