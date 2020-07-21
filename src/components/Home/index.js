@@ -10,6 +10,7 @@ import {
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Home extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +18,15 @@ class Home extends Component {
     };
     // this.renderFlowers = this.renderFlowers.bind(this);
    }
-
+   componentDidMount() {
+      fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/homepage_carousel?api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
+        .then(res => res.json())
+        .then(res => {
+          console.log(res.records)
+          this.setState({ carousel_slides: res.records })
+        })
+        .catch(error => console.log(error))
+    }
 
 
    render() {
