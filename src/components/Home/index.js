@@ -31,6 +31,7 @@ class Home extends Component {
 
    render() {
    	const { carousel_slides } = this.state;
+    console.log(carousel_slides)
     // console.log(this.props)
     const slides = carousel_slides.map((x)=>{
       var divStyle = {
@@ -39,7 +40,7 @@ class Home extends Component {
         // WebkitTransition: 'all', // note the capital 'W' here
         // msTransition: 'all' // 'ms' is the only lowercase vendor prefix
       };
-
+      
       return(
         <div style={divStyle} key={x.id} className='carousel-slide'>
           <h1 className='text-large'>{x.fields.Headline}</h1>
