@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'JBaskerville';
+  src: local('JBaskerville'), url(./fonts/JBaskerville/JBaskervilleText.otf) format('opentype');
+}
+@font-face {
+  font-family: 'BrownPro';
+  src: local('BrownPro'), url(./fonts/BrownPro/BrownPro-Regular.otf) format('opentype');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

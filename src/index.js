@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+	
+import './fonts/BrownPro/BrownPro-Regular.otf'	
+import './fonts/JBaskerville/JBaskervilleText.otf'
 
 ReactDOM.render(
   <React.StrictMode>
