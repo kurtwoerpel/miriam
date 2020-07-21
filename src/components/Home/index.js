@@ -30,12 +30,27 @@ class Home extends Component {
 
 
    render() {
-   	// const { roses } = this.state;
+   	const { carousel_slides } = this.state;
     // console.log(this.props)
+    const slides = carousel_slides.map((x)=>{
+      var divStyle = {
+        backgroundColor: x.fields.BackgroundColor,
+        // backgroundImage: 'url(' + imgUrl + ')',
+        // WebkitTransition: 'all', // note the capital 'W' here
+        // msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+      };
 
+      return(
+        <div style={divStyle} key={x.id} className='carousel-slide'>
+          <h1 className='text-large'>{x.fields.Headline}</h1>
+          <h1 className='text-large'>{x.fields.SubHeading}</h1>
+        </div>
+       )
+      })
     return (
       // <div>{this.renderFlowers()}</div>
      <header className="App-header">
+     {slides}
         <p className='text-large col-md-4 offset-md-4'>
           Miriam!
         </p>
