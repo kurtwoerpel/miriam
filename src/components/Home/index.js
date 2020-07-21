@@ -52,9 +52,9 @@ class Home extends Component {
 
     console.log(slides)
     return (
-      // <div>{this.renderFlowers()}</div>
+
      <header className="App-header">
-     {slides}
+
         <p className='text-large col-md-4 offset-md-4'>
           Miriam!
         </p>
