@@ -54,7 +54,7 @@ class Home extends Component {
     return (
       // <div>{this.renderFlowers()}</div>
      <header className="App-header">
-     {slides.length > 0 ? slides : 'no'}
+     {slides}
         <p className='text-large col-md-4 offset-md-4'>
           Miriam!
         </p>
