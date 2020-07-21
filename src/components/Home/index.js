@@ -31,8 +31,9 @@ class Home extends Component {
 
    render() {
    	const { carousel_slides } = this.state;
-    console.log(carousel_slides)
-    // console.log(this.props)
+
+    console.log(this.props)
+
     const slides = carousel_slides.length ? carousel_slides.map((x)=>{
       var divStyle = {
         backgroundColor: x.fields.BackgroundColor,
@@ -51,7 +52,7 @@ class Home extends Component {
     return (
       // <div>{this.renderFlowers()}</div>
      <header className="App-header">
-     {slides.length ? slides : ''}
+
         <p className='text-large col-md-4 offset-md-4'>
           Miriam!
         </p>
