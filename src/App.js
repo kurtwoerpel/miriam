@@ -24,7 +24,7 @@ render() {
     <div className="App">
       <Switch>
         <Route path="/">
-                <Home/>
+             <div>hello</div>
         </Route>
       </Switch>
     </div>
