@@ -34,7 +34,7 @@ class Home extends Component {
 
 
 
-    const slides = carousel_slides.length ? carousel_slides.map((x)=>{
+    const slides = carousel_slides.length > 0 ? carousel_slides.map((x)=>{
       var divStyle = {
         backgroundColor: x.fields.BackgroundColor,
         // backgroundImage: 'url(' + imgUrl + ')',
@@ -48,7 +48,7 @@ class Home extends Component {
           <h1 className='text-large'>{x.fields.SubHeading}</h1>
         </div>
        )
-      }) : ''
+      }) : 'noslides'
     return (
       // <div>{this.renderFlowers()}</div>
      <header className="App-header">
