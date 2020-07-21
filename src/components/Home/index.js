@@ -49,10 +49,12 @@ class Home extends Component {
         </div>
        )
       }) : 'noslides'
+
+    console.log(slides)
     return (
       // <div>{this.renderFlowers()}</div>
      <header className="App-header">
-     {slides.length ? slides : ''}
+     {slides.length > 0 ? slides : 'no'}
         <p className='text-large col-md-4 offset-md-4'>
           Miriam!
         </p>
