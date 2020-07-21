@@ -54,7 +54,7 @@ class Home extends Component {
     return (
 
      <header className="App-header">
-
+         <div>{slides}</div>
         <p className='text-large col-md-4 offset-md-4'>
           Miriam!
         </p>
