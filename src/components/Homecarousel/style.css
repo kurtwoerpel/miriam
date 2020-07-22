@@ -1,0 +1,23 @@
+.carousel-slide{
+	height: 100vh;
+	width:100vw;
+	background-size:cover;
+	position:relative;
+	text-align: center;
+}
+.carousel-slide-image{
+	width:auto;
+	max-height:60vh;
+}
+.logo{
+	padding:5px 10px;
+	top:15px;
+	left:15px;
+	position: absolute;
+}
+.carousel-slide h1{
+	text-align: center;
+}
+.carousel-slide .description{
+	text-align: center;
+}
