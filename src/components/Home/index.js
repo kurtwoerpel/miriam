@@ -6,7 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import {Homecarousel} from '../';
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Home extends Component {
