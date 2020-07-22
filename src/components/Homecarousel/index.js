@@ -77,11 +77,13 @@ class Homecarousel extends Component {
      <header className="App-header">
  <Slider
             options={{
-              autoPlay: 4000,
+              autoPlay: 6000,
               pauseAutoPlayOnHover: true,
               wrapAround: true,
               fullscreen: true,
               adaptiveHeight: true,
+              pageDots: false,
+			  arrowShape: "M2,49.73H97M28.88,13.8C20.63,25,9.49,40.25,2,49.71L28.88,86.2"
             }}
           >
     {slides}

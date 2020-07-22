@@ -1,0 +1,15 @@
+.flickity-prev-next-button{
+	background: none !important;
+}
+.flickity-prev-next-button:focus{
+	outline:none;
+}
+.flickity-prev-next-button{
+	width:200px;
+	height:200px;
+}
+.flickity-button-icon path{
+ stroke:black;
+ fill:none;
+ stroke-width:4px;
+}
