@@ -18,15 +18,15 @@ class Homecarousel extends Component {
     };
     // this.renderFlowers = this.renderFlowers.bind(this);
    }
-   // componentDidMount() {
-   //    fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/homepage_carousel?api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
-   //      .then(res => res.json())
-   //      .then(res => {
-   //        console.log(res.records)
-   //        this.setState({ carousel_slides: res.records })
-   //      })
-   //      .catch(error => console.log(error))
-   //  }
+   componentDidMount() {
+      fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/homepage_carousel?api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
+        .then(res => res.json())
+        .then(res => {
+          console.log(res.records)
+          this.setState({ carousel_slides: res.records })
+        })
+        .catch(error => console.log(error))
+    }
 
 
    render() {
@@ -34,11 +34,27 @@ class Homecarousel extends Component {
 
 
 
+    const slides = carousel_slides.length > 0 ? carousel_slides.map((x)=>{
+      var divStyle = {
+        backgroundColor: x.fields.BackgroundColor,
+        // backgroundImage: 'url(' + imgUrl + ')',
+        // WebkitTransition: 'all', // note the capital 'W' here
+        // msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+      };
+      
+      return(
+        <div style={divStyle} key={x.id} className='carousel-slide'>
+          <h1 className='text-large'>{x.fields.Headline}</h1>
+          <h1 className='text-large'>{x.fields.SubHeading}</h1>
+        </div>
+       )
+      }) : 'noslides'
 
+    console.log(slides)
     return (
 
      <header className="App-header">
-         <Homecarousel></Homecarousel>
+         <div>{slides}</div>
         <p className='text-large col-md-4 offset-md-4'>
           Miriam!
         </p>

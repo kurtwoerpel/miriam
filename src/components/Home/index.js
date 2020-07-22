@@ -18,15 +18,15 @@ class Home extends Component {
     };
     // this.renderFlowers = this.renderFlowers.bind(this);
    }
-   componentDidMount() {
-      fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/homepage_carousel?api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
-        .then(res => res.json())
-        .then(res => {
-          console.log(res.records)
-          this.setState({ carousel_slides: res.records })
-        })
-        .catch(error => console.log(error))
-    }
+   // componentDidMount() {
+   //    fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/homepage_carousel?api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
+   //      .then(res => res.json())
+   //      .then(res => {
+   //        console.log(res.records)
+   //        this.setState({ carousel_slides: res.records })
+   //      })
+   //      .catch(error => console.log(error))
+   //  }
 
 
    render() {
@@ -48,16 +48,13 @@ class Home extends Component {
           <h1 className='text-large'>{x.fields.SubHeading}</h1>
         </div>
        )
-      }) : 'noslides'
+      }) : 'loading'
 
     console.log(slides)
     return (
 
      <header className="App-header">
-         <div>{slides}</div>
-        <p className='text-large col-md-4 offset-md-4'>
-          Miriam!
-        </p>
+          <Homecarousel></Homecarousel>
 
       </header>
 
