@@ -34,6 +34,9 @@
 a{
   color:inherit;
 }
+a:hover{
+  color:inherit;
+}
 button:hover{
   color:white;
   background: black;
