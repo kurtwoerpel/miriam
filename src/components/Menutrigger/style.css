@@ -1,0 +1,11 @@
+.logo{
+	padding: 10px 15px;
+    top: 24px;
+    left: 24px;
+	position: absolute;
+	z-index:9;
+	width:180px;
+	height: 87px;
+	background: black;
+	color:white;
+}

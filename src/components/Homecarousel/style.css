@@ -10,12 +10,6 @@
 	width:auto;
 	max-height:60vh;
 }
-.logo{
-	padding: 10px 15px;
-    top: 24px;
-    left: 24px;
-	position: absolute;
-}
 
 .carousel-slide h1{
 	text-align: center;

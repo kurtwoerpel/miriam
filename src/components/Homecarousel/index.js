@@ -8,6 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import {Slider} from '../';
+import {Menutrigger} from '../';
 
 
 class Homecarousel extends Component {
@@ -60,7 +61,7 @@ class Homecarousel extends Component {
       }
       return(
         <div style={divStyle} key={x.id} className='carousel-slide'>
-          <div style={logoStyle} className='logo text-medium'>Miriam</div>
+          <Menutrigger style={logoStyle}></Menutrigger>
           <h1 style={headlineStyle} className='text-large'>{x.fields.Headline}</h1>
            {!x.fields.HeroImage ? '' :
             <img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/>
