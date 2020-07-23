@@ -4,11 +4,12 @@ import {
   Switch,
   Route,
   Link,
+  withRouter,
   RouteComponentProps,
   useParams
 } from "react-router-dom";
 import './App.css';
-import {Home,Past} from './components'
+import {Home,Past,Happening} from './components'
 
 class App extends React.Component {
   constructor(props){
@@ -31,15 +32,19 @@ class App extends React.Component {
 
 render() {
   const { records } = this.state;
+  console.log(this.props)
   return (
     <Router>
     <div className="App">
       <Switch>
         <Route exact path="/">
-                <Home/>
+          <Home/>
         </Route>
         <Route path="/past">
-                <Past records={records}/>
+          <Past records={records}/>
+        </Route>
+        <Route path="/happening/:id">
+          <Happening records={records}/>
         </Route>
       </Switch>
     </div>

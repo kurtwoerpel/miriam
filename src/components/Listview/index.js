@@ -25,7 +25,7 @@ class Listview extends Component {
     const everythings = records.length > 0 ? records.map((x)=>{
       return(
 
-        <a href={'/event/'+x.id} key={x.id} id={x.id} className="list-item" >
+        <a href={'/happening/'+x.id} key={x.id} id={x.id} className="list-item" >
           {!x.fields.MainImage ? '' :
             <img src={x.fields.MainImage[0].url}/>
           }
