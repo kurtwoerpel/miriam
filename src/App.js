@@ -40,10 +40,10 @@ render() {
         <Route exact path="/">
           <Home/>
         </Route>
-        <Route path="/past">
+        <Route exact path="/past">
           <Past records={records}/>
         </Route>
-        <Route path="/happening/:id">
+        <Route exact path="/happening/:id">
           <Happening records={records}/>
         </Route>
       </Switch>
