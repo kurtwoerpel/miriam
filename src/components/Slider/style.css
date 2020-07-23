@@ -5,11 +5,25 @@
 	outline:none;
 }
 .flickity-prev-next-button{
-	width:200px;
-	height:200px;
+	width:400px;
+	height:400px;
 }
 .flickity-button-icon path{
  stroke:black;
  fill:none;
- stroke-width:4px;
+ stroke-width:3px;
+ stroke-linecap:round;
 }
+
+/*.flickity-prev-next-button.previous::before{
+	content:'Previous';
+	margin-top:-25px;
+	height: 65px;
+	display: block;
+}
+.flickity-prev-next-button.next::before{
+	content:'Next';
+	margin-top:-25px;
+	display: block;
+	height: 65px;
+}*/

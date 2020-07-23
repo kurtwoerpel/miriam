@@ -1,0 +1,14 @@
+nav{
+	position: fixed;
+	z-index: 9999;
+	width:100%;
+}
+
+.nav-bookstore{
+	right:5px;
+	width: auto;
+	display: inline-block;
+	float:right;
+
+	transform:rotate(-45deg) translateY(25px) translateX(-45px);
+}
