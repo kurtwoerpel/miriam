@@ -19,3 +19,11 @@ ul{
 	top:0;
 	transform:translateX(0);
 }
+#main-menu.open .blanket{
+  width:100vw;
+  height:100vh;
+  background: transparent;
+  position: fixed;
+  top:0;
+  left:235px;
+}

@@ -15,10 +15,31 @@
 	background:black;
 	color:white;
 }
+.top-header{
+ text-align: center;
+ margin:5rem 0;
+}
 .search{
 	display: inline-block;
 	float:right;
 	position: relative;
+}
+.search .letsgo{
+	background: black;
+	width:38px;
+	height:39px;
+	vertical-align: top;
+	padding:5px;
+	display: inline-block;
+	margin-left:10px;
+}
+.search .letsgo svg{
+  width: 20px;
+  margin-left:5px;
+  margin-top:-10px;
+}
+.search .letsgo svg polygon{
+	fill:white;
 }
 .search input{
 	border:1px solid black;
@@ -39,7 +60,7 @@
 .sub-menu{
 	border-bottom:1px solid black;
 	margin:0px 25px;
-	padding:25px 0;
+	padding:10px 0;
 }
 .header{
 	text-align: center;

@@ -6,7 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import {Menutrigger} from '../';
+
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Mainmenu extends Component {
@@ -16,8 +16,12 @@ class Mainmenu extends Component {
     this.state = {
       
     };
+    this.blanketClose = this.blanketClose.bind(this);
    }
-
+  blanketClose(){
+    const menu = document.getElementById('main-menu');
+    menu.classList.remove('open')
+  }
 
 
    render() {
@@ -25,7 +29,8 @@ class Mainmenu extends Component {
     return (
 
       <div id='main-menu'>
-       <Menutrigger></Menutrigger>
+      <div class='blanket' onClick={this.blanketClose}></div>
+       <a href='/'><div className='logo text-medium'>Miriam</div></a>
          <ul>
             <li><a>Current</a></li>
             <li><a>Upcoming</a></li>

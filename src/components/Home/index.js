@@ -16,6 +16,7 @@ class Home extends Component {
     this.state = {
       carousel_slides: [],
     };
+
    }
 
    render() {
