@@ -70,7 +70,7 @@ class Homecarousel extends Component {
           <div style={descriptionStyle} className='description text-medium'>{x.fields.DescriptiveCopy}</div>
         </div>
        )
-      }) : 'noslides'
+      }) : 'loading'
 
     console.log(slides)
     return (

@@ -1,5 +1,7 @@
 export { default as Home} from './Home'
 export { default as Past} from './Past'
+export { default as Listview} from './Listview'
+export { default as Gridview} from './Gridview'
 export { default as Navigation} from './Navigation'
 export { default as Mainmenu} from './Mainmenu'
 export { default as Menutrigger} from './Menutrigger'
