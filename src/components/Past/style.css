@@ -1,0 +1,54 @@
+.pastpage nav .logo{
+	background: white;
+	color: black;
+	padding: 0px 5px;
+    height: 66px;
+    width: 162px;
+    left:42px;
+    top:30px;
+    transform:scale(1.2);
+	border:1px solid black;
+	outline: 10px solid white;
+}
+.pastpage nav .logo:hover{
+	filter:none;
+	background:black;
+	color:white;
+}
+.search{
+	display: inline-block;
+	float:right;
+	position: relative;
+}
+.search input{
+	border:1px solid black;
+	width: 500px;
+	background: transparent;
+	position: relative;
+	padding-left:100px;
+}
+.search-text{
+	position: absolute;
+	left:8px;
+	top:3px;
+	content:'Search';
+}
+.pastpage .nav-bookstore{
+	transform:rotate(-25deg) translateY(33px) translateX(-39px);
+}
+.sub-menu{
+	border-bottom:1px solid black;
+	margin:0px 25px;
+	padding:25px 0;
+}
+.header{
+	text-align: center;
+	width:calc(100% - 50px);
+	margin:25px 25px 0;
+	border-bottom:1px solid black;
+	border-top: 1px solid black;
+}
+
+.sub-menu button:first-child{
+	margin-right:20px;
+}

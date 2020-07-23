@@ -2,7 +2,9 @@
    font-family:'BrownPro', sans-serif;
    font-size:24px;
 }
-
+.baskerville{
+  font-family:'JBaskerville', serif;
+}
 /* Global Font Sizes */
 
 .text-small{
@@ -13,6 +15,7 @@
 }
 .text-large{
   font-size: 75px;
+  line-height:1.18;
 }
 
 @media(max-width: 768px){
@@ -30,4 +33,31 @@
 /* Links and buttons */
 a{
   color:inherit;
+}
+button:hover{
+  color:white;
+  background: black;
+}
+button{
+  width:195px;
+  outline:none;
+  transition: 0.1s;
+  padding:0 10px;
+  background:transparent;
+  border:1px solid black;
+}
+input:focus{
+  outline:none;
+}
+button.on:hover{
+  color:black;
+  background: white;
+}
+button.on{
+  outline:none;
+  transition: 0.1s;
+  padding:0 25px;
+  background:black;
+  color:white;
+  border:1px solid black;
 }

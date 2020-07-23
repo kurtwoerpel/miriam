@@ -22,7 +22,7 @@ class Home extends Component {
 
     return (
 
-     <header className="App-header">
+     <header className="App-header Homepage">
           <Navigation></Navigation>
           <Mainmenu></Mainmenu>
           <Homecarousel></Homecarousel>

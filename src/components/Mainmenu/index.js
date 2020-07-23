@@ -29,7 +29,7 @@ class Mainmenu extends Component {
          <ul>
             <li><a>Current</a></li>
             <li><a>Upcoming</a></li>
-            <li><a>Past</a></li>
+            <li><a href='/past'>Past</a></li>
             <li><a>Happenings</a></li>
             <li><a>Info</a></li>
             <li><a>Bookshop</a></li>

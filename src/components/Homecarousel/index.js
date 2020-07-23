@@ -62,11 +62,11 @@ class Homecarousel extends Component {
       return(
         <div style={divStyle} key={x.id} className='carousel-slide'>
           <Menutrigger style={logoStyle}></Menutrigger>
-          <h1 style={headlineStyle} className='text-large'>{x.fields.Headline}</h1>
+          <h1 style={headlineStyle} className='text-large baskerville'>{x.fields.Headline}</h1>
            {!x.fields.HeroImage ? '' :
             <img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/>
           }
-          <h1 style={subheadlineStyle} className='text-large'>{x.fields.SubHeading}</h1>
+          <h1 style={subheadlineStyle} className='text-large baskerville'>{x.fields.SubHeading}</h1>
           <div style={descriptionStyle} className='description text-medium'>{x.fields.DescriptiveCopy}</div>
         </div>
        )
@@ -84,7 +84,8 @@ class Homecarousel extends Component {
               fullscreen: true,
               adaptiveHeight: true,
               pageDots: false,
-			  arrowShape: "M1.9,49.9h96.9 M17.1,34.4C12.4,39.3,6,45.8,1.8,49.9l15.3,15.7"
+              draggable: false,
+			        arrowShape: "M1.9,49.9h96.9 M17.1,34.4C12.4,39.3,6,45.8,1.8,49.9l15.3,15.7"
             }}
           >
     {slides}

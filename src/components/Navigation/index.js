@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import {Menutrigger} from '../';
 
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
@@ -25,6 +26,7 @@ class Navigation extends Component {
     return (
 
      <nav>
+        <Menutrigger></Menutrigger>
          <div class='nav-bookstore'><a href='derp'>Bookstore</a></div>
       </nav>
 
