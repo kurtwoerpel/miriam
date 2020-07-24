@@ -31,7 +31,7 @@
 	display: none;
 }
 .arrow{
-	z-index: 999;
+	z-index: 7;
 	position: absolute;
 	left:25px;
 	top:calc(50% - 200px);
