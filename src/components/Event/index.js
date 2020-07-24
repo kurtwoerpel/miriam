@@ -74,19 +74,20 @@ class Event extends Component {
           </div>
           <div className='container-fluid'>
           <div className='row'>
-              <div className='three-column col-md-2'>
+              <div className='three-column col-sm-12 col-md-2'>
                 <ul>
                   <li className='text-small'> {this.formatDate(new Date(record.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(record.fields.StartDate))[1]}</li>
                 </ul>
               </div>
-              <div className='three-column col-md-5'>
-                <ReactMarkdown source={record.fields.Description} />
-              </div>
-              <div className='three-column col-md-5'>
+                 <div className='three-column col-sm-12 order-sm-1 order-md-2 col-md-5'>
                 {!record.fields.MainImage ? '' :
                             <img src={record.fields.MainImage[0].url}/>
                           }
               </div>
+              <div className='three-column col-sm-12 order-sm-2 order-md-1 col-md-5'>
+                <ReactMarkdown source={record.fields.Description} />
+              </div>
+           
             </div>
           </div>
           

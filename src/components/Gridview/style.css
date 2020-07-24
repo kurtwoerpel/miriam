@@ -9,3 +9,8 @@
 .grid-item h1.title{
 	padding-top:25px;
 }
+@media(max-width: 768px){
+	.grid-image{
+		height:80px;
+	}
+}

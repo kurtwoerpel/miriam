@@ -52,3 +52,34 @@
 	stroke-width:2px;
 	stroke-linecap: round;
 }
+.custom-slider{
+		max-width:100vw;
+		overflow-x:hidden;
+		position: relative;
+		min-height: 100vh;
+	}
+
+@media(max-width: 768px){
+	.arrow svg{
+		width: 50px;
+	}
+	.arrow svg path{
+		stroke-width:5px;
+	}
+	.arrow{
+		left:10px;
+		top:calc(50% - 50px);
+	}
+	.arrow-next{
+		left:auto;
+		right:10px;
+	}
+	.carousel-slide{
+		padding:50px 10px 25px;
+	}
+	.carousel-slide-image{
+		width:auto;
+		max-height:40vh;
+	}
+	
+}

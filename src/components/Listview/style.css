@@ -15,3 +15,19 @@
 .view-space{
 	margin:0 25px;
 }
+
+@media(max-width: 768px){
+	.view-space{
+	margin:0;
+	padding:0px;
+	}
+	.list-item-menu{
+		display: none;
+	}
+	.list-item .people{
+		display: none;
+	}
+	.grid-view{
+		padding:0 5px;
+	}
+}

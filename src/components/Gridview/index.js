@@ -58,7 +58,7 @@ class Gridview extends Component {
       }
       return(
      
-        <a href={'/happening/'+x.id} key={x.id} id={x.id} className="grid-item col-sm-2" >
+        <a href={'/happening/'+x.id} key={x.id} id={x.id} className="grid-item col-6 col-sm-2" >
           <div className='grid-image' style={divStyle}></div>
           <h1 className='text-small title'>{x.fields.Title}</h1>
           <h1 className='text-small'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>

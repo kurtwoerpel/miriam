@@ -61,7 +61,7 @@ class Listview extends Component {
         <a href={'/happening/'+x.id} key={x.id} id={x.id} className="list-item row" >
           <h1 className='text-small baskerville col-sm-3'>{x.fields.Title}</h1>
           <h1 className='text-small baskerville col-sm-3'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
-          <h1 className='text-small baskerville col-sm-3'><ReactMarkdown source= {x.fields.People}></ReactMarkdown></h1>
+          <h1 className='people text-small baskerville col-sm-3'><ReactMarkdown source= {x.fields.People}></ReactMarkdown></h1>
           <div style={divStyle} className='col-sm-3'>
           
           </div>
