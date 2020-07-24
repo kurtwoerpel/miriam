@@ -2,21 +2,31 @@
    font-family:'BrownPro', sans-serif;
    font-size:24px;
 }
+ul{
+  list-style: none;
+  padding:0;
+}
 .baskerville{
   font-family:'JBaskerville', serif;
 }
 /* Global Font Sizes */
+.text-tiny{
+  font-size: 18px;
+  font-weight: bold;
+}
 
 .text-small{
   font-size: 24px;
 }
+
 .text-medium{
   font-size: 45px;
 }
 .text-large{
-  font-size: 75px;
-  line-height:1.18;
+  font-size: 72px;
+  line-height:1.2;
 }
+
 
 @media(max-width: 768px){
   .text-small{

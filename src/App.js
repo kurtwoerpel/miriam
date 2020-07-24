@@ -18,6 +18,7 @@ class App extends React.Component {
         err : null,
         isLoaded : false,
         records: [],
+        info:[]
     };
   }
   componentDidMount() {
@@ -28,23 +29,24 @@ class App extends React.Component {
           this.setState({ records: res.records })
         })
         .catch(error => console.log(error))
+
   }
 
 render() {
-  const { records } = this.state;
+  const { records,info } = this.state;
   console.log(this.props)
   return (
     <Router>
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Home/>
+          <Home info={info} records={records}/>
         </Route>
         <Route exact path="/past">
-          <Past records={records}/>
+          <Past info={info} records={records}/>
         </Route>
         <Route exact path="/happening/:id">
-          <Happening records={records}/>
+          <Happening info={info} records={records}/>
         </Route>
       </Switch>
     </div>

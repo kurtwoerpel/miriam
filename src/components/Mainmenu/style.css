@@ -1,16 +1,22 @@
-ul{
+#main-menu ul{
 	list-style: none;
 	padding:0;
 	margin-top:100px;
+}
+.info-menu{
+      position: absolute;
+    bottom: 25px;
+    width: calc(100% - 50px);
 }
 #main-menu{
 	background: green;
     display: inline-block;
     position: fixed;
-    z-index: 2;
+    z-index: 10;
     height: 100vh;
     transition:0.2s;
     padding: 25px;
+    top:0;
     width: 235px;
     transform:translateX(-100%);
 

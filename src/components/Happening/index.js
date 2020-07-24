@@ -5,8 +5,7 @@ import {
   withRouter
 } from "react-router-dom";
 
-import {Navigation} from '../';
-import {Mainmenu} from '../';
+
 import {Exhibition} from '../';
 
 class Happening extends Component {
@@ -20,6 +19,7 @@ class Happening extends Component {
       var mew = ' ';
       for (var i = this.props.records.length - 1; i >= 0; i--) {
         if(this.props.records[i].id == this.props.match.params.id){
+          document.getElementsByTagName('body')[0].style.backgroundColor = this.props.records[i].fields.PageBackgroundColor
          mew = (
 
             <Exhibition record={this.props.records[i]}></Exhibition>
@@ -38,7 +38,7 @@ class Happening extends Component {
     return (
 
      <header className="App-header happening">
-     hello
+   
          {this.findRecord()}
       </header>
 

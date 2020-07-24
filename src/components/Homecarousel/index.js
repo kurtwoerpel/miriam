@@ -7,6 +7,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 import {Slider} from '../';
 import {Menutrigger} from '../';
 
@@ -67,7 +68,8 @@ class Homecarousel extends Component {
             <img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/>
           }
           <h1 style={subheadlineStyle} className='text-large baskerville'>{x.fields.SubHeading}</h1>
-          <div style={descriptionStyle} className='description text-medium'>{x.fields.DescriptiveCopy}</div>
+          <div style={descriptionStyle} className='description text-medium'><ReactMarkdown source={x.fields.DescriptiveCopy} /></div>
+
         </div>
        )
       }) : 'loading'
@@ -91,9 +93,6 @@ class Homecarousel extends Component {
     {slides}
     </Slider>
 
-        <p className='text-large col-md-4 offset-md-4'>
-          Miriam!
-        </p>
 
       </header>
 

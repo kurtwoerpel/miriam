@@ -29,7 +29,7 @@ class Listview extends Component {
           {!x.fields.MainImage ? '' :
             <img src={x.fields.MainImage[0].url}/>
           }
-          <p>{x.fields.Name}</p>
+          <p>{x.fields.Title}</p>
         </a>
        )
       }) : 'loading'

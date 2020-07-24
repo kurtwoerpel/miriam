@@ -6,7 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import ReactMarkdown from "react-markdown";
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Mainmenu extends Component {
@@ -14,10 +14,21 @@ class Mainmenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+      info:null
     };
     this.blanketClose = this.blanketClose.bind(this);
    }
+
+ componentDidMount() {
+  fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/info?api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
+    .then(res => res.json())
+    .then(res => {
+      this.setState({ info: res.records })
+    })
+    .catch(error => console.log(error))
+
+  }
+
   blanketClose(){
     const menu = document.getElementById('main-menu');
     menu.classList.remove('open')
@@ -25,13 +36,14 @@ class Mainmenu extends Component {
 
 
    render() {
-
+    const {info} = this.state
+    console.log(info)
     return (
 
       <div id='main-menu'>
-      <div class='blanket' onClick={this.blanketClose}></div>
+      <div className='blanket' onClick={this.blanketClose}></div>
        <a href='/'><div className='logo text-medium'>Miriam</div></a>
-         <ul>
+         <ul className='text-small'>
             <li><a>Current</a></li>
             <li><a>Upcoming</a></li>
             <li><a href='/past'>Past</a></li>
@@ -39,6 +51,12 @@ class Mainmenu extends Component {
             <li><a>Info</a></li>
             <li><a>Bookshop</a></li>
          </ul>
+         {info ? 
+         <div className='info-menu text-tiny'>
+         <ReactMarkdown source={info[0].fields.LocationText} />
+         <ReactMarkdown source={info[0].fields.HoursText} />
+         </div>
+         : 'poop' }
       </div>
 
     );
