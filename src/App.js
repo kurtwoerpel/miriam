@@ -15,7 +15,7 @@ const NoMatchPage = () => {
     <div>
       <Navigation></Navigation>
       <Mainmenu></Mainmenu>
-      <h3 className='oops-message text-large'>Woops! This page does not exist. Maybe try going <a href='/'>Home</a>?</h3>
+      <h3 className='oops-message text-large'>Woops! This page does not exist. Maybe try going <a className='link' href='/'>Home</a>?</h3>
     </div>
   );
 };

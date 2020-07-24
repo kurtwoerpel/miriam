@@ -8,9 +8,14 @@ nav{
 
 .nav-bookstore{
 	right:5px;
+	text-decoration: none;
+	font-weight:bold;
 	width: auto;
 	display: inline-block;
 	float:right;
 	transform:rotate(-45deg) translateY(25px) translateX(-45px);
 	
+}
+.nav-bookstore a{
+	text-decoration: none;
 }

@@ -67,7 +67,7 @@ class Gridview extends Component {
       }) : 'loading'
     return (
 
-     <div class='grid-view row'>
+     <div className='grid-view row'>
          {everythings}
      </div>
 
