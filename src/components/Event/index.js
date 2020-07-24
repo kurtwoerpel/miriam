@@ -13,7 +13,7 @@ import {Menutrigger} from '../';
 
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
-class Exhibition extends Component {
+class Event extends Component {
 
   constructor(props) {
     super(props);
@@ -97,7 +97,7 @@ class Exhibition extends Component {
       <Navigation></Navigation>
       <Menutrigger style={logoStyle}></Menutrigger>
           <Mainmenu></Mainmenu>
-     <div className='header text-medium baskerville'> Exhibition </div>
+     <div className='header text-medium baskerville'> Event </div>
      <div className=''>
       
          {everything}
@@ -112,4 +112,4 @@ class Exhibition extends Component {
   }
 }
 
-export default Exhibition
+export default Event

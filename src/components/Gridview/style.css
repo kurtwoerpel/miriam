@@ -1,0 +1,11 @@
+.grid-image{
+	height: 150px;
+}
+.grid-item h1{
+	font-weight:bold;
+	margin:0;
+	margin-bottom:0;
+}
+.grid-item h1.title{
+	padding-top:25px;
+}

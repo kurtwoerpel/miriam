@@ -1,0 +1,17 @@
+.list-item{
+	border-bottom:1px solid black;
+	padding:8px 0;
+}
+.list-item:last-child{
+	border-bottom:none;
+}
+.list-item-menu *{
+	font-weight: bold;
+}
+.list-item-menu{
+	padding:8px 0 0;
+
+}
+.view-space{
+	margin:0 25px;
+}

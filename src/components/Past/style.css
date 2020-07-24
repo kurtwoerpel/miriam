@@ -15,6 +15,20 @@
 	background:black;
 	color:white;
 }
+.pastpage.list-header .header.text-large.baskerville{
+  font-size:24px;
+  line-height: 1.3;
+}
+.pastpage.list-header nav .logo{
+  border: none;
+  font-size: 24px;
+  height: auto;
+  width:auto;
+  line-height: 1;
+  padding:0;
+  background:transparent;
+  outline:none;
+}
 .top-header{
  text-align: center;
  margin:5rem 0;
@@ -53,6 +67,12 @@
 	left:8px;
 	top:3px;
 	content:'Search';
+}
+.pastpage.list-header .nav-bookstore{
+	transform:none;
+	top: 25px;
+    position: fixed;
+    right: 25px;
 }
 .pastpage .nav-bookstore{
 	transform:rotate(-25deg) translateY(33px) translateX(-39px);
