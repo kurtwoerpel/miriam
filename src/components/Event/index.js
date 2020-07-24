@@ -69,6 +69,7 @@ class Event extends Component {
        
         <div key={record.id} >
           <div style={bannerStyle} className='banner row'>
+          <div className='header text-medium baskerville'> Event </div>
             <h1 className='text-large baskerville'> {record.fields.Title}</h1>
           </div>
           <div className='container-fluid'>
@@ -97,7 +98,7 @@ class Event extends Component {
       <Navigation></Navigation>
       <Menutrigger style={logoStyle}></Menutrigger>
           <Mainmenu></Mainmenu>
-     <div className='header text-medium baskerville'> Event </div>
+     
      <div className=''>
       
          {everything}
