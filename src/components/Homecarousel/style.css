@@ -1,12 +1,21 @@
 .carousel-slide{
+	background-color: white;
 	height: 100vh;
 	width:100vw;
+	position: absolute; 
+	top:0;
+	transition: 1.2s;
+	left:100vw;
 	background-size:cover;
-	position:relative;
 	text-align: center;
 	padding:25px;
 }
-
+.carousel-slide.selected{
+	left:0;
+}
+.carousel-slide.passed{
+	left:0%;
+}
 .carousel-slide-image{
 	width:auto;
 	max-height:60vh;
@@ -17,4 +26,29 @@
 }
 .carousel-slide .description{
 	text-align: center;
+}
+.arrow.off{
+	display: none;
+}
+.arrow{
+	z-index: 999;
+	position: absolute;
+	left:25px;
+	top:calc(50% - 200px);
+}
+.arrow svg{
+  width:300px;
+}
+.arrow-next{
+	left:auto;
+	right:25px;
+}
+.arrow-next svg{
+	transform:scaleX(-1);
+}
+.arrow svg path{
+	fill:none;
+	stroke: black;
+	stroke-width:2px;
+	stroke-linecap: round;
 }
