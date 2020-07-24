@@ -9,8 +9,16 @@ import {
   useParams
 } from "react-router-dom";
 import './App.css';
-import {Home,Past,Happening} from './components'
-
+import {Home,Past,Happening,Navigation,Mainmenu} from './components'
+const NoMatchPage = () => {
+  return (
+    <div>
+      <Navigation></Navigation>
+      <Mainmenu></Mainmenu>
+      <h3 className='oops-message text-large'>Woops! This page does not exist. Maybe try going <a href='/'>Home</a>?</h3>
+    </div>
+  );
+};
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -32,6 +40,7 @@ class App extends React.Component {
 
   }
 
+
 render() {
   const { records,info } = this.state;
   console.log(this.props)
@@ -48,6 +57,7 @@ render() {
         <Route exact path="/happening/:id">
           <Happening info={info} records={records}/>
         </Route>
+        <Route component={NoMatchPage} />
       </Switch>
     </div>
     </Router>

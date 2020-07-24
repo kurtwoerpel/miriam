@@ -27,7 +27,12 @@ ul{
   line-height:1.2;
 }
 
-
+.oops-message{
+  text-align: center;
+  width:100%;
+  max-width: 1050px;
+  margin:200px auto 0;
+}
 @media(max-width: 768px){
   .text-small{
     font-size: 18px;
@@ -43,6 +48,7 @@ ul{
 /* Links and buttons */
 a{
   color:inherit;
+  text-decoration: underline;
 }
 a:hover{
   color:inherit;
