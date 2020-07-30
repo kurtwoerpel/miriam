@@ -9,7 +9,7 @@ import {
   useParams
 } from "react-router-dom";
 import './App.css';
-import {Home,Past,Happening,Navigation,Mainmenu} from './components'
+import {Home,Past,Happening,Navigation,Homepreview, Mainmenu} from './components'
 const NoMatchPage = () => {
   return (
     <div>
@@ -50,6 +50,9 @@ render() {
       <Switch>
         <Route exact path="/">
           <Home info={info} records={records}/>
+        </Route>
+        <Route exact path="/home-preview">
+          <Homepreview info={info} records={records}/>
         </Route>
         <Route exact path="/past">
           <Past info={info} records={records}/>

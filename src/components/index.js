@@ -1,4 +1,5 @@
 export { default as Home} from './Home'
+export { default as Homepreview} from './Homepreview'
 export { default as Past} from './Past'
 export { default as Happening} from './Happening'
 export { default as Exhibition} from './Exhibition'

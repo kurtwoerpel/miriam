@@ -14,7 +14,7 @@ import {Slider} from '../';
 import {Menutrigger} from '../';
 
 
-class Homecarousel extends Component {
+class Homepreview extends Component {
 
   constructor(props) {
     super(props);
@@ -134,7 +134,7 @@ class Homecarousel extends Component {
     	contain:true
     }
     const slides = carousel_slides.length > 0 ? carousel_slides.map((x,i)=>{
-      if(x.fields.public){
+
       var divStyle = {
         backgroundColor: x.fields.BackgroundColor,
         backgroundImage: (x.fields.BackgroundImage ? 'url(' + x.fields.BackgroundImage[0].url + ')' : 'none')
@@ -200,7 +200,7 @@ class Homecarousel extends Component {
 
        )
      }
-      }) : 'loading'
+      ) : 'loading'
   
 
 
@@ -239,4 +239,4 @@ class Homecarousel extends Component {
   }
 }
 
-export default Homecarousel
+export default Homepreview
