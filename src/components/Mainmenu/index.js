@@ -17,6 +17,7 @@ class Mainmenu extends Component {
       info:null
     };
     this.blanketClose = this.blanketClose.bind(this);
+    this.triggerCloseMenu = this.triggerCloseMenu.bind(this);
    }
 
  componentDidMount() {
@@ -28,7 +29,10 @@ class Mainmenu extends Component {
     .catch(error => console.log(error))
 
   }
-
+ triggerCloseMenu(){
+    const menu = document.getElementById('main-menu');
+    menu.classList.remove('open')
+   }
   blanketClose(){
     const menu = document.getElementById('main-menu');
     menu.classList.remove('open')

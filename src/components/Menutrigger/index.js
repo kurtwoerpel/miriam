@@ -17,22 +17,32 @@ class Menutrigger extends Component {
       
     };
     this.triggerMenu = this.triggerMenu.bind(this);
+    this.triggerCloseMenu = this.triggerCloseMenu.bind(this);
+    this.triggerOpenMenu = this.triggerOpenMenu.bind(this);
    }
 
    triggerMenu(){
+    const menu = document.getElementById('main-menu');
+    if(menu.classList.contains("open")){
+      menu.classList.remove('open')
+    }else{
+      menu.classList.add('open')
+    }
+   }
+   triggerOpenMenu(){
    	const menu = document.getElementById('main-menu');
-   	if(menu.classList.contains("open")){
-   		menu.classList.remove('open')
-   	}else{
-   		menu.classList.add('open')
-   	}
+   	menu.classList.add('open')
+   }
+   triggerCloseMenu(){
+    const menu = document.getElementById('main-menu');
+    menu.classList.remove('open')
    }
 
    render() {
 
     return (
 
-      <div style={this.props.style} onClick={this.triggerMenu} className='logo text-medium'>Miriam</div>
+      <div style={this.props.style} onClick={this.triggerMenu} onMouseEnter={this.triggerOpenMenu} onMouseExit={this.triggerMenu} className='logo text-medium'>Miriam</div>
 
     );
   }
