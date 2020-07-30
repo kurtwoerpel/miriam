@@ -72,7 +72,7 @@ export default class Slider extends React.Component {
 
   render() {
 
-   if(this.props.currentIndex){
+   if(this.props.currentIndex !== "no"){
     this.goNext(this.props.currentIndex)
    
 

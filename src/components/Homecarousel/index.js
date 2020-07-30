@@ -23,13 +23,16 @@ class Homecarousel extends Component {
       carousel_slides: [],
       carousel:null,
       prevslide:false,
-      currentIndex:0,
+      currentIndex:"no",
       
     };
     this.goNext = this.goNext.bind(this);
     this.goPrev = this.goPrev.bind(this);
     this.handler = this.handler.bind(this);
-
+    // this.showLeft = this.showLeft.bind(this);
+    // this.showRight = this.showRight.bind(this);
+    // this.moveLeft = this.moveLeft.bind(this);
+    // this.moveRight = this.moveRight.bind(this);
    }
 
    componentDidMount() {
@@ -55,7 +58,38 @@ class Homecarousel extends Component {
          }
        }
   }
+//   showRight(e){
+//     document.getElementsByClassName('left-arrow')[0].classList.remove('on')
+//     document.getElementsByClassName('right-arrow')[0].classList.add('on')
+   
 
+//   }
+//   showLeft(e){
+//     document.getElementsByClassName('right-arrow')[0].classList.remove('on')
+//     document.getElementsByClassName('left-arrow')[0].classList.add('on')
+
+
+
+
+//   }
+//    moveRight(e){
+//     let x = e.nativeEvent.clientX;
+//     let y = e.nativeEvent.clientY;
+//     document.getElementsByClassName('right-arrow')[0].style.left = x - 50 + 'px';
+//     document.getElementsByClassName('right-arrow')[0].style.top = y - 95 + 'px';
+//   }
+//   moveLeft(e){
+//     console.log('hi')
+
+// let x = e.nativeEvent.clientX;
+//     let y = e.nativeEvent.clientY;
+//     document.getElementsByClassName('left-arrow')[0].style.left = x - 50 + 'px';
+//     document.getElementsByClassName('left-arrow')[0].style.top = y - 95 + 'px';
+//     // let x = e.nativeEvent.clientX;
+//     // let y = e.nativeEvent.clientY;
+//     // document.getElementsByClassName('left-arrow')[0].style.left = x + 'px';
+//     // document.getElementsByClassName('left-arrow')[0].style.top = y + 'px';
+//   }
   goNext(){
 
        const slides = document.getElementsByClassName('carousel-slide');
@@ -64,22 +98,24 @@ class Homecarousel extends Component {
           if(i == slides.length-1){
            this.setState({currentIndex: 0})
           }else{
-            this.setState({currentIndex: i + 1})
+            console.log(i)
+            this.setState({currentIndex: (i) + 1})
           }
          }
        }
        // this.setState({ nextslide: true })
        // this.setState({ nextslide: false })
-        console.log('next')
       
     }
     goPrev(){
+      console.log('prev')
        const slides = document.getElementsByClassName('carousel-slide');
        for (var i = slides.length - 1; i >= 0; i--) {
          if(slides[i].classList.contains('is-selected')){
            if(i == 0){
-            this.setState({currentIndex: slides.length-1})
+            this.setState({currentIndex: slides.length - 1})
            }else{
+            console.log(i - 1)
             this.setState({currentIndex: i - 1})
            }
            
@@ -87,7 +123,7 @@ class Homecarousel extends Component {
        }
       
     }
-  
+  //onMouseEnter={(e) => this.showRight(e)} onMouseMove={(e) => this.moveRight(e)}
 
    render() {
    	const { carousel_slides, carousel, currentIndex } = this.state;
@@ -117,10 +153,16 @@ class Homecarousel extends Component {
       var descriptionStyle = {
       	color: x.fields.DescriptiveCopyColor
       }
+  var borderStyle = {
+        borderColor: x.fields.LogoBackgroundColor,
+      }
       return(
-        <div style={divStyle} key={x.id} className={i == 0 ? 'carousel-slide selected':'carousel-slide'}>
-           <div className='prev-invisible invisible-block' onClick={this.goPrev}></div>
-          <div className='next-invisible invisible-block' onClick={this.goNext}></div>
+
+
+        <div style={divStyle} key={x.id} className={i == 0 ? 'carousel-slide is-selected':'carousel-slide'}>
+
+           <div className='prev-invisible invisible-block' onClick={this.goPrev} ></div>
+          <div className='next-invisible invisible-block' onClick={this.goNext} ></div>
           <Menutrigger style={logoStyle}></Menutrigger>
           <h1 style={headlineStyle} className='text-large baskerville'>{x.fields.Headline}</h1>
            {!x.fields.HeroImage ? '' :
@@ -132,13 +174,13 @@ class Homecarousel extends Component {
         </div>
        )
       }) : 'loading'
-
+  
 
 
     return (
 
      <header className="App-header">
-  
+
        <Slider
             action={this.handler}
             currentIndex={currentIndex}
