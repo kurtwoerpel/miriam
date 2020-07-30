@@ -17,6 +17,8 @@
 .flickity-button:disabled{
 	display: none;
 }
+
+
 .invisible-block{
 	opacity: 0;
 background: blue;
@@ -47,9 +49,9 @@ background: blue;
   
   border-right:100px solid inherit;
 }
-.carousel-slide-image,.carousel-slide h1,.carousel-slide .description *:not(a){
+/*.carousel-slide-image,.carousel-slide h1,.carousel-slide .description *:not(a){
 	pointer-events: none;
-}
+}*/
 .fat-arrow.right-arrow{
  width: 0; 
   height: 0; 

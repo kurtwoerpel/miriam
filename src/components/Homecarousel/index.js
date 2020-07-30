@@ -158,20 +158,45 @@ class Homecarousel extends Component {
       }
       return(
 
-
+        
         <div style={divStyle} key={x.id} className={i == 0 ? 'carousel-slide is-selected':'carousel-slide'}>
-
+          {!x.fields.Slidelink ? 
+            <div>
            <div className='prev-invisible invisible-block' onClick={this.goPrev} ></div>
           <div className='next-invisible invisible-block' onClick={this.goNext} ></div>
           <Menutrigger style={logoStyle}></Menutrigger>
-          <h1 style={headlineStyle} className='text-large baskerville'>{x.fields.Headline}</h1>
+          <h1 style={headlineStyle} className='text-large baskerville title'>{x.fields.Headline}</h1>
            {!x.fields.HeroImage ? '' :
             <img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/>
           }
+          {!x.fields.SubHeading ? '' :
           <h1 style={subheadlineStyle} className='text-large baskerville'>{x.fields.SubHeading}</h1>
+        }
+        {!x.fields.DescriptiveCopy ? '' :
           <div style={descriptionStyle} className='description text-medium'><ReactMarkdown source={x.fields.DescriptiveCopy} /></div>
+        }
 
         </div>
+        : 
+        <div>
+           <div className='prev-invisible invisible-block' onClick={this.goPrev} ></div>
+          <div className='next-invisible invisible-block' onClick={this.goNext} ></div>
+          <Menutrigger style={logoStyle}></Menutrigger>
+          <a href={x.fields.Slidelink} ><h1 style={headlineStyle} className='text-large baskerville title'>{x.fields.Headline}</h1></a>
+           {!x.fields.HeroImage ? '' :
+            <a href={x.fields.Slidelink} ><img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/></a>
+          }
+          {!x.fields.SubHeading ? '' :
+          <a href={x.fields.Slidelink} ><h1 style={subheadlineStyle} className='text-large baskerville'>{x.fields.SubHeading}</h1></a>
+        }
+        {!x.fields.DescriptiveCopy ? '' :
+          <a href={x.fields.Slidelink} ><div style={descriptionStyle} className='description text-medium'><ReactMarkdown source={x.fields.DescriptiveCopy} /></div></a>
+        }
+
+        </div>
+         }
+        </div>
+
        )
       }) : 'loading'
   

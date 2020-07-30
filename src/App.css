@@ -13,18 +13,22 @@ ul{
 .text-tiny{
   font-size: 18px;
   font-weight: bold;
+  line-height: 1.2;
 }
 
 .text-small{
   font-size: 24px;
+  line-height: 1.2;
 }
 
 .text-medium{
   font-size: 45px;
+  line-height: 1.2;
 }
 .text-large{
   font-size: 72px;
   line-height:1.2;
+  line-height: 1.2;
 }
 
 .oops-message{
