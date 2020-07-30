@@ -17,7 +17,28 @@
 .flickity-button:disabled{
 	display: none;
 }
+.invisible-block{
+	opacity: 0.5;
+background: blue;
+	position: absolute;
+	left:0;
+	width:50vw;
+	z-index: 0;
 
+	top:0;
+	height:100vh;
+}
+.next-invisible{
+	background:red;
+	left:50vw;
+	cursor:pointer;
+/*	cursor:url('./triangle-next.svg'), auto;
+*/
+}
+.prev-invisible{
+	cursor:crosshair;
+/*	cursor:url('./triangle-previous.svg'), auto;*/
+}
 /*.flickity-prev-next-button.previous::before{
 	content:'Previous';
 	margin-top:-25px;

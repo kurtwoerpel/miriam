@@ -11,9 +11,12 @@ export default class Slider extends React.Component {
 
     this.state = {
       flickityReady: false,
+      carousel: false,
     };
 
     this.refreshFlickity = this.refreshFlickity.bind(this);
+    this.goNext = this.goNext.bind(this);
+    this.goPrev = this.goPrev.bind(this)
   }
 
   componentDidMount() {
@@ -21,7 +24,19 @@ export default class Slider extends React.Component {
 
     this.setState({
       flickityReady: true,
+      carousel: this.flickity
     });
+
+
+  }
+
+  goNext(inedx){
+    this.flickity.select(inedx);
+
+  }
+
+  goPrev(){
+    this.flickity.previous();
   }
 
   refreshFlickity() {
@@ -56,8 +71,16 @@ export default class Slider extends React.Component {
   }
 
   render() {
+
+   if(this.props.currentIndex){
+    this.goNext(this.props.currentIndex)
+   
+
+   }
+  
+    
     return [
-      <div className={'test'} key="flickityBase" ref={node => (this.flickityNode = node)} />,
+      <div className={'main-carousel'} key="flickityBase" ref={node => (this.flickityNode = node)} />,
       this.renderPortal(),
     ].filter(Boolean);
   }
