@@ -134,22 +134,20 @@ class Homecarousel extends Component {
     return (
 
      <header className="App-header">
-      <div className='custom-slider'>
-        {slides}
-        <div className='arrow arrow-prev off' onClick={this.goPrev}>
-              <svg version="1.1" x="0px" y="0px"
-         viewBox="0 0 100 100">
-
-      <path class="st0" d="M1.9,49.9h96.9 M17.1,34.4C12.4,39.3,6,45.8,1.8,49.9l15.3,15.7"/>
-      </svg>
-    </div>
-        <div className='arrow arrow-next' onClick={this.goNext}>
-            <svg version="1.1" x="0px" y="0px"
-         viewBox="0 0 100 100">
-
-      <path class="st0" d="M1.9,49.9h96.9 M17.1,34.4C12.4,39.3,6,45.8,1.8,49.9l15.3,15.7"/>
-      </svg></div>
-      </div>
+  
+       <Slider
+            options={{
+              autoPlay: 6000,
+              pauseAutoPlayOnHover: true,
+              wrapAround: true,
+              fullscreen: true,
+              adaptiveHeight: true,
+              pageDots: false,
+        arrowShape: "M1.9,49.9h96.9 M17.1,34.4C12.4,39.3,6,45.8,1.8,49.9l15.3,15.7"
+            }}
+          >
+    {slides}
+    </Slider>
 
 
       </header>
