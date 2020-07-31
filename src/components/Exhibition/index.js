@@ -76,7 +76,7 @@ class Exhibition extends Component {
           <div className='row'>
               <div className='three-column col-md-2'>
                 <ul>
-                  <li className='text-small'> {this.formatDate(new Date(record.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(record.fields.StartDate))[1]}</li>
+                  <li className='text-small '> {this.formatDate(new Date(record.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(record.fields.StartDate))[1]}</li>
                 </ul>
               </div>
                  <div className='three-column col-sm-12 order-sm-1 order-md-2 col-md-5'>
@@ -84,7 +84,7 @@ class Exhibition extends Component {
                             <img src={record.fields.MainImage[0].url}/>
                           }
               </div>
-              <div className='three-column col-sm-12 order-sm-2 order-md-1 col-md-5'>
+              <div className='three-column baskerville col-sm-12 order-sm-2 order-md-1 col-md-5'>
                 <ReactMarkdown source={record.fields.Description} />
               </div>
             </div>

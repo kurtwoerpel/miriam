@@ -1,12 +1,12 @@
 .pastpage nav .logo{
 	background: white;
 	color: black;
-	padding: 0px 5px;
+/*	padding: 0px 5px;
     height: 66px;
     width: 162px;
     left:42px;
     top:30px;
-    transform:scale(1.2);
+    transform:scale(1.2);*/
 	border:1px solid black;
 	outline: 8px solid white;
 }
@@ -25,6 +25,7 @@
   height: auto;
   width:auto;
   line-height: 1;
+  margin-top:5px;
   padding:0;
   background:transparent;
   outline:none;

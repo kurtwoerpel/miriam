@@ -8,6 +8,7 @@
 	height: 87px;
 	background: black;
 	color:white;
+	line-height:1.5;
 	cursor: pointer;
 	transition:0.1s;
 	background-size:cover;

@@ -42,12 +42,27 @@ class Mainmenu extends Component {
    render() {
     const {info} = this.state
     console.log(info)
+    let logoStyle;
+    let menuStyle
+    if(info){
+      logoStyle = {
+        'color': info[0].fields.LogoTextColor,
+        'backgroundColor': info[0].fields.LogoBackgroundColor
+      }
+
+      menuStyle = {
+        'color': info[0].fields.MenuTextColor,
+        'backgroundColor': info[0].fields.MenuBackgroundColor
+      }
+    }
+    
+    
     return (
 
-      <div id='main-menu'>
+      <div style={menuStyle} id='main-menu'>
       <div className='blanket' onClick={this.blanketClose}></div>
-       <a href='/'><div className='logo text-medium'>Miriam</div></a>
-         <ul className='text-small'>
+       <a href='/'><div style={logoStyle} className='logo text-medium'>Miriam</div></a>
+         <ul className='text-small baskerville'>
             <li><a>Current</a></li>
             <li><a>Upcoming</a></li>
             <li><a href='/past'>Past</a></li>
