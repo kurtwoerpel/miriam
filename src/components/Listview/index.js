@@ -91,11 +91,34 @@ class Listview extends Component {
           }
         }
       }
+      let dateClass = ''
+      if(x.fields.StartDate){
+        var d1 = new Date();
+        var d2 = new Date(x.fields.StartDate);
+
+        if(d2 > d1){
+          dateClass = "upcoming"
+
+        }else{
+          dateClass = "past"
+
+          if(x.fields.EndDate){
+            var d3 = new Date(x.fields.EndDate);
+            if(d3 > d1){
+              dateClass = "current"
+            }
+          }
+        }
+
+      }
+
       return(
 
-        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={x.fields.Tags + " list-item on row"} >
-          <h1 className='text-small baskerville col-sm-2'>{x.fields.Title}</h1>
+        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={x.fields.Tags + " "+ dateClass + " list-item on row"} >
+          <h1 className='text-small baskerville col-sm-4'>{x.fields.Title}</h1>
+          {x.fields.StartDate ? 
           <h1 className='text-small baskerville col-sm-2'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
+            : <h1 className='text-small baskerville col-sm-2'></h1> }
           <div className='text-small baskerville col-sm-2'>{x.fields.Tags ? (x.fields.Tags.split(' ').join(', ')) :""}</div>
           <h1 className='people text-small baskerville col-sm-2'><ReactMarkdown source= {x.fields.People}></ReactMarkdown></h1>
           <div style={divStyle} className='col-sm-2'>
@@ -115,8 +138,17 @@ class Listview extends Component {
 
      <div className='list-view container-fluid'>
       <div className="list-item on list-item-menu row" >
-          <h1 className='text-small col-sm-2'>Event/Exhibition</h1>
-          <h1 className='text-small col-sm-2'>Date</h1>
+          <h1 className='text-small col-sm-4'>Event/Exhibition</h1>
+          <h1 className='text-small col-sm-2'> <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Date
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={this.filterTags}>All</Dropdown.Item>
+              <Dropdown.Item onClick={this.filterTags}>current</Dropdown.Item>
+              <Dropdown.Item onClick={this.filterTags}>upcoming</Dropdown.Item>
+              <Dropdown.Item onClick={this.filterTags}>past</Dropdown.Item>
+            </Dropdown.Menu></Dropdown></h1>
           <h1 className='text-small col-sm-2'>
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
