@@ -1,6 +1,7 @@
 .list-item{
 	border-bottom:1px solid black;
 	padding:8px 0;
+	display: none;
 }
 .list-item:last-child{
 	border-bottom:none;
@@ -12,8 +13,18 @@
 	padding:8px 0 0;
 
 }
+.list-item.on{
+	display:flex;
+}
+.list-item-menu.list-item{
+	display: flex;
+}
 .view-space{
 	margin:0 25px;
+}
+.list-item .selectpicker{
+	margin-left:10px;
+	border:1px solid black;
 }
 
 @media(max-width: 768px){

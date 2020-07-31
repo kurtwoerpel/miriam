@@ -18,7 +18,31 @@ class Listview extends Component {
     };
     this.formatDate = this.formatDate.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
+    this.filterTags = this.filterTags.bind(this);
    }
+
+  filterTags(e){
+
+    let currentClass = e.target.value;
+    let all = document.getElementsByClassName('list-item')
+    console.log(currentClass)
+    if(currentClass !== "All"){
+
+      console.log('here')
+      for (var i = all.length - 1; i >= 0; i--) {
+          all[i].classList.remove('on')
+
+      }
+      let currents = document.getElementsByClassName(currentClass)
+      for (var i = currents.length - 1; i >= 0; i--) {
+        currents[i].classList.add('on')
+      }
+    } else{
+      for (var i = all.length - 1; i >= 0; i--) {
+        all[i].classList.add('on')
+      }
+    }
+  }
 
  getOrdinalNum(number) {
       let selector;
@@ -52,31 +76,49 @@ class Listview extends Component {
    
    render() {
     const {records} = this.props
+    let allTags = [];
     const everythings = records.length > 0 ? records.map((x)=>{
       const divStyle={
-        backgroundImage: (!x.fields.MainImage ? '' : "url(" + x.fields.MainImage[0].url + ")")
+        backgroundImage: (!x.fields.MainImage ? '' : "url(" + x.fields.MainImage[0].url + ")"),
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }
+      if(x.fields.Tags){
+        for (var i = x.fields.Tags.split(" ").length - 1; i >= 0; i--) {
+          if(!allTags.includes(x.fields.Tags.split(" ")[i])){
+            allTags.push(x.fields.Tags.split(" ")[i])
+          }
+        }
       }
       return(
 
-        <a href={'/happening/'+x.id} key={x.id} id={x.id} className="list-item row" >
-          <h1 className='text-small baskerville col-sm-3'>{x.fields.Title}</h1>
-          <h1 className='text-small baskerville col-sm-3'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
-          <h1 className='people text-small baskerville col-sm-3'><ReactMarkdown source= {x.fields.People}></ReactMarkdown></h1>
-          <div style={divStyle} className='col-sm-3'>
+        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={x.fields.Tags + " list-item on row"} >
+          <h1 className='text-small baskerville col-sm-2'>{x.fields.Title}</h1>
+          <h1 className='text-small baskerville col-sm-2'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
+          <div className='text-small baskerville col-sm-2'>{x.fields.Tags ? (x.fields.Tags.split(' ').join(', ')) :""}</div>
+          <h1 className='people text-small baskerville col-sm-2'><ReactMarkdown source= {x.fields.People}></ReactMarkdown></h1>
+          <div style={divStyle} className='col-sm-2'>
           
           </div>
           
         </a>
        )
       }) : 'loading'
+    const tagFilter = allTags.length > 0 ? allTags.map((x)=>{
+      return(
+      <option key={x} >{x}</option>
+      )
+    }) : ''
+
     return (
 
      <div className='list-view container-fluid'>
-      <div className="list-item list-item-menu row" >
-          <h1 className='text-small col-sm-3'>Event/Exhibition</h1>
-          <h1 className='text-small col-sm-3'>Date</h1>
-          <h1 className='text-small col-sm-3'>People</h1>
-          <h1 className='text-small col-sm-3'>
+      <div className="list-item on list-item-menu row" >
+          <h1 className='text-small col-sm-2'>Event/Exhibition</h1>
+          <h1 className='text-small col-sm-2'>Date</h1>
+          <h1 className='text-small col-sm-2'>Tags<select className="selectpicker" onChange={this.filterTags}><option>All</option>{tagFilter}</select></h1>
+          <h1 className='text-small col-sm-2'>People</h1>
+          <h1 className='text-small col-sm-2'>
              Image
           </h1>
           

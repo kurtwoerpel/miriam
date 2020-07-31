@@ -51,14 +51,23 @@ class Gridview extends Component {
 
 
    render() {
+    let allTags = []; 
     const {records} = this.props
     const everythings = records.length > 0 ? records.map((x)=>{
       const divStyle={
-        backgroundImage: (!x.fields.MainImage ? '' : "url(" + x.fields.MainImage[0].url + ")")
+        backgroundImage: (!x.fields.MainImage ? '' : "url(" + x.fields.MainImage[0].url + ")"),
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }
+      if(x.fields.Tags){
+        for (var i = x.fields.Tags.split(" ").length - 1; i >= 0; i--) {
+          if(!allTags.includes(x.fields.Tags.split(" ")[i])){
+            allTags.push(x.fields.Tags.split(" ")[i])
+          }
+        }
       }
       return(
-     
-        <a href={'/happening/'+x.id} key={x.id} id={x.id} className="grid-item col-6 col-sm-2" >
+        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={x.fields.Tags ? x.fields.Tags + " grid-item col-6 col-sm-2" : " grid-item col-6 col-sm-2"} >
           <div className='grid-image' style={divStyle}></div>
           <h1 className='text-small title'>{x.fields.Title}</h1>
           <h1 className='text-small baskerville'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
