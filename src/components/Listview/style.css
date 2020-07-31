@@ -19,6 +19,24 @@
 .list-item-menu.list-item{
 	display: flex;
 }
+.btn,.btn:hover, .btn:focus, .btn:active, .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle{
+	font-size:inherit;
+	color: black;
+    border-radius: 0;
+    border: none;
+    line-height: 1;
+    padding: 0;
+    background: transparent;
+}
+.btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus, .show > .btn-success.dropdown-toggle:focus{
+	box-shadow:none;
+}
+
+.dropdown-menu.show {
+    border-radius: 0;
+    font-size: inherit;
+    border: 1px solid black;
+}
 .view-space{
 	margin:0 25px;
 }

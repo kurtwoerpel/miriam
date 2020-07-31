@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import { Dropdown } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,7 +24,7 @@ class Listview extends Component {
 
   filterTags(e){
 
-    let currentClass = e.target.value;
+    let currentClass = e.target.text;
     let all = document.getElementsByClassName('list-item')
     console.log(currentClass)
     if(currentClass !== "All"){
@@ -106,7 +107,7 @@ class Listview extends Component {
       }) : 'loading'
     const tagFilter = allTags.length > 0 ? allTags.map((x)=>{
       return(
-      <option key={x} >{x}</option>
+      <Dropdown.Item onClick={this.filterTags} key={x} >{x}</Dropdown.Item>
       )
     }) : ''
 
@@ -116,7 +117,12 @@ class Listview extends Component {
       <div className="list-item on list-item-menu row" >
           <h1 className='text-small col-sm-2'>Event/Exhibition</h1>
           <h1 className='text-small col-sm-2'>Date</h1>
-          <h1 className='text-small col-sm-2'>Tags<select className="selectpicker" onChange={this.filterTags}><option>All</option>{tagFilter}</select></h1>
+          <h1 className='text-small col-sm-2'>
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Tags
+            </Dropdown.Toggle>
+            <Dropdown.Menu><Dropdown.Item onClick={this.filterTags}>All</Dropdown.Item>{tagFilter}</Dropdown.Menu></Dropdown></h1>
           <h1 className='text-small col-sm-2'>People</h1>
           <h1 className='text-small col-sm-2'>
              Image
