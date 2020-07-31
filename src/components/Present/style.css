@@ -1,0 +1,195 @@
+.pastpage nav .logo{
+	background: white;
+	color: black;
+/*	padding: 0px 5px;
+    height: 66px;
+    width: 162px;
+    left:42px;
+    top:30px;
+    transform:scale(1.2);*/
+	border:1px solid black;
+	outline: 8px solid white;
+}
+.pastpage nav .logo:hover{
+	filter:none;
+	background:black;
+	color:white;
+}
+.pastpage.list-header .header.text-large.baskerville{
+  font-size:24px;
+  line-height: 1.3;
+}
+.pastpage.list-header nav .logo{
+  border: none;
+  font-size: 24px;
+  height: auto;
+  width:auto;
+  line-height: 1;
+  margin-top:5px;
+  padding:0;
+  background:transparent;
+  outline:none;
+}
+.top-header{
+ text-align: center;
+ margin:5rem 0;
+}
+.search{
+	display: inline-block;
+	float:right;
+	position: relative;
+}
+.search .letsgo{
+	background: black;
+	width:38px;
+	height:39px;
+	vertical-align: top;
+	padding:5px;
+	display: inline-block;
+	margin-left:10px;
+}
+.search .letsgo svg{
+  width: 20px;
+  margin-left:5px;
+  margin-top:-10px;
+}
+.search .letsgo svg polygon{
+	fill:white;
+}
+.search input{
+	border:1px solid black;
+	width: 500px;
+	background: transparent;
+	position: relative;
+	padding-left:100px;
+}
+.search-text{
+	position: absolute;
+	left:8px;
+	top:3px;
+	content:'Search';
+}
+.pastpage.list-header .nav-bookstore{
+	transform:none;
+	top: 25px;
+    position: fixed;
+    right: 25px;
+}
+.pastpage .nav-bookstore{
+	transform:rotate(-25deg) translateY(33px) translateX(-39px);
+}
+.sub-menu{
+	border-bottom:1px solid black;
+	margin:0px 25px;
+	padding:10px 0;
+}
+.header{
+	text-align: center;
+	width:calc(100% - 50px);
+	margin:25px 25px 0;
+	border-bottom:1px solid black;
+	border-top: 1px solid black;
+}
+
+.sub-menu button:first-child{
+	margin-right:20px;
+}
+@media(max-width: 768px){
+	.pastpage .nav-bookstore, .pastpage.list-header .nav-bookstore {
+		top:0;
+	    right: 5px;
+	    max-width: 67px;
+	    overflow: hidden;
+	    text-decoration: none;
+	    font-weight: bold;
+	    width: auto;
+	    display: inline-block;
+	    float: right;
+	    transform: rotate(-12deg) translateY(0px) translateX(-10px);
+	}
+	.pastpage.list-header nav .logo{
+		background: white;
+		color: black;
+		padding: 0px 3px;
+	    height: 35px;
+	    width: 86px;
+	    left:10px;
+	    top:5px;
+	    line-height: inherit;
+	    transform:scale(1.2);
+		border:1px solid black;
+		outline: none;
+	}
+	.sub-menu button{
+		width: 150px;
+	}
+	.sub-menu button:first-child{
+		margin-right:0px;
+	}
+		.sub-menu button:first-child{
+		margin-right:8px;
+	}
+		.sub-menu button:last-child{
+		margin-left:8px;
+	}
+	.search{
+/*		display: block;*/
+		margin-top:15px;
+		float:none;
+	}
+	.search-text{
+		position: absolute;
+		left:8px;
+		top:7px;
+	}
+	.sub-menu{
+		border-bottom:1px solid black;
+		margin:0px;
+		width:100%;
+		text-align: center;
+	}
+	.pastpage .header.text-large.baskerville{
+	  margin:50px 0 0;
+	  margin-right: 0;
+	  width:100%;
+
+	}
+	.search .letsgo{
+		background: black;
+		width:30px;
+		height:30px;
+		vertical-align: top;
+		padding: 0px;
+	    display: inline-block;
+	    margin-left: 5px;
+	    margin-top: 5px;
+	}
+	.search .letsgo svg{
+	  width: 15px;
+	  margin-left:5px;
+	  margin-top:-10px;
+	}
+	.search .letsgo svg polygon{
+		fill:white;
+	}
+	.search input{
+		border:1px solid black;
+		width: 220px;
+		background: transparent;
+		position: relative;
+		padding-left:80px;
+		font-size:18px;
+	}
+	.pastpage nav .logo{
+		background: white;
+		color: black;
+		padding: 0px 3px;
+	    height: 35px;
+	    width: 86px;
+	    left:10px;
+	    top:5px;
+	    transform:scale(1.2);
+		border:1px solid black;
+		outline: none;
+	}
+}

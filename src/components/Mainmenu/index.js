@@ -63,11 +63,11 @@ class Mainmenu extends Component {
       <div className='blanket' onClick={this.blanketClose}></div>
        <a href='/'><div style={logoStyle} className='logo text-medium'>Miriam</div></a>
          <ul className='text-small baskerville'>
-            <li><a>Current</a></li>
-            <li><a>Upcoming</a></li>
+            <li><a href='/current'>Current</a></li>
+            <li><a href='/upcoming'>Upcoming</a></li>
             <li><a href='/past'>Past</a></li>
-            <li><a>Happenings</a></li>
-            <li><a>Info</a></li>
+            <li><a href='/events'>Happenings</a></li>
+            <li><a href='/info'>Info</a></li>
             <li><a>Bookshop</a></li>
          </ul>
          {info ? 

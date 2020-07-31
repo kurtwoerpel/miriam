@@ -45,7 +45,7 @@ class Past extends Component {
           <div className=''>
             <div className='view-space'>
             {!listview ? <Gridview records={records}></Gridview> :
-              <Listview tense="past" records={records}></Listview>
+              <Listview tense="upcoming" records={records}></Listview>
             }
             </div>
           </div>

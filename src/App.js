@@ -9,7 +9,7 @@ import {
   useParams
 } from "react-router-dom";
 import './App.css';
-import {Home,Past,Happening,Navigation,Homepreview, Mainmenu} from './components'
+import {Home,Past,Present,Future,Happening,Navigation,Homepreview, Mainmenu} from './components'
 const NoMatchPage = () => {
   return (
     <div>
@@ -56,6 +56,12 @@ render() {
         </Route>
         <Route exact path="/past">
           <Past info={info} records={records}/>
+        </Route>
+        <Route exact path="/current">
+          <Present info={info} records={records}/>
+        </Route>
+        <Route exact path="/upcoming">
+          <Future info={info} records={records}/>
         </Route>
         <Route exact path="/happening/:id">
           <Happening info={info} records={records}/>

@@ -76,7 +76,11 @@ class Listview extends Component {
     }
    
    render() {
-    const {records} = this.props
+    const {records, tense} = this.props
+    let upcoming = [];
+    let past = [];
+    let current = [];
+    let urlswitch = false;
     let allTags = [];
     const everythings = records.length > 0 ? records.map((x)=>{
       const divStyle={
@@ -98,7 +102,7 @@ class Listview extends Component {
 
         if(d2 > d1){
           dateClass = "upcoming"
-
+          upcoming.push(x.id)
         }else{
           dateClass = "past"
 
@@ -106,6 +110,9 @@ class Listview extends Component {
             var d3 = new Date(x.fields.EndDate);
             if(d3 > d1){
               dateClass = "current"
+              current.push(x.id)
+            }else{
+              past.push(x.id)
             }
           }
         }
@@ -114,11 +121,17 @@ class Listview extends Component {
 
       return(
 
-        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={x.fields.Tags + " "+ dateClass + " list-item on row"} >
+        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on row" :  x.fields.Tags + " "+ dateClass + " list-item row"} >
           <h1 className='text-small baskerville col-sm-4'>{x.fields.Title}</h1>
+          <div className='text-small baskerville col-sm-2'>
           {x.fields.StartDate ? 
-          <h1 className='text-small baskerville col-sm-2'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
-            : <h1 className='text-small baskerville col-sm-2'></h1> }
+          
+          <h1 className='text-small baskerville'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
+            : <h1 className='text-small baskerville '></h1> }
+            {x.fields.EndDate ? 
+          <h1 className='text-small baskerville'> - {this.formatDate(new Date(x.fields.EndDate))[0]}<br></br>{this.formatDate(new Date(x.fields.EndDate))[1]}</h1>
+            : <h1 className='text-small baskerville '></h1> }
+            </div>
           <div className='text-small baskerville col-sm-2'>{x.fields.Tags ? (x.fields.Tags.split(' ').join(', ')) :""}</div>
           <h1 className='people text-small baskerville col-sm-2'><ReactMarkdown source= {x.fields.People}></ReactMarkdown></h1>
           <div style={divStyle} className='col-sm-2'>
@@ -128,6 +141,14 @@ class Listview extends Component {
         </a>
        )
       }) : 'loading'
+
+    if(tense == 'upcoming' && upcoming.length == 1){
+      window.location.href='/happening/'+upcoming[0]
+    }
+    if(tense == 'current' && current.length == 1){
+      window.location.href='/happening/'+upcoming[0]
+    }
+
     const tagFilter = allTags.length > 0 ? allTags.map((x)=>{
       return(
       <Dropdown.Item onClick={this.filterTags} key={x} >{x}</Dropdown.Item>

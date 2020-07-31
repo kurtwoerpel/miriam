@@ -1,6 +1,8 @@
 export { default as Home} from './Home'
 export { default as Homepreview} from './Homepreview'
 export { default as Past} from './Past'
+export { default as Present} from './Present'
+export { default as Future} from './Future'
 export { default as Happening} from './Happening'
 export { default as Exhibition} from './Exhibition'
 export { default as Event} from './Event'
