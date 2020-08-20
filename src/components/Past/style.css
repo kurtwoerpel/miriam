@@ -15,11 +15,40 @@
 	background:black;
 	color:white;
 }
-.pastpage.list-header .header.text-large.baskerville{
+.pastpage.list-header .header.text-large.baskerville, .pastpage.small-header .header.text-large.baskerville{
   font-size:24px;
   line-height: 1.3;
+  position: fixed;
+  top:0;
+  background: white;
+  z-index: 1;
+  width:calc(100% - 50px);
 }
-.pastpage.list-header nav .logo{
+.pastpage.list-header .main-area, .pastpage.small-header .main-area{
+	margin-top:125px;
+}
+.pastpage .main-area{
+	margin-top:25px;
+}
+
+.pastpage.list-header .whitearea, .pastpage.small-header .whitearea{
+	background: white;
+	position: fixed;
+	width:100%;
+	z-index: 1;
+	overflow: hidden;
+	height:100px;
+	top:0;
+	left:0;
+}
+.pastpage.list-header .sub-menu, .pastpage.small-header .sub-menu{
+	background: white;
+	z-index: 1;
+	top:60px;
+	width:calc(100% - 50px);
+	position: fixed;
+}
+.pastpage.list-header nav .logo, .pastpage.small-header nav .logo{
   border: none;
   font-size: 24px;
   height: auto;
@@ -69,7 +98,7 @@
 	top:3px;
 	content:'Search';
 }
-.pastpage.list-header .nav-bookstore{
+.pastpage.list-header .nav-bookstore, .pastpage.small-header .nav-bookstore{
 	transform:none;
 	top: 25px;
     position: fixed;
@@ -107,7 +136,7 @@
 	    float: right;
 	    transform: rotate(-12deg) translateY(0px) translateX(-10px);
 	}
-	.pastpage.list-header nav .logo{
+	.pastpage.list-header nav .logo, .pastpage.small-header nav .logo{
 		background: white;
 		color: black;
 		padding: 0px 3px;

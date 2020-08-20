@@ -17,6 +17,7 @@ class Happening extends Component {
    }
   findRecord(){
       var mew = ' ';
+
       for (var i = this.props.records.length - 1; i >= 0; i--) {
         if(this.props.records[i].id == this.props.match.params.id){
           document.getElementsByTagName('body')[0].style.backgroundColor = this.props.records[i].fields.PageBackgroundColor

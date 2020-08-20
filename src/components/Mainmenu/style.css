@@ -24,6 +24,10 @@
     transform:translateX(-100%);
 
 }
+.menu-image img{
+  max-width: 70%;
+  margin-top:25px;
+}
 #main-menu.open{
 	top:0;
 	transform:translateX(0);

@@ -170,12 +170,14 @@ class Homecarousel extends Component {
            {!x.fields.HeroImage ? '' :
             <img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/>
           }
+          <div>
           {!x.fields.SubHeading ? '' :
-          <h1 style={subheadlineStyle} className='text-large baskerville'>{x.fields.SubHeading}</h1>
+          <h1 style={subheadlineStyle} className='text-large baskerville'><ReactMarkdown source={x.fields.SubHeading} /></h1>
         }
         {!x.fields.DescriptiveCopy ? '' :
           <div style={descriptionStyle} className='description text-medium'><ReactMarkdown source={x.fields.DescriptiveCopy} /></div>
         }
+        </div>
 
         </div>
         : 

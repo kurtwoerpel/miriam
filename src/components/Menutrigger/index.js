@@ -30,8 +30,16 @@ class Menutrigger extends Component {
     }
    }
    triggerOpenMenu(){
-   	const menu = document.getElementById('main-menu');
-   	menu.classList.add('open')
+   	const menu = document.getElementsByClassName('logo');
+    for (var i = menu.length - 1; i >= 0; i--) {
+      menu[i].textContent = 'Menu'
+    }
+   }
+  triggerMiriam(){
+    const menu = document.getElementsByClassName('logo');
+        for (var i = menu.length - 1; i >= 0; i--) {
+      menu[i].textContent = 'Miriam'
+    }
    }
    triggerCloseMenu(){
     const menu = document.getElementById('main-menu');
@@ -42,7 +50,7 @@ class Menutrigger extends Component {
 
     return (
 
-      <div style={this.props.style} onClick={this.triggerMenu} onMouseEnter={this.triggerOpenMenu} onMouseExit={this.triggerMenu} className='logo text-medium'>Miriam</div>
+      <div style={this.props.style} onClick={this.triggerMenu} onMouseEnter={this.triggerOpenMenu} onMouseLeave={this.triggerMiriam} className='logo text-medium'>Miriam</div>
 
     );
   }

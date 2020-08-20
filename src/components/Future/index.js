@@ -42,7 +42,7 @@ class Past extends Component {
             <button onClick={this.showGrid} className={listview ? 'text-small' : 'text-small on'}>grid view</button>
             <div className='search'><div className='search-text baskerville text-small'>Search</div><input type='text'/><div className='letsgo'><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 86.6"><defs></defs><polygon  points="75 43.3 0 0 0 86.6 75 43.3"/></svg></div></div>
           </div>
-          <div className=''>
+          <div className='main-area'>
             <div className='view-space'>
             {!listview ? <Gridview records={records}></Gridview> :
               <Listview tense="upcoming" records={records}></Listview>

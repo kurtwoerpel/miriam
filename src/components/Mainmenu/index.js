@@ -70,10 +70,18 @@ class Mainmenu extends Component {
             <li><a href='/info'>Info</a></li>
             <li><a>Bookshop</a></li>
          </ul>
+         
          {info ? 
+          <div>
+          <div className='menu-image'>
+         {info[0].fields.MenuImage ? 
+            <img src ={info[0].fields.MenuImage[0].url}/>
+            :""}
+          </div>
          <div className='info-menu text-tiny'>
          <ReactMarkdown source={info[0].fields.LocationText} />
          <ReactMarkdown source={info[0].fields.HoursText} />
+         </div>
          </div>
          : 'poop' }
       </div>

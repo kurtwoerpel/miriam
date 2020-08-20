@@ -27,7 +27,7 @@ class Navigation extends Component {
 
      <nav>
         <Menutrigger></Menutrigger>
-         <div className='nav-bookstore'><a href='derp'>Bookstore</a></div>
+         <div className='nav-bookstore'><a href='derp'>Bookshop</a></div>
       </nav>
 
 

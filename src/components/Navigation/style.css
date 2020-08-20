@@ -19,7 +19,12 @@ nav{
 .nav-bookstore a{
 	text-decoration: none;
 }
-
+.nav-bookstore:hover{
+	filter:invert(100%);
+	-webkit-filter:invert(100%);
+	-moz-filter:invert(100%);
+	-o-filter:invert(100%);
+}
 @media(max-width: 768px){
 	.nav-bookstore {
 		top:0;
