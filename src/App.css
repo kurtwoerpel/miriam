@@ -21,7 +21,11 @@ ul{
   font-size: 24px;
   line-height: 1.2;
 }
-
+hr{
+  background: black;
+  display: block;
+  margin:25px 25px;
+}
 .text-medium{
   font-size: 45px;
   line-height: 1.2;

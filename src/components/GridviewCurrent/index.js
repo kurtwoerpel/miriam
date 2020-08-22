@@ -9,12 +9,12 @@ import {
 
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
-class Gridview extends Component {
+class GridviewCurrent extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-    
+      
     };
      this.formatDate = this.formatDate.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
@@ -95,14 +95,17 @@ class Gridview extends Component {
         }
 
       }
-
+if(dateClass == tense){
       return(
-        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-6 col-sm-2" :  x.fields.Tags + " "+ dateClass + " grid-item col-6 col-sm-2"} >
-          <div className='grid-image' style={divStyle}></div>
-          <h1 className='text-small title'>{x.fields.Title}</h1>
-          <h1 className='text-small baskerville'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
-        </a>
+            <a href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on " :  x.fields.Tags + " "+ dateClass + " grid-item "} >
+              <div className='grid-image' style={divStyle}></div>
+              <div className='grid-text'>
+                <h1 className='text-large title baskerville'>{x.fields.Title}</h1>
+                <h1 className='text-small baskerville'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
+              </div>
+            </a>
        )
+    }
       }) : 'loading'
      if(tense == 'upcoming' && upcoming.length == 1){
       window.location.href='/happening/'+upcoming[0]
@@ -112,7 +115,7 @@ class Gridview extends Component {
     }
     return (
 
-     <div className='grid-view row'>
+     <div className='grid-view '>
          {everythings}
      </div>
 
@@ -124,4 +127,4 @@ class Gridview extends Component {
   }
 }
 
-export default Gridview
+export default GridviewCurrent

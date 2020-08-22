@@ -63,7 +63,7 @@ class Past extends Component {
           </div>
           <div className='main-area'>
             <div className='view-space'>
-            {!listview ? <Gridview records={records}></Gridview> :
+            {!listview ? <Gridview tense="past" records={records}></Gridview> :
               <Listview tense="past" records={records}></Listview>
             }
             </div>

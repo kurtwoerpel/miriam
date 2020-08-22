@@ -3,6 +3,12 @@
 	background-size:cover;
 	background-position:center;
 }
+.grid-item{
+	display: none;
+}
+.grid-item.on{
+	display:block;
+}
 .grid-item h1{
 	font-weight:bold;
 	margin:0;

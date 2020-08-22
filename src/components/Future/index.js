@@ -10,13 +10,13 @@ import {
 import {Navigation} from '../';
 import {Mainmenu} from '../';
 import {Listview} from '../';
-import {Gridview} from '../';
+import {GridviewUpcoming} from '../';
 
 class Past extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listview:true
+      listview:false
     };
     this.showList = this.showList.bind(this);
     this.showGrid = this.showGrid.bind(this);
@@ -36,7 +36,7 @@ class Past extends Component {
      <header className={listview ? "App-header pastpage list-header" : "App-header pastpage" }>
           <Navigation></Navigation>
           <Mainmenu></Mainmenu>
-          <div className='header text-large baskerville'> Archive </div>
+          <div className='header text-large baskerville'> Upcoming </div>
           <div className='sub-menu'>
             <button onClick={this.showList} className={listview ? 'text-small on' : 'text-small'}>list view</button>
             <button onClick={this.showGrid} className={listview ? 'text-small' : 'text-small on'}>grid view</button>
@@ -44,10 +44,14 @@ class Past extends Component {
           </div>
           <div className='main-area'>
             <div className='view-space'>
-            {!listview ? <Gridview records={records}></Gridview> :
+            {!listview ? <GridviewUpcoming tense="upcoming" records={records}></GridviewUpcoming> :
               <Listview tense="upcoming" records={records}></Listview>
             }
             </div>
+          </div>
+          <hr></hr>
+          <div className='archive-links'>
+          <a href='/current'><h1 className='baskerville text-large'>Current,</h1></a><a href='/past'><h1 className='baskerville text-large'>Past</h1></a>
           </div>
       </header>
 
