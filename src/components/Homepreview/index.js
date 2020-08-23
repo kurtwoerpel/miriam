@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import {Slider} from '../';
-import {Menutrigger} from '../';
+import {Menutrigger, Footer} from '../';
 
 
 class Homepreview extends Component {
@@ -230,7 +230,7 @@ class Homepreview extends Component {
     </Slider>
 
 
-
+<Footer></Footer>
       </header>
 
 

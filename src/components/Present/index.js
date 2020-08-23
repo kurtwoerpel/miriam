@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
 
-import {Navigation} from '../';
+import {Navigation, Footer} from '../';
 import {Mainmenu} from '../';
 import {Listview} from '../';
 import {GridviewCurrent} from '../';
@@ -53,6 +53,7 @@ class Past extends Component {
           <div className='archive-links'>
           <a href='/upcoming'><h1 className='baskerville text-large'>Upcoming,</h1></a><a href='/past'><h1 className='baskerville text-large'>Past</h1></a>
           </div>
+          <Footer></Footer>
       </header>
 
 

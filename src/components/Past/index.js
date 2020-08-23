@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
 
-import {Navigation} from '../';
+import {Navigation, Footer} from '../';
 import {Mainmenu} from '../';
 import {Listview} from '../';
 import {Gridview} from '../';
@@ -68,6 +68,7 @@ class Past extends Component {
             }
             </div>
           </div>
+          <Footer></Footer>
       </header>
 
 

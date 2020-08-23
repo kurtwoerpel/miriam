@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import './style.css';
 import {
   BrowserRouter as Router,
@@ -45,8 +45,8 @@ class Gridview extends Component {
       minutes = minutes < 10 ? '0'+minutes : minutes;
       var strTime = hours + ':' + minutes + '' + ampm;
       const myArr = [];
-      myArr.push((monthNames[date.getMonth()]) + "." + this.getOrdinalNum(date.getDate()) + ", " + date.getFullYear());
-      myArr.push(strTime + ' EST');
+      myArr.push((monthNames[date.getMonth()]) + " " + this.getOrdinalNum(date.getDate()) );
+      myArr.push(strTime);
       return myArr;
     }
 
@@ -96,13 +96,15 @@ class Gridview extends Component {
 
       }
 
-      return(
-        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-6 col-sm-2" :  x.fields.Tags + " "+ dateClass + " grid-item col-6 col-sm-2"} >
+      if(dateClass == tense){
+        return(
+        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-special" :  x.fields.Tags + " "+ dateClass + " grid-item col-special"} >
           <div className='grid-image' style={divStyle}></div>
-          <h1 className='text-small title'>{x.fields.Title}</h1>
-          <h1 className='text-small baskerville'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
+          <h1 className='text-tiny title'>{x.fields.Title}</h1>
+          <h1 className='text-tiny baskerville'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
         </a>
        )
+      }
       }) : 'loading'
      if(tense == 'upcoming' && upcoming.length == 1){
       window.location.href='/happening/'+upcoming[0]

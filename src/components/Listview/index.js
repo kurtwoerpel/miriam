@@ -70,8 +70,8 @@ class Listview extends Component {
       minutes = minutes < 10 ? '0'+minutes : minutes;
       var strTime = hours + ':' + minutes + '' + ampm;
       const myArr = [];
-      myArr.push((monthNames[date.getMonth()]) + "." + this.getOrdinalNum(date.getDate()) + ", " + date.getFullYear());
-      myArr.push(strTime + ' EST');
+      myArr.push((monthNames[date.getMonth()]) + " " + this.getOrdinalNum(date.getDate()) + ", " + date.getFullYear());
+      myArr.push(strTime);
       return myArr;
     }
    
@@ -118,12 +118,12 @@ class Listview extends Component {
         }
 
       }
-
+ if(dateClass == tense){
       return(
 
         <a href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on row" :  x.fields.Tags + " "+ dateClass + " list-item row"} >
-          <h1 className='text-small baskerville col-sm-4'>{x.fields.Title}</h1>
-          <div className='text-small baskerville col-sm-2'>
+          <h1 className='text-small baskerville col-special'>{x.fields.Title}</h1>
+          <div className='text-small baskerville col-special'>
           {x.fields.StartDate ? 
           
           <h1 className='text-small baskerville'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
@@ -132,14 +132,14 @@ class Listview extends Component {
           <h1 className='text-small baskerville'> - {this.formatDate(new Date(x.fields.EndDate))[0]}<br></br>{this.formatDate(new Date(x.fields.EndDate))[1]}</h1>
             : <h1 className='text-small baskerville '></h1> }
             </div>
-          <div className='text-small baskerville col-sm-2'>{x.fields.Tags ? (x.fields.Tags.split(' ').join(', ')) :""}</div>
-          <h1 className='people text-small baskerville col-sm-2'><ReactMarkdown source= {x.fields.People}></ReactMarkdown></h1>
-          <div style={divStyle} className='col-sm-2'>
+          <div className='text-small baskerville col-special'>{x.fields.Tags ? (x.fields.Tags.split(' ').join(', ')) :""}</div>
+          <h1 className='people text-small baskerville col-special'><ReactMarkdown source= {x.fields.People}></ReactMarkdown></h1>
+          <div style={divStyle} className='col-special'>
           
           </div>
           
         </a>
-       )
+       )}
       }) : 'loading'
 
     if(tense == 'upcoming' && upcoming.length == 1){
@@ -159,8 +159,8 @@ class Listview extends Component {
 
      <div className='list-view container-fluid'>
       <div className="list-item on list-item-menu row" >
-          <h1 className='text-small col-sm-4'>Event/Exhibition</h1>
-          <h1 className='text-small col-sm-2'> <Dropdown>
+          <h1 className='text-small col-special'>Event/Exhibition</h1>
+          <h1 className='text-small col-special'> <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Date
             </Dropdown.Toggle>
@@ -170,14 +170,14 @@ class Listview extends Component {
               <Dropdown.Item onClick={this.filterTags}>upcoming</Dropdown.Item>
               <Dropdown.Item onClick={this.filterTags}>past</Dropdown.Item>
             </Dropdown.Menu></Dropdown></h1>
-          <h1 className='text-small col-sm-2'>
+          <h1 className='text-small col-special'>
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Tags
             </Dropdown.Toggle>
             <Dropdown.Menu><Dropdown.Item onClick={this.filterTags}>All</Dropdown.Item>{tagFilter}</Dropdown.Menu></Dropdown></h1>
-          <h1 className='text-small col-sm-2'>People</h1>
-          <h1 className='text-small col-sm-2'>
+          <h1 className='text-small col-special'>People</h1>
+          <h1 className='text-small col-special'>
              Image
           </h1>
           

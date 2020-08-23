@@ -19,6 +19,14 @@
 .list-item-menu.list-item{
 	display: flex;
 }
+.list-item:last-child{
+	border:none;
+}
+.list-item .col-special{
+	text-align: left;
+	padding:0 10px;
+	width: 20%;
+}
 .btn,.btn:hover, .btn:focus, .btn:active, .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle{
 	font-size:inherit;
 	color: black;
@@ -30,6 +38,9 @@
 }
 .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus, .show > .btn-success.dropdown-toggle:focus{
 	box-shadow:none;
+}
+.dropdown-toggle{
+	text-align: left;
 }
 .dropdown-item:hover{
 	color:white;
@@ -45,7 +56,7 @@ button[aria-expanded="true"]{
 	background: black !important;
 	color:white !important;
 	width:10rem;
-	padding:4px 0 !important;
+	padding:4px !important;
 	margin-bottom:-2px !important;
 }
 .dropdown-item{

@@ -95,9 +95,13 @@ class GridviewCurrent extends Component {
         }
 
       }
+      var thumbStyle={
+        "color":x.fields.ThumbnailColor,
+        "backgroundColor":x.fields.ThumbnailBgColor
+      }
 if(dateClass == tense){
       return(
-            <a href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on " :  x.fields.Tags + " "+ dateClass + " grid-item "} >
+            <a style={thumbStyle} href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on " :  x.fields.Tags + " "+ dateClass + " grid-item "} >
               <div className='grid-image' style={divStyle}></div>
               <div className='grid-text'>
                 <h1 className='text-large title baskerville'>{x.fields.Title}</h1>

@@ -17,6 +17,12 @@
 .grid-item h1.title{
 	padding-top:25px;
 }
+.upcoming.grid-item h1.title{
+	padding-top:0;
+}
+.upcoming.grid-item .grid-image{
+	margin:10px 0;
+}
 .upcoming.grid-item{
 	padding:0px;
 }

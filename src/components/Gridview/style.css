@@ -9,13 +9,18 @@
 .grid-item.on{
 	display:block;
 }
-.grid-item h1{
-	font-weight:bold;
+.grid-item.col-special{
+	width:20%;
+	padding:5px 5px 10px;
+}
+.grid-item.past h1{
+/*	font-weight:normal;*/
 	margin:0;
 	margin-bottom:0;
 }
-.grid-item h1.title{
-	padding-top:25px;
+.grid-item.past h1.title{
+	padding-top:5px;
+	font-weight:bold;
 }
 @media(max-width: 768px){
 	.grid-image{

@@ -9,12 +9,11 @@ import {
 import ReactMarkdown from "react-markdown";
 import {Navigation} from '../';
 import {Mainmenu} from '../';
-import {Menutrigger} from '../';
-import AliceCarousel from 'react-alice-carousel';
-import "react-alice-carousel/lib/alice-carousel.css";
+import {Menutrigger, Footer} from '../';
+
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
-class Exhibition extends Component {
+class Announcement extends Component {
 
   constructor(props) {
     super(props);
@@ -56,80 +55,24 @@ class Exhibition extends Component {
 
    render() {
     const {record} = this.props
-    var pageStyle = {
-        backgroundColor: record.fields.PageBackgroundColor,
-        color: record.fields.TextColor
+    var bannerStyle = {
+        "color":"pink"
       };
+      console.log(bannerStyle)
    var logoStyle = {
         backgroundColor: record.fields.LogoBackgroundColor,
         backgroundImage: (record.fields.LogoBackgroundImage ? "url(" + record.fields.LogoBackgroundImage[0].url +")" : " "),
         color: record.fields.LogoColor
       }
-      var headerStyle = {
-        "backgroundImage": (record.fields.HeaderImage ? 'url(' + record.fields.HeaderImage[0].url + ')' : ''),
-      }
-      if(record.fields.HeroImages){
-      var slides = record.fields.HeroImages.map((x,i)=>{
-
-                    return(
-                      <img src={x.url}></img>
-                      )
-                  })
-      }
-
 
     const everything = record ? 
     (
        
-        <div  key={record.id} >
+        <div key={record.id} >
           <div className='banner row'>
-            <div className='header text-medium baskerville'> Exhibition </div>
+          <div style={bannerStyle} className='header text-medium baskerville'> Announcement </div>
+            <h1 className='text-large baskerville'> {record.fields.Title}</h1>
           </div>
-          <header>
-          {record.fields.HeaderImage ? 
-            <img src={record.fields.HeaderImage[0].url}/>
-            : 
-           ""
-          }
-          {record.fields.HeaderText ? 
-             <h1 className={record.fields.HeaderImage ? 'header-with-image text-large baskerville': 'text-large baskerville'}> {record.fields.HeaderText}</h1>
-             :
-             ""
-          }
-
-          </header>
-
-          <div className='toolbar'>
-            <div className='row'>
-               <div className='col-4'>
-               <ReactMarkdown source={record.fields.DateTimeText} /></div>
-               <div className='col-4'>
-               <ReactMarkdown source={record.fields.TicketInfo} />
-              </div>
-               <div className='col-4'>{record.fields.ExternalInfo ? 
-                  <a href={record.fields.ExternalInfo[0].url}>{record.fields.ExternalInfo[0].filename.split('.')[0]}</a>
-               :""}</div>
-            </div>
-          </div>
-          {record.fields.HeroImages ?
-              <div className='top'>
-              {record.fields.HeroImages.length > 1 ?
-                <div>
-                <AliceCarousel autoPlay autoPlayInterval="3000"
-                >
-
-                  {slides}
-                </AliceCarousel>
-
-                </div>
-                :
-
-                <img src={record.fields.HeroImages[0].url}></img>
-              }
-              </div>
-
-          : ""}
-        
           <div className='container-fluid'>
           <div className='row'>
               <div className='three-column col-md-2'>
@@ -152,6 +95,7 @@ class Exhibition extends Component {
         </div>
        ) : 'loading'
     return (
+     <header className="App-header happening">
     <div className='exhibition'>
       <Navigation></Navigation>
       <Menutrigger style={logoStyle}></Menutrigger>
@@ -162,6 +106,8 @@ class Exhibition extends Component {
          {everything}
      </div>
      </div>
+           <Footer></Footer>
+      </header>
 
 
 
@@ -171,4 +117,4 @@ class Exhibition extends Component {
   }
 }
 
-export default Exhibition
+export default Announcement

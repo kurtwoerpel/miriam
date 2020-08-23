@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import {Homecarousel} from '../';
 import {Navigation} from '../';
-import {Mainmenu} from '../';
+import {Mainmenu, Footer} from '../';
 
 class Home extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Home extends Component {
           <Navigation></Navigation>
           <Mainmenu></Mainmenu>
           <Homecarousel></Homecarousel>
-
+          <Footer></Footer>
       </header>
 
 

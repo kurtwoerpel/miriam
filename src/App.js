@@ -26,6 +26,7 @@ class App extends React.Component {
         err : null,
         isLoaded : false,
         records: [],
+        announcements: [],
         info:[]
     };
   }
@@ -37,12 +38,18 @@ class App extends React.Component {
           this.setState({ records: res.records })
         })
         .catch(error => console.log(error))
-
+      fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/announcements?api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
+        .then(res => res.json())
+        .then(res => {
+          console.log(res.records)
+          this.setState({ announcements: res.records })
+        })
+        .catch(error => console.log(error))
   }
 
 
 render() {
-  const { records,info } = this.state;
+  const { records,info, announcements } = this.state;
   console.log(this.props)
   return (
     <Router>
@@ -65,6 +72,9 @@ render() {
         </Route>
         <Route exact path="/happening/:id">
           <Happening info={info} records={records}/>
+        </Route>
+        <Route exact path="/announcement/:id">
+          <Happening info={info} records={announcements}/>
         </Route>
         <Route component={NoMatchPage} />
       </Switch>

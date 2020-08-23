@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 
-import {Exhibition, Event} from '../';
+import {Exhibition,Footer, Event} from '../';
 
 class Happening extends Component {
   constructor(props) {
@@ -48,6 +48,7 @@ class Happening extends Component {
      <header className="App-header happening">
    
          {this.findRecord()}
+         <Footer></Footer>
       </header>
 
 

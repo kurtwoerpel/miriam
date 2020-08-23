@@ -95,14 +95,17 @@ class GridviewUpcoming extends Component {
         }
 
       }
-
+      var thumbStyle={
+        "color":x.fields.ThumbnailColor,
+        "backgroundColor":x.fields.ThumbnailBgColor
+      }
+    
       return(
         <a href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-6 col-sm-6" :  x.fields.Tags + " "+ dateClass + " grid-item col-6 col-sm-6"} >
-         <div>
-          <h2 className='baskerville text-large'>{x.fields.isEvent ? 'Event' : 'Exhibition'}</h2>
+         <div style={thumbStyle}>
+          <h1 className='text-medium title baskerville'>{x.fields.ThumbnailHed}</h1>
           <div className='grid-image' style={divStyle}></div>
-          <h1 className='text-small baskerville title'>{x.fields.Title}</h1>
-          <h1 className='text-small baskerville'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
+           <h1 className='text-small baskerville'>{x.fields.ThumbnailSubHed}</h1>
          </div>
         </a>
        )
