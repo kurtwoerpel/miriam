@@ -1,9 +1,39 @@
+.event-page{
+	margin:0 25px;
+}
+
+.event-page .top .caption{
+	text-align: center;
+	margin:0;
+	border:none;
+	padding:5px 0;
+}
+.event-page .toolbar .col-6:first-child{
+	text-align: left;
+}
+.event-page .toolbar .col-6:last-child{
+	text-align: right;
+}
+.event-page .toolbar .col-6 p{
+	margin:0;
+}
+.event-page .toolbar{
+	margin:10px 0;
+	width:100%;
+}
+.event-page {
+	margin-bottom:15px;
+}
+.event-page .header-with-image{
+	top:200px;
+}
 /*.exhibition .header {
 
   padding: 23px 0;
     margin: 18px 25px 0;
 
 }
+
 .three-column{
 	vertical-align: top;
 }

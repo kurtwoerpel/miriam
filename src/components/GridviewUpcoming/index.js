@@ -79,7 +79,7 @@ class GridviewUpcoming extends Component {
 
         if(d2 > d1){
           dateClass = "upcoming"
-          upcoming.push(x.id)
+          upcoming.push(x)
         }else{
           dateClass = "past"
 
@@ -87,9 +87,9 @@ class GridviewUpcoming extends Component {
             var d3 = new Date(x.fields.EndDate);
             if(d3 > d1){
               dateClass = "current"
-              current.push(x.id)
+              current.push(x)
             }else{
-              past.push(x.id)
+              past.push(x)
             }
           }
         }
@@ -99,9 +99,17 @@ class GridviewUpcoming extends Component {
         "color":x.fields.ThumbnailColor,
         "backgroundColor":x.fields.ThumbnailBgColor
       }
+      var linkroot = ''
+      if(x.type == 'exhibition'){
+         linkroot = '/exhibition/'
+      }else if(x.type == 'event'){
+        linkroot = '/event/'
+      }else if(x.type == 'announcement'){
+        linkroot = '/announcement/'
+      }
     
       return(
-        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-6 col-sm-6" :  x.fields.Tags + " "+ dateClass + " grid-item col-6 col-sm-6"} >
+        <a href={linkroot+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-6 col-sm-6" :  x.fields.Tags + " "+ dateClass + " grid-item col-6 col-sm-6"} >
          <div style={thumbStyle}>
           <h1 className='text-medium title baskerville'>{x.fields.ThumbnailHed}</h1>
           <div className='grid-image' style={divStyle}></div>
@@ -111,10 +119,26 @@ class GridviewUpcoming extends Component {
        )
       }) : 'loading'
      if(tense == 'upcoming' && upcoming.length == 1){
-      window.location.href='/happening/'+upcoming[0]
+       var linkroot = ''
+      if(upcoming[0].type == 'exhibition'){
+         linkroot = '/exhibition/'
+      }else if(upcoming[0].type == 'event'){
+        linkroot = '/event/'
+      }else if(upcoming[0].type == 'announcement'){
+        linkroot = '/announcement/'
+      }
+      window.location.href=linkroot+upcoming[0].id
     }
     if(tense == 'current' && current.length == 1){
-      window.location.href='/happening/'+upcoming[0]
+       var linkroot = ''
+      if(current[0].type == 'exhibition'){
+         linkroot = '/exhibition/'
+      }else if(current[0].type == 'event'){
+        linkroot = '/event/'
+      }else if(current[0].type == 'announcement'){
+        linkroot = '/announcement/'
+      }
+      window.location.href=linkroot+current[0].id
     }
     return (
 

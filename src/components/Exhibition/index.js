@@ -99,7 +99,7 @@ class Exhibition extends Component {
     const everything = record ? 
     (
        
-        <div  key={record.id} >
+        <div className='exhibition-page' key={record.id} >
           <div className='banner row'>
             <div className='header text-medium baskerville'> Exhibition </div>
           </div>

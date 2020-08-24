@@ -97,8 +97,16 @@ class Gridview extends Component {
       }
 
       if(dateClass == tense){
+   var linkroot = ''
+      if(x.type == 'exhibition'){
+         linkroot = '/exhibition/'
+      }else if(x.type == 'event'){
+        linkroot = '/event/'
+      }else if(x.type == 'announcement'){
+        linkroot = '/announcement/'
+      }
         return(
-        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-special" :  x.fields.Tags + " "+ dateClass + " grid-item col-special"} >
+        <a href={linkroot+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-special" :  x.fields.Tags + " "+ dateClass + " grid-item col-special"} >
           <div className='grid-image' style={divStyle}></div>
           <h1 className='text-tiny title'>{x.fields.Title}</h1>
           <h1 className='text-tiny baskerville'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
@@ -107,10 +115,26 @@ class Gridview extends Component {
       }
       }) : 'loading'
      if(tense == 'upcoming' && upcoming.length == 1){
-      window.location.href='/happening/'+upcoming[0]
+     var linkroot = ''
+      if(current[0].type == 'exhibition'){
+         linkroot = '/exhibition/'
+      }else if(upcoming[0].type == 'event'){
+        linkroot = '/event/'
+      }else if(upcoming[0].type == 'announcement'){
+        linkroot = '/announcement/'
+      }
+      window.location.href=linkroot+upcoming[0]
     }
     if(tense == 'current' && current.length == 1){
-      window.location.href='/happening/'+upcoming[0]
+       var linkroot = ''
+      if(current[0].type == 'exhibition'){
+         linkroot = '/exhibition/'
+      }else if(current[0].type == 'event'){
+        linkroot = '/event/'
+      }else if(current[0].type == 'announcement'){
+        linkroot = '/announcement/'
+      }
+      window.location.href=linkroot+current[0]
     }
     return (
 

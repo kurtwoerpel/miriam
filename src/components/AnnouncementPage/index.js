@@ -6,9 +6,9 @@ import {
 } from "react-router-dom";
 
 
-import {Exhibition,Footer, Event} from '../';
+import {Announcement,Footer} from '../';
 
-class Happening extends Component {
+class AnnouncementPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,9 +22,9 @@ class Happening extends Component {
         if(this.props.records[i].id == this.props.match.params.id){
           document.getElementsByTagName('body')[0].style.backgroundColor = this.props.records[i].fields.PageBackgroundColor
 
-
-            mew = (
-            <Event record={this.props.records[i]}></Event>
+      
+        mew = (
+            <Announcement record={this.props.records[i]}></Announcement>
           )
          
          
@@ -54,4 +54,4 @@ class Happening extends Component {
   }
 }
 
-export default withRouter(Happening)
+export default withRouter(AnnouncementPage)

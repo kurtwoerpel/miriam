@@ -119,9 +119,17 @@ class Listview extends Component {
 
       }
  if(dateClass == tense){
+  var linkroot = ''
+      if(x.type == 'exhibition'){
+         linkroot = '/exhibition/'
+      }else if(x.type == 'event'){
+        linkroot = '/event/'
+      }else if(x.type == 'announcement'){
+        linkroot = '/announcement/'
+      }
       return(
 
-        <a href={'/happening/'+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on row" :  x.fields.Tags + " "+ dateClass + " list-item row"} >
+        <a href={linkroot+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on row" :  x.fields.Tags + " "+ dateClass + " list-item row"} >
           <h1 className='text-small baskerville col-special'>{x.fields.Title}</h1>
           <div className='text-small baskerville col-special'>
           {x.fields.StartDate ? 
@@ -143,10 +151,26 @@ class Listview extends Component {
       }) : 'loading'
 
     if(tense == 'upcoming' && upcoming.length == 1){
-      window.location.href='/happening/'+upcoming[0]
+       var linkroot = ''
+      if(upcoming[0].type == 'exhibition'){
+         linkroot = '/exhibition/'
+      }else if(upcoming[0].type == 'event'){
+        linkroot = '/event/'
+      }else if(upcoming[0].type == 'announcement'){
+        linkroot = '/announcement/'
+      }
+      window.location.href=linkroot+upcoming[0]
     }
     if(tense == 'current' && current.length == 1){
-      window.location.href='/happening/'+upcoming[0]
+       var linkroot = ''
+      if(current[0].type == 'exhibition'){
+         linkroot = '/exhibition/'
+      }else if(current[0].type == 'event'){
+        linkroot = '/event/'
+      }else if(current[0].type == 'announcement'){
+        linkroot = '/announcement/'
+      }
+      window.location.href=linkroot+current[0]
     }
 
     const tagFilter = allTags.length > 0 ? allTags.map((x)=>{

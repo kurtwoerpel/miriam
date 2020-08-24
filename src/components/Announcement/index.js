@@ -9,8 +9,9 @@ import {
 import ReactMarkdown from "react-markdown";
 import {Navigation} from '../';
 import {Mainmenu} from '../';
-import {Menutrigger, Footer} from '../';
-
+import {Menutrigger} from '../';
+import AliceCarousel from 'react-alice-carousel';
+import "react-alice-carousel/lib/alice-carousel.css";
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Announcement extends Component {
@@ -37,9 +38,9 @@ class Announcement extends Component {
       return number + ['th', 'st', 'nd', 'rd', ''][selector];
     };
    formatDate(date) {
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
       var hours = date.getHours();
       var minutes = date.getMinutes();
       var ampm = hours >= 12 ? 'PM' : 'AM';
@@ -55,47 +56,86 @@ class Announcement extends Component {
 
    render() {
     const {record} = this.props
-    var bannerStyle = {
-        "color":"pink"
+    var pageStyle = {
+        backgroundColor: record.fields.PageBackgroundColor,
+        color: record.fields.TextColor
       };
-      console.log(bannerStyle)
+      var bookButton = {
+        color: record.fields.PageBackgroundColor
+      }
    var logoStyle = {
         backgroundColor: record.fields.LogoBackgroundColor,
         backgroundImage: (record.fields.LogoBackgroundImage ? "url(" + record.fields.LogoBackgroundImage[0].url +")" : " "),
         color: record.fields.LogoColor
       }
+      var headerStyle = {
+        "backgroundColor": record.fields.HedColor,
+        "backgroundImage": (record.fields.HeaderImage ? 'url(' + record.fields.HeaderImage[0].url + ')' : ''),
+      }
+      if(record.fields.HeroImages){
+      var slides = record.fields.HeroImages.map((x,i)=>{
+
+                    return(
+                      <div>
+                      <img src={x.url}></img>
+                      <div className='caption row'>
+                        
+                      {record.fields.HeroImageCaptions ? 
+                        <div className='col-12'>
+                        {record.fields.HeroImages.length == record.fields.HeroImageCaptions.split(',').length ?
+                        
+                        <ReactMarkdown  source={record.fields.HeroImageCaptions.split(',')[i]}/>
+                       
+                      :""}
+                      </div>
+                        :""}
+                       </div>
+                      </div>
+
+                      )
+                  })
+      }
+
 
     const everything = record ? 
     (
        
-        <div key={record.id} >
+        <div className='announcement-page event-page' key={record.id} >
           <div className='banner row'>
-          <div style={bannerStyle} className='header text-medium baskerville'> Announcement </div>
-            <h1 className='text-large baskerville'> {record.fields.Title}</h1>
+            <div className='header text-medium baskerville'> Announcement </div>
           </div>
-          <div className='container-fluid'>
-          <div className='row'>
-              <div className='three-column col-md-2'>
-                <ul>
-                  <li className='text-small '> {this.formatDate(new Date(record.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(record.fields.StartDate))[1]}</li>
-                </ul>
-              </div>
-                 <div className='three-column col-sm-12 order-sm-1 order-md-2 col-md-5'>
-                {!record.fields.MainImage ? '' :
-                            <img src={record.fields.MainImage[0].url}/>
-                          }
-              </div>
-              <div className='three-column baskerville col-sm-12 order-sm-2 order-md-1 col-md-5'>
-                <ReactMarkdown source={record.fields.Description} />
+
+            <div className='row'>
+          <div className='col-12'>
+            <header style={headerStyle}>
+            {record.fields.HeaderImage ? 
+              <img src={record.fields.HeaderImage[0].url}/>
+              : 
+             ""
+            }
+            {record.fields.HeaderText ? 
+               <h1 className={record.fields.HeaderImage ? 'header-with-image text-large baskerville': 'text-large baskerville'}> {record.fields.HeaderText}</h1>
+               :
+               ""
+            }
+
+            </header>
+
+            <div className='toolbar'>
+              <div className='row'>
+                 <div className='col-6'>
+                 <ReactMarkdown source={record.fields.DateTimeText} /></div>
+                 <div className='col-6'>
+                 <ReactMarkdown source={record.fields.TicketInfo} />
+                </div>
               </div>
             </div>
+            <div className=' text-small baskerville'><ReactMarkdown source={record.fields.Description} /></div>
+          </div>          
           </div>
-          
-          
         </div>
        ) : 'loading'
     return (
-     <header className="App-header happening">
     <div className='exhibition'>
       <Navigation></Navigation>
       <Menutrigger style={logoStyle}></Menutrigger>
@@ -106,8 +146,6 @@ class Announcement extends Component {
          {everything}
      </div>
      </div>
-           <Footer></Footer>
-      </header>
 
 
 
