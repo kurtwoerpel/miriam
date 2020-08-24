@@ -132,12 +132,19 @@ class Exhibition extends Component {
           {record.fields.HeroImages ?
               <div className='top'>
               {record.fields.HeroImages.length > 1 ?
+
                 <div>
+                {record.fields.HeroImagesGrid ? 
+                  <div className='hero-grid'>
+                  {slides}
+                  </div>
+                  :
                 <AliceCarousel duration='0' autoPlay autoPlayInterval="3000"
                 >
 
                   {slides}
                 </AliceCarousel>
+              }
                 </div>
                 :
                 <div>

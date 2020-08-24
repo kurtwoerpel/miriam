@@ -122,8 +122,20 @@ header h1{
 	margin-bottom:15px;
 }
 
-
-
+.hero-grid .caption{
+	display: none;
+}
+.hero-grid{
+	display: block;
+	overflow: hidden;
+	margin:10px 25px;
+}
+.hero-grid img{
+    float:left;
+    width:50%;
+	
+	display: inline-block;
+}
 .top .alice-carousel__dots {
     /* margin-top: -100px; */
     position: absolute;
