@@ -24,6 +24,9 @@ padding: 23px 0;
   height: auto;
 
 }
+header h1{
+	text-align: center;
+}
 .top .my-carousel{
 	display: block;
 
@@ -54,12 +57,44 @@ padding: 23px 0;
 	text-align: center;
 
 }
+.second-column{
+
+	border-left:1px solid black;
+}
 .toolbar .col-4 p{
 	margin:0;
 }
 .toolbar .row{
 	margin-left:0;
 	margin-right:0;
+}
+.featured-book .col-6:first-child{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.featured-book {
+	border:1px solid black;
+	margin: 15px 25px;
+	padding:25px;
+	width:calc(100% - 50px);
+}
+.featured-book .book-button{
+	background: black;
+	color:white;
+	font-weight: bold;
+	display: block;
+	height:155px;
+	text-align: center;
+
+}
+.featured-book .book-button span{
+	transform:rotate(-15deg) translateX(-35px) translateY(33px);;
+	display: block;
+}
+.featured-book img{
+	width:100%;
+	border:1px solid black;
 }
 .toolbar .col-4{
 	padding:10px 0;
@@ -73,17 +108,26 @@ padding: 23px 0;
 .happening nav .logo{
 	display: none;
 }
+.top{
+	margin-bottom:15px;
+}
+
+.top .alice-carousel__dots{
+	margin-top:-100px;
+	position:relative;
+	z-index: 2;
+}
 .alice-carousel__prev-btn, .alice-carousel__next-btn{
 	display: none !important;
 }
 .top .alice-carousel__dots-item{
 	width:15px !important;
 	background:transparent;
-	border:1px solid black;
+	border:1px solid white;
 	height:15px !important;
 }
 .top .alice-carousel__dots-item:hover,.top .alice-carousel__dots-item.__active{
-	background: black;
+	background: white;
 }
 .happening .nav-bookstore{
 	transform:rotate(-25deg) translateY(21px) translateX(-39px);

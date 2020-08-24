@@ -60,6 +60,9 @@ class Exhibition extends Component {
         backgroundColor: record.fields.PageBackgroundColor,
         color: record.fields.TextColor
       };
+      var bookButton = {
+        color: record.fields.PageBackgroundColor
+      }
    var logoStyle = {
         backgroundColor: record.fields.LogoBackgroundColor,
         backgroundImage: (record.fields.LogoBackgroundImage ? "url(" + record.fields.LogoBackgroundImage[0].url +")" : " "),
@@ -120,33 +123,62 @@ class Exhibition extends Component {
 
                   {slides}
                 </AliceCarousel>
-
+                  <div className='toolbar'>
+                  <div className='row'>
+                  <div className='col-4'></div>
+                  <div className='col-4'>{record.fields.HeroImageCaptions}</div>
+                  <div className='col-4'></div>
+                  </div>
+                  </div>
                 </div>
                 :
-
+                <div>
                 <img src={record.fields.HeroImages[0].url}></img>
+                <div className='toolbar'>
+                 <div className='row'>
+                  <div className='col-4'></div>
+                  <div className='col-4'>{record.fields.HeroImageCaptions}</div>
+                  <div className='col-4'></div>
+                  </div>
+                </div>
+                </div>
               }
               </div>
 
           : ""}
-        
-          <div className='container-fluid'>
-          <div className='row'>
-              <div className='three-column col-md-2'>
-                <ul>
-                  <li className='text-small '> {this.formatDate(new Date(record.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(record.fields.StartDate))[1]}</li>
-                </ul>
-              </div>
-                 <div className='three-column col-sm-12 order-sm-1 order-md-2 col-md-5'>
-                {!record.fields.MainImage ? '' :
-                            <img src={record.fields.MainImage[0].url}/>
-                          }
-              </div>
-              <div className='three-column baskerville col-sm-12 order-sm-2 order-md-1 col-md-5'>
-                <ReactMarkdown source={record.fields.Description} />
+        {record.fields.BodyImages ? 
+          <div className='page-body container-fluid'>
+            <div className='row'>
+              <div className='col-6 text-small baskerville'><ReactMarkdown source={record.fields.ColOneBodyText}/></div>
+              <div className='col-6 second-column text-small baskerville'>
+              <div className='row'>
+                {record.fields.BodyImages.map((x,i)=>{
+
+                    return(
+                      <img className={record.fields.BodyImages.length > 2 ? "col-4" : "col-12"} src={x.url}></img>
+                      )
+                  })
+      }
+                </div>
               </div>
             </div>
           </div>
+          :
+          <div className='page-body container-fluid'>
+            <div className='row'>
+              <div className='col-12 text-medium baskerville'><ReactMarkdown source={record.fields.ColOneBodyText}/></div>
+            </div>
+          </div>
+        } 
+        {record.fields.FeaturedBookImage ? 
+          <div className='featured-book container-fluid'>
+            <div className='row'>
+
+              <div className='col-6 '><ReactMarkdown style={bookButton} className='text-medium baskerville' source={record.fields.FeaturedBookText}/><a className='book-button' href={record.fields.FeaturedBookLink}><span className='text-medium'>Visit Bookshop</span></a></div>
+              <div className='col-6'><img src={record.fields.FeaturedBookImage[0].url}></img></div>
+            </div>
+          </div>
+        :""}
           
           
         </div>
