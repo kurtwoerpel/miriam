@@ -75,7 +75,22 @@ class Exhibition extends Component {
       var slides = record.fields.HeroImages.map((x,i)=>{
 
                     return(
+                      <div>
                       <img src={x.url}></img>
+                      <div className='caption row'>
+                        <span className='counter col-2'>{(i+1)+"/"+ record.fields.HeroImages.length}</span>
+                      {record.fields.HeroImageCaptions ? 
+                        <div className='col-8'>
+                        {record.fields.HeroImages.length == record.fields.HeroImageCaptions.split(',').length ?
+                        
+                        <ReactMarkdown  source={record.fields.HeroImageCaptions.split(',')[i]}/>
+                       
+                      :""}
+                      </div>
+                        :""}
+                       </div>
+                      </div>
+
                       )
                   })
       }
@@ -118,27 +133,20 @@ class Exhibition extends Component {
               <div className='top'>
               {record.fields.HeroImages.length > 1 ?
                 <div>
-                <AliceCarousel autoPlay autoPlayInterval="3000"
+                <AliceCarousel duration='0' autoPlay autoPlayInterval="3000"
                 >
 
                   {slides}
                 </AliceCarousel>
-                  <div className='toolbar'>
-                  <div className='row'>
-                  <div className='col-4'></div>
-                  <div className='col-4'>{record.fields.HeroImageCaptions}</div>
-                  <div className='col-4'></div>
-                  </div>
-                  </div>
                 </div>
                 :
                 <div>
                 <img src={record.fields.HeroImages[0].url}></img>
                 <div className='toolbar'>
                  <div className='row'>
-                  <div className='col-4'></div>
-                  <div className='col-4'>{record.fields.HeroImageCaptions}</div>
-                  <div className='col-4'></div>
+                  <div className='col-2'></div>
+                  <div className='col-8'>{record.fields.HeroImageCaptions}</div>
+                 
                   </div>
                 </div>
                 </div>

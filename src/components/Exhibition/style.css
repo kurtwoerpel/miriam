@@ -25,7 +25,7 @@ padding: 23px 0;
 
 }
 header h1{
-	text-align: center;
+	text-align: 
 }
 .top .my-carousel{
 	display: block;
@@ -41,6 +41,16 @@ header h1{
 	display: block;
 	position: relative;
 }*/
+.top .caption{
+	width: calc(100% - 50px);
+	margin:10px 25px;
+	padding:10px 0;
+	border-bottom: 1px solid black;
+	border-top:1px solid black;
+}
+.top .caption .col-8{
+	text-align: center;
+}
 .top .slide{
 	width:100vw;
 	height:auto;
@@ -112,10 +122,15 @@ header h1{
 	margin-bottom:15px;
 }
 
-.top .alice-carousel__dots{
-	margin-top:-100px;
-	position:relative;
-	z-index: 2;
+
+
+.top .alice-carousel__dots {
+    /* margin-top: -100px; */
+    position: absolute;
+    z-index: 2;
+    bottom: 100px;
+    left: 50%;
+    transform:translateX(-50%);
 }
 .alice-carousel__prev-btn, .alice-carousel__next-btn{
 	display: none !important;
