@@ -46,7 +46,15 @@ class Past extends Component {
    }
 
    render() {
+
     const {records} = this.props
+    var published = []
+    for (var i = records.length - 1; i >= 0; i--) {
+      if(records[i].fields.PagePublished){
+        published.push(records[i])
+      }
+    }
+    published = published.reverse();
     const {listview} = this.state
     return (
 
@@ -63,8 +71,8 @@ class Past extends Component {
           </div>
           <div className='main-area'>
             <div className='view-space'>
-            {!listview ? <Gridview tense="past" records={records}></Gridview> :
-              <Listview tense="past" records={records}></Listview>
+            {!listview ? <Gridview tense="past" records={published}></Gridview> :
+              <Listview tense="past" records={published}></Listview>
             }
             </div>
           </div>
