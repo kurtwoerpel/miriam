@@ -66,7 +66,6 @@ class Mainmenu extends Component {
             <li><a href='/current'>Current</a></li>
             <li><a href='/upcoming'>Upcoming</a></li>
             <li><a href='/past'>Past</a></li>
-            <li><a href='/events'>Happenings</a></li>
             <li><a href='/info'>Info</a></li>
             <li><a>Bookshop</a></li>
          </ul>
