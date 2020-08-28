@@ -60,7 +60,7 @@ class GridviewCurrent extends Component {
     const {records, tense} = this.props
     const everythings = records.length > 0 ? records.map((x)=>{
       const divStyle={
-        backgroundImage: (!x.fields.MainImage ? '' : "url(" + x.fields.MainImage[0].url + ")"),
+        backgroundImage: (!x.fields.HeroImages ? '' : "url(" + x.fields.HeroImages[0].url + ")"),
         backgroundSize: "cover",
         backgroundPosition: "center"
       }
@@ -113,7 +113,7 @@ if(dateClass == tense){
               <div className='grid-image' style={divStyle}></div>
               <div className='grid-text'>
                 <h1 className='text-large title baskerville'>{x.fields.Title}</h1>
-                <h1 className='text-small baskerville'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
+                <h1 className='text-small baskerville'>{x.fields.PageDateTimeText}</h1>
               </div>
             </a>
        )

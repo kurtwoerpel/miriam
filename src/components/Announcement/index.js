@@ -58,7 +58,8 @@ class Announcement extends Component {
     const {record} = this.props
     var pageStyle = {
         backgroundColor: record.fields.PageBackgroundColor,
-        color: record.fields.TextColor
+        borderColor: record.fields.PageLineColor,
+        color: record.fields.PageTextColor
       };
       var bookButton = {
         color: record.fields.PageBackgroundColor
@@ -68,10 +69,18 @@ class Announcement extends Component {
         backgroundImage: (record.fields.LogoBackgroundImage ? "url(" + record.fields.LogoBackgroundImage[0].url +")" : " "),
         color: record.fields.LogoColor
       }
+    if(record.fields.PageHeroImage && record.fields.PageHeroImageBackground){
       var headerStyle = {
-        "backgroundColor": record.fields.HedColor,
-        "backgroundImage": (record.fields.HeaderImage ? 'url(' + record.fields.HeaderImage[0].url + ')' : ''),
+        "backgroundColor": record.fields.PageHeaderColor,
+        "color": record.fields.PageHeaderTextColor,
+        "backgroundImage": (record.fields.PageHeroImage ? 'url(' + record.fields.PageHeroImage[0].url + ')' : ''),
       }
+    } else{
+      var headerStyle = {
+        "backgroundColor": record.fields.PageHeaderColor,
+        "color": record.fields.PageHeaderTextColor
+      }
+    }
       if(record.fields.HeroImages){
       var slides = record.fields.HeroImages.map((x,i)=>{
 
@@ -113,24 +122,28 @@ class Announcement extends Component {
               : 
              ""
             }
-            {record.fields.HeaderText ? 
-               <h1 className={record.fields.HeaderImage ? 'header-with-image text-large baskerville': 'text-large baskerville'}> {record.fields.HeaderText}</h1>
+            {record.fields.PageHeaderText ? 
+               <h1 className={record.fields.HeaderImage ? 'header-with-image text-large baskerville': 'text-large baskerville'}> {record.fields.PageHeaderText}</h1>
                :
                ""
             }
+            {record.fields.PageHeroImage && !record.fields.PageHeroImageBackground ?
+                <img className="stacked-hero-image" src={record.fields.PageHeroImage[0].url}/>
+            :
+            ""}
 
             </header>
 
             <div className='toolbar'>
               <div className='row'>
                  <div className='col-6'>
-                 <ReactMarkdown source={record.fields.DateTimeText} /></div>
+                 <ReactMarkdown source={record.fields.PageDateTimeText} /></div>
                  <div className='col-6'>
-                 <ReactMarkdown source={record.fields.TicketInfo} />
+                 <ReactMarkdown source={record.fields.PageDetailsRight} />
                 </div>
               </div>
             </div>
-            <div className=' text-small baskerville'><ReactMarkdown source={record.fields.Description} /></div>
+            <div className=' text-small baskerville'><ReactMarkdown source={record.fields.PageDescription} /></div>
           </div>          
           </div>
         </div>

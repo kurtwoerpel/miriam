@@ -58,7 +58,8 @@ class Exhibition extends Component {
     const {record} = this.props
     var pageStyle = {
         backgroundColor: record.fields.PageBackgroundColor,
-        color: record.fields.TextColor
+        borderColor: record.fields.PageLineColor,
+        color: record.fields.PageTextColor
       };
       var bookButton = {
         color: record.fields.PageBackgroundColor
@@ -71,19 +72,19 @@ class Exhibition extends Component {
       var headerStyle = {
         "backgroundImage": (record.fields.HeaderImage ? 'url(' + record.fields.HeaderImage[0].url + ')' : ''),
       }
-      if(record.fields.HeroImages){
-      var slides = record.fields.HeroImages.map((x,i)=>{
+      if(record.fields.PageHeroImages){
+      var slides = record.fields.PageHeroImages.map((x,i)=>{
 
                     return(
                       <div>
                       <img src={x.url}></img>
                       <div className='caption row'>
-                        <span className='counter col-2'>{(i+1)+"/"+ record.fields.HeroImages.length}</span>
-                      {record.fields.HeroImageCaptions ? 
+                        <span className='counter col-2'>{(i+1)+"/"+ record.fields.PageHeroImages.length}</span>
+                      {record.fields.PageHeroImageCaptions ? 
                         <div className='col-8'>
-                        {record.fields.HeroImages.length == record.fields.HeroImageCaptions.split(',').length ?
+                        {record.fields.PageHeroImages.length == record.fields.PageHeroImageCaptions.split(',').length ?
                         
-                        <ReactMarkdown  source={record.fields.HeroImageCaptions.split(',')[i]}/>
+                        <ReactMarkdown  source={record.fields.PageHeroImageCaptions.split(',')[i]}/>
                        
                       :""}
                       </div>
@@ -109,8 +110,8 @@ class Exhibition extends Component {
             : 
            ""
           }
-          {record.fields.HeaderText ? 
-             <h1 className={record.fields.HeaderImage ? 'header-with-image text-large baskerville': 'text-large baskerville'}> {record.fields.HeaderText}</h1>
+          {record.fields.PageHeaderText ? 
+             <h1 className={record.fields.HeaderImage ? 'header-with-image text-large baskerville': 'text-large baskerville'}> {record.fields.PageHeaderText}</h1>
              :
              ""
           }
@@ -120,21 +121,19 @@ class Exhibition extends Component {
           <div className='toolbar'>
             <div className='row'>
                <div className='col-4'>
-               <ReactMarkdown source={record.fields.DateTimeText} /></div>
+               <ReactMarkdown source={record.fields.PageDateTimeText} /></div>
                <div className='col-4'>
-               <ReactMarkdown source={record.fields.TicketInfo} />
+               <ReactMarkdown source={record.fields.PageDetailsCenter} />
               </div>
-               <div className='col-4'>{record.fields.ExternalInfo ? 
-                  <a href={record.fields.ExternalInfo[0].url}>{record.fields.ExternalInfo[0].filename.split('.')[0]}</a>
-               :""}</div>
+               <div className='col-4'><ReactMarkdown source={record.fields.PageDetailsRight} /></div>
             </div>
           </div>
-          {record.fields.HeroImages ?
+          {record.fields.PageHeroImages ?
               <div className='top'>
-              {record.fields.HeroImages.length > 1 ?
+              {record.fields.PageHeroImages.length > 1 ?
 
                 <div>
-                {record.fields.HeroImagesGrid ? 
+                {record.fields.PageHeroImagesGrid ? 
                   <div className='hero-grid'>
                   {slides}
                   </div>
@@ -148,11 +147,11 @@ class Exhibition extends Component {
                 </div>
                 :
                 <div>
-                <img src={record.fields.HeroImages[0].url}></img>
+                <img src={record.fields.PageHeroImages[0].url}></img>
                 <div className='toolbar'>
                  <div className='row'>
                   <div className='col-2'></div>
-                  <div className='col-8'>{record.fields.HeroImageCaptions}</div>
+                  <div className='col-8'>{record.fields.PageHeroImageCaptions}</div>
                  
                   </div>
                 </div>
@@ -161,16 +160,16 @@ class Exhibition extends Component {
               </div>
 
           : ""}
-        {record.fields.BodyImages ? 
+        {record.fields.PageBodyImages ? 
           <div className='page-body container-fluid'>
             <div className='row'>
-              <div className='col-6 text-small baskerville'><ReactMarkdown source={record.fields.ColOneBodyText}/></div>
+              <div className='col-6 text-small baskerville'><ReactMarkdown source={record.fields.PageDescription}/></div>
               <div className='col-6 second-column text-small baskerville'>
               <div className='row'>
-                {record.fields.BodyImages.map((x,i)=>{
+                {record.fields.PageBodyImages.map((x,i)=>{
 
                     return(
-                      <img className={record.fields.BodyImages.length > 2 ? "col-4" : "col-12"} src={x.url}></img>
+                      <img className={record.fields.PageBodyImages.length > 2 ? "col-4" : "col-12"} src={x.url}></img>
                       )
                   })
       }
@@ -181,7 +180,7 @@ class Exhibition extends Component {
           :
           <div className='page-body container-fluid'>
             <div className='row'>
-              <div className='col-12 text-medium baskerville'><ReactMarkdown source={record.fields.ColOneBodyText}/></div>
+              <div className='col-12 text-medium baskerville'><ReactMarkdown source={record.fields.PageDescription}/></div>
             </div>
           </div>
         } 

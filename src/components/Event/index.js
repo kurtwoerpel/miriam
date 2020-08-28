@@ -58,7 +58,8 @@ class Event extends Component {
     const {record} = this.props
     var pageStyle = {
         backgroundColor: record.fields.PageBackgroundColor,
-        color: record.fields.TextColor
+        borderColor: record.fields.PageLineColor,
+        color: record.fields.PageTextColor
       };
       var bookButton = {
         color: record.fields.PageBackgroundColor
@@ -71,19 +72,19 @@ class Event extends Component {
       var headerStyle = {
         "backgroundImage": (record.fields.HeaderImage ? 'url(' + record.fields.HeaderImage[0].url + ')' : ''),
       }
-      if(record.fields.HeroImages){
-      var slides = record.fields.HeroImages.map((x,i)=>{
+      if(record.fields.PageHeroImages){
+      var slides = record.fields.PageHeroImages.map((x,i)=>{
 
                     return(
                       <div>
                       <img src={x.url}></img>
                       <div className='caption row'>
                         
-                      {record.fields.HeroImageCaptions ? 
+                      {record.fields.PageHeroImageCaptions ? 
                         <div className='col-12'>
-                        {record.fields.HeroImages.length == record.fields.HeroImageCaptions.split(',').length ?
+                        {record.fields.PageHeroImages.length == record.fields.PageHeroImageCaptions.split(',').length ?
                         
-                        <ReactMarkdown  source={record.fields.HeroImageCaptions.split(',')[i]}/>
+                        <ReactMarkdown  source={record.fields.PageHeroImageCaptions.split(',')[i]}/>
                        
                       :""}
                       </div>
@@ -112,8 +113,8 @@ class Event extends Component {
               : 
              ""
             }
-            {record.fields.HeaderText ? 
-               <h1 className={record.fields.HeaderImage ? 'header-with-image text-large baskerville': 'text-large baskerville'}> {record.fields.HeaderText}</h1>
+            {record.fields.PageHeaderText ? 
+               <h1 className={record.fields.HeaderImage ? 'header-with-image text-large baskerville': 'text-large baskerville'}> {record.fields.PageHeaderText}</h1>
                :
                ""
             }
@@ -123,19 +124,19 @@ class Event extends Component {
             <div className='toolbar'>
               <div className='row'>
                  <div className='col-6'>
-                 <ReactMarkdown source={record.fields.DateTimeText} /></div>
+                 <ReactMarkdown source={record.fields.PageDateTimeText} /></div>
                  <div className='col-6'>
-                 <ReactMarkdown source={record.fields.TicketInfo} />
+                 <ReactMarkdown source={record.fields.PageDetailsRight} />
                 </div>
            
               </div>
             </div>
-            <div className=' text-small baskerville'><ReactMarkdown source={record.fields.ColOneBodyText}/></div>
+            <div className=' text-small baskerville'><ReactMarkdown source={record.fields.PageDescription}/></div>
           </div>
           <div className='col-6 second-column'>
-          {record.fields.HeroImages ?
+          {record.fields.PageHeroImages ?
               <div className='top'>
-              {record.fields.HeroImages.length > 1 ?
+              {record.fields.PageHeroImages.length > 1 ?
 
                 <div>
                   <div className='column-stacked'>
@@ -144,11 +145,11 @@ class Event extends Component {
                 </div>
                 :
                 <div>
-                <img src={record.fields.HeroImages[0].url}></img>
+                <img src={record.fields.PageHeroImages[0].url}></img>
                 <div className='toolbar'>
                  <div className='row'>
                   <div className='col-2'></div>
-                  <div className='col-8'>{record.fields.HeroImageCaptions}</div>
+                  <div className='col-8'>{record.fields.PageHeroImageCaptions}</div>
                  
                   </div>
                 </div>

@@ -84,7 +84,7 @@ class Listview extends Component {
     let allTags = [];
     const everythings = records.length > 0 ? records.map((x)=>{
       const divStyle={
-        backgroundImage: (!x.fields.MainImage ? '' : "url(" + x.fields.MainImage[0].url + ")"),
+        backgroundImage: (!x.fields.HeroImages ? '' : "url(" + x.fields.HeroImages[0].url + ")"),
         backgroundSize: "cover",
         backgroundPosition: "center"
       }
