@@ -105,7 +105,7 @@ if(dateClass == tense){
          linkroot = '/exhibition/'
       }else if(x.type == 'event'){
         linkroot = '/event/'
-      }else if(x.type == 'announcement'){
+      }else {
         linkroot = '/announcement/'
       }
       return(
@@ -125,7 +125,7 @@ if(dateClass == tense){
          linkroot = '/exhibition/'
       }else if(upcoming[0].type == 'event'){
         linkroot = '/event/'
-      }else if(upcoming[0].type == 'announcement'){
+      }else{
         linkroot = '/announcement/'
       }
       window.location.href=linkroot+upcoming[0].id
@@ -136,7 +136,7 @@ if(dateClass == tense){
          linkroot = '/exhibition/'
       }else if(current[0].type == 'event'){
         linkroot = '/event/'
-      }else if(current[0].type == 'announcement'){
+      }else {
         linkroot = '/announcement/'
       }
       window.location.href=linkroot+current[0].id

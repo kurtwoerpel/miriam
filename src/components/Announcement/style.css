@@ -1,5 +1,5 @@
 .event-page.announcement-page header{
-	height:500px;
+	min-height:500px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

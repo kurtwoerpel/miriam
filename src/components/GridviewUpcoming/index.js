@@ -124,7 +124,7 @@ class GridviewUpcoming extends Component {
          linkroot = '/exhibition/'
       }else if(upcoming[0].type == 'event'){
         linkroot = '/event/'
-      }else if(upcoming[0].type == 'announcement'){
+      }else {
         linkroot = '/announcement/'
       }
       window.location.href=linkroot+upcoming[0].id
