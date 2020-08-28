@@ -30,6 +30,7 @@ class Past extends Component {
 
    render() {
     const {records} = this.props
+    var published = []
     for (var i = records.length - 1; i >= 0; i--) {
       if(records[i].fields.PagePublished){
         published.push(records[i])
