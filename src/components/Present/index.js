@@ -43,7 +43,7 @@ class Past extends Component {
      <header className={listview ? "App-header pastpage list-header" : "App-header pastpage" }>
           <Navigation></Navigation>
           <Mainmenu></Mainmenu>
-          <div className='header text-large baskerville'> Current </div>
+          <div className='header text-large '> Current </div>
           <div className='sub-menu'>
             <button onClick={this.showList} className={listview ? 'text-small on' : 'text-small'}>list view</button>
             <button onClick={this.showGrid} className={listview ? 'text-small' : 'text-small on'}>grid view</button>
@@ -51,6 +51,7 @@ class Past extends Component {
           </div>
           <div className='main-area'>
             <div className='view-space'>
+      
             {!listview ? <GridviewCurrent tense="current" records={published}></GridviewCurrent> :
               <Listview tense="current" records={published}></Listview>
             }

@@ -9,7 +9,7 @@ import {
 import ReactMarkdown from "react-markdown";
 import {Navigation} from '../';
 import {Mainmenu} from '../';
-import {Menutrigger} from '../';
+import {Menutrigger, Footer} from '../';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 
@@ -23,7 +23,34 @@ class Announcement extends Component {
     };
     this.formatDate = this.formatDate.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.scrollTop = this.scrollTop.bind(this);
+    this.openLightbox = this.openLightbox.bind(this);
    }
+    componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll);
+  }
+     openLightbox(e){
+    console.log(e)
+    var img_url = e.target.src;
+    var newImg = document.createElement('img');
+    newImg.src = img_url;
+    var lightbox = document.getElementById('light-box');
+    var lightboxInner = lightbox.getElementsByClassName("inner")[0];
+    lightboxInner.innerHTML = '';
+    lightboxInner.appendChild(newImg);
+    lightbox.classList.add('on')
+
+  }
+     handleScroll(){
+    document.getElementsByClassName('App-header');
+    var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    if(scrollTop > 0){
+      document.getElementsByClassName('App-header')[0].classList.add('small-header')
+    } else{
+      document.getElementsByClassName('App-header')[0].classList.remove('small-header')
+    }
+  }
     getOrdinalNum(number) {
       let selector;
 
@@ -36,6 +63,9 @@ class Announcement extends Component {
       }
 
       return number + ['th', 'st', 'nd', 'rd', ''][selector];
+    };
+    scrollTop(){
+       window.scrollTo({top: 0, behavior: 'smooth'});
     };
    formatDate(date) {
         const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -58,9 +88,15 @@ class Announcement extends Component {
     const {record} = this.props
     var pageStyle = {
         backgroundColor: record.fields.PageBackgroundColor,
-        borderColor: record.fields.PageLineColor,
         color: record.fields.PageTextColor
+      
       };
+      var borderStyle = {
+        "borderColor": record.fields.PageLineColor,
+      }
+      var navStyle= {
+        backgroundColor: record.fields.PageBackgroundColor
+      }
       var bookButton = {
         color: record.fields.PageBackgroundColor
       }
@@ -69,11 +105,11 @@ class Announcement extends Component {
         backgroundImage: (record.fields.LogoBackgroundImage ? "url(" + record.fields.LogoBackgroundImage[0].url +")" : " "),
         color: record.fields.LogoColor
       }
-    if(record.fields.PageHeroImage && record.fields.PageHeroImageBackground){
+    if(record.fields.PageHeroImages && record.fields.PageHeroImageBackground){
       var headerStyle = {
         "backgroundColor": record.fields.PageHeaderColor,
         "color": record.fields.PageHeaderTextColor,
-        "backgroundImage": (record.fields.PageHeroImage ? 'url(' + record.fields.PageHeroImage[0].url + ')' : ''),
+        "backgroundImage": (record.fields.PageHeroImages ? 'url(' + record.fields.PageHeroImages[0].url + ')' : ''),
       }
     } else{
       var headerStyle = {
@@ -86,7 +122,7 @@ class Announcement extends Component {
 
                     return(
                       <div>
-                      <img src={x.url}></img>
+                      <img onClick={this.openLightbox} src={x.url}></img>
                       <div className='caption row'>
                         
                       {record.fields.HeroImageCaptions ? 
@@ -109,9 +145,9 @@ class Announcement extends Component {
     const everything = record ? 
     (
        
-        <div className='announcement-page event-page' key={record.id} >
-          <div className='banner row'>
-            <div className='header text-medium baskerville'> Announcement </div>
+        <div style={pageStyle} className='announcement-page event-page' key={record.id} >
+          <div style={navStyle} className='banner row'>
+            <div style={borderStyle} className='header text-medium '> Announcement </div>
           </div>
 
             <div className='row'>
@@ -127,29 +163,38 @@ class Announcement extends Component {
                :
                ""
             }
-            {record.fields.PageHeroImage && !record.fields.PageHeroImageBackground ?
-                <img className="stacked-hero-image" src={record.fields.PageHeroImage[0].url}/>
+            {record.fields.PageHeroImages && !record.fields.PageHeroImageBackground ?
+                <img className="stacked-hero-image" src={record.fields.PageHeroImages[0].url}/>
             :
             ""}
 
             </header>
 
-            <div className='toolbar'>
-              <div className='row'>
+            <div style={borderStyle} className='toolbar'>
+         
+              {record.fields.PageDateTimeText ? 
+                <div className='row'>
                  <div className='col-6'>
-                 <ReactMarkdown source={record.fields.PageDateTimeText} /></div>
+                 <ReactMarkdown source={record.fields.PageDateTimeText} />
+                 </div>
                  <div className='col-6'>
                  <ReactMarkdown source={record.fields.PageDetailsRight} />
                 </div>
-              </div>
+                </div>
+               : 
+               <div className='row'>
+                 <div className='col-12'>
+                 <ReactMarkdown source={record.fields.PageDetailsRight} />
+                </div></div>}
+              
             </div>
-            <div className=' text-small baskerville'><ReactMarkdown source={record.fields.PageDescription} /></div>
+            <div className={record.fields.PageBigText ? 'text-large' : ' text-small baskerville'}><ReactMarkdown className={record.fields.PageSkinny ? "page-skinny" : ""} source={record.fields.PageDescription} /></div>
           </div>          
           </div>
         </div>
        ) : 'loading'
     return (
-    <div className='exhibition'>
+    <div style={pageStyle} className='exhibition'>
       <Navigation></Navigation>
       <Menutrigger style={logoStyle}></Menutrigger>
           <Mainmenu></Mainmenu>
@@ -158,6 +203,10 @@ class Announcement extends Component {
       
          {everything}
      </div>
+     <div className='archive-links'>
+          <h1 onClick={this.scrollTop} className='baskerville text-large'>Back to Top</h1>
+      </div>
+      <Footer style={borderStyle}></Footer>
      </div>
 
 

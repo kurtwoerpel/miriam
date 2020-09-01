@@ -60,7 +60,7 @@ class Gridview extends Component {
     const {records, tense} = this.props
     const everythings = records.length > 0 ? records.map((x)=>{
       const divStyle={
-        backgroundImage: (!x.fields.HeroImages ? '' : "url(" + x.fields.HeroImages[0].url + ")"),
+        backgroundImage: (!x.fields.PageHeroImages ? '' : "url(" + x.fields.PageHeroImages[0].url + ")"),
         backgroundSize: "cover",
         backgroundPosition: "center"
       }
@@ -114,31 +114,34 @@ class Gridview extends Component {
        )
       }
       }) : 'loading'
-     if(tense == 'upcoming' && upcoming.length == 1){
-     var linkroot = ''
-      if(current[0].type == 'exhibition'){
-         linkroot = '/exhibition/'
-      }else if(upcoming[0].type == 'event'){
-        linkroot = '/event/'
-      }else {
-        linkroot = '/announcement/'
-      }
-      window.location.href=linkroot+upcoming[0]
-    }
-    if(tense == 'current' && current.length == 1){
-       var linkroot = ''
-      if(current[0].type == 'exhibition'){
-         linkroot = '/exhibition/'
-      }else if(current[0].type == 'event'){
-        linkroot = '/event/'
-      }else {
-        linkroot = '/announcement/'
-      }
-      window.location.href=linkroot+current[0]
-    }
+    //  if(tense == 'upcoming' && upcoming.length == 1){
+    //  var linkroot = ''
+    //   if(current[0].type == 'exhibition'){
+    //      linkroot = '/exhibition/'
+    //   }else if(upcoming[0].type == 'event'){
+    //     linkroot = '/event/'
+    //   }else {
+    //     linkroot = '/announcement/'
+    //   }
+    //   window.location.href=linkroot+upcoming[0]
+    // }
+    // if(tense == 'current' && current.length == 1){
+    //    var linkroot = ''
+    //   if(current[0].type == 'exhibition'){
+    //      linkroot = '/exhibition/'
+    //   }else if(current[0].type == 'event'){
+    //     linkroot = '/event/'
+    //   }else {
+    //     linkroot = '/announcement/'
+    //   }
+    //   window.location.href=linkroot+current[0]
+    // }
     return (
 
      <div className='grid-view row'>
+        {past.length < 1 ?
+              <div>more coming soon...</div>
+              :""}
          {everythings}
      </div>
 

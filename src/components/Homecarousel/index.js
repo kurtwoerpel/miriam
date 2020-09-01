@@ -185,15 +185,15 @@ class Homecarousel extends Component {
            <div className='prev-invisible invisible-block' onClick={this.goPrev} ></div>
           <div className='next-invisible invisible-block' onClick={this.goNext} ></div>
           <Menutrigger style={logoStyle}></Menutrigger>
-          <a href={x.fields.Slidelink} ><h1 style={headlineStyle} className='text-large baskerville title'>{x.fields.Headline}</h1></a>
+          <div><a href={x.fields.Slidelink} ><h1 style={headlineStyle} className='text-large baskerville title'>{x.fields.Headline}</h1></a></div>
            {!x.fields.HeroImage ? '' :
-            <a href={x.fields.Slidelink} ><img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/></a>
+           <div> <a href={x.fields.Slidelink} ><img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/></a></div>
           }
           {!x.fields.SubHeading ? '' :
-          <a href={x.fields.Slidelink} ><h1 style={subheadlineStyle} className='text-large baskerville'>{x.fields.SubHeading}</h1></a>
+          <div><a href={x.fields.Slidelink} ><h1 style={subheadlineStyle} className='text-large baskerville'>{x.fields.SubHeading}</h1></a></div>
         }
         {!x.fields.DescriptiveCopy ? '' :
-          <a href={x.fields.Slidelink} ><div style={descriptionStyle} className='description text-medium'><ReactMarkdown source={x.fields.DescriptiveCopy} /></div></a>
+         <div> <a href={x.fields.Slidelink} ><div style={descriptionStyle} className='description text-medium'><ReactMarkdown source={x.fields.DescriptiveCopy} /></div></a></div>
         }
 
         </div>

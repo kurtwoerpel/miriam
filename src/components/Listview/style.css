@@ -13,19 +13,28 @@
 	padding:8px 0 0;
 
 }
+
+
+
 .list-item.on{
 	display:flex;
 }
 .list-item-menu.list-item{
 	display: flex;
 }
-.list-item:last-child{
+.list-item:last-child, .list-item:last-child:hover{
 	border:none;
+}
+.list-item:hover{
+	border-bottom:1px solid black;
 }
 .list-item .col-special{
 	text-align: left;
 	padding:0 10px;
 	width: 20%;
+}
+.col-special img{
+	width:100%;
 }
 .btn,.btn:hover, .btn:focus, .btn:active, .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle{
 	font-size:inherit;

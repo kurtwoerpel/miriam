@@ -17,7 +17,9 @@
 .logo:hover{
 	filter:invert(1);
 }
-
+.pastpage .logo{
+	top:31px;
+}
 .Homepage nav .logo{
 	display:none;
 }

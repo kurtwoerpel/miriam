@@ -3,6 +3,9 @@
 	background-size:cover;
 	background-position:center;
 }
+.grid-item .grid-text h1{
+	font-weight: normal;
+}
 .grid-item{
 	display: none;
 }

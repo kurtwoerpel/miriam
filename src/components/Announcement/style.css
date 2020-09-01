@@ -7,6 +7,16 @@
 .event-page.announcement-page .banner{
 	margin-bottom:10px;
 }
+.event-page.announcement-page .col-12 img{
+	width: 100%;
+ height:auto;
+}
+.event-page .page-skinny{
+	display: block;
+	width: 50%;
+	min-width: 800px;
+	margin:0 auto;
+}
 /*.exhibition .header {
 
 padding: 23px 0;

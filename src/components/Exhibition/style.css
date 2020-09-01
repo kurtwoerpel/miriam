@@ -18,9 +18,22 @@ padding: 23px 0;
 	border-right:1px solid black;
 
 }
+.col-4 img{
+	margin:5px 0;
+}
+.exhibition .col-6 .row{
+	margin:0;
+}
+.second-column .row .col-4{
+	padding:10px;
+}
+.second-column .row .col-4:nth-child(3n + 0){
+	padding-right:10px;
+	padding-left:0;
+}
 .top img {
-	
-  width: 100vw;
+  margin:0 15px;
+  width: calc(100vw - 30px);
   height: auto;
 
 }
@@ -60,12 +73,15 @@ padding: 23px 0;
 .toolbar {
 	border-top:1px solid black;
 	border-bottom:1px solid black;
-	margin:0 25px;
-	width: calc(100% - 50px);
+	margin:0 15px;
+	width: calc(100% - 30px);
 }
 .toolbar .col-4:nth-child(2){
 	text-align: center;
 
+}
+.archive-links h1{
+	cursor: pointer;
 }
 .second-column{
 
@@ -157,7 +173,7 @@ padding: 23px 0;
 	background: white;
 }
 .happening .nav-bookstore{
-	transform:rotate(-25deg) translateY(21px) translateX(-39px);
+    transform: rotate(-57deg) translateY(3px) translateX(-56px);
 }
 header img{
   max-width: 100%;

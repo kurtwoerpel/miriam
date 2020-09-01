@@ -9,7 +9,7 @@ import {
 import ReactMarkdown from "react-markdown";
 import {Navigation} from '../';
 import {Mainmenu} from '../';
-import {Menutrigger} from '../';
+import {Menutrigger, Footer} from '../';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 
@@ -22,8 +22,38 @@ class Exhibition extends Component {
     
     };
     this.formatDate = this.formatDate.bind(this);
+    this.scrollTop = this.scrollTop.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
+        this.handleScroll = this.handleScroll.bind(this);
+         this.openLightbox = this.openLightbox.bind(this);
    }
+   scrollTop(){
+       window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+         openLightbox(e){
+    console.log(e)
+    var img_url = e.target.src;
+    var newImg = document.createElement('img');
+    newImg.src = img_url;
+    var lightbox = document.getElementById('light-box');
+    var lightboxInner = lightbox.getElementsByClassName("inner")[0];
+    lightboxInner.innerHTML = '';
+    lightboxInner.appendChild(newImg);
+    lightbox.classList.add('on')
+
+  }
+    componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll);
+  }
+     handleScroll(){
+    document.getElementsByClassName('App-header');
+    var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    if(scrollTop > 0){
+      document.getElementsByClassName('App-header')[0].classList.add('small-header')
+    } else{
+      document.getElementsByClassName('App-header')[0].classList.remove('small-header')
+    }
+  }
     getOrdinalNum(number) {
       let selector;
 
@@ -56,11 +86,16 @@ class Exhibition extends Component {
 
    render() {
     const {record} = this.props
+     var navStyle= {
+        backgroundColor: record.fields.PageBackgroundColor
+      }
     var pageStyle = {
         backgroundColor: record.fields.PageBackgroundColor,
-        borderColor: record.fields.PageLineColor,
         color: record.fields.PageTextColor
       };
+      var borderStyle = {
+        borderColor: record.fields.PageLineColor,
+      }
       var bookButton = {
         color: record.fields.PageBackgroundColor
       }
@@ -77,7 +112,7 @@ class Exhibition extends Component {
 
                     return(
                       <div>
-                      <img src={x.url}></img>
+                      <img  onClick={this.openLightbox} src={x.url}></img>
                       <div className='caption row'>
                         <span className='counter col-2'>{(i+1)+"/"+ record.fields.PageHeroImages.length}</span>
                       {record.fields.PageHeroImageCaptions ? 
@@ -101,12 +136,12 @@ class Exhibition extends Component {
     (
        
         <div className='exhibition-page' key={record.id} >
-          <div className='banner row'>
-            <div className='header text-medium baskerville'> Exhibition </div>
+          <div style={navStyle} className='banner row'>
+            <div className='header text-medium '> Exhibition </div>
           </div>
           <header>
           {record.fields.HeaderImage ? 
-            <img src={record.fields.HeaderImage[0].url}/>
+            <img onClick={this.openLightbox} src={record.fields.HeaderImage[0].url}/>
             : 
            ""
           }
@@ -118,7 +153,7 @@ class Exhibition extends Component {
 
           </header>
 
-          <div className='toolbar'>
+          <div style={borderStyle} className='toolbar'>
             <div className='row'>
                <div className='col-4'>
                <ReactMarkdown source={record.fields.PageDateTimeText} /></div>
@@ -147,8 +182,8 @@ class Exhibition extends Component {
                 </div>
                 :
                 <div>
-                <img src={record.fields.PageHeroImages[0].url}></img>
-                <div className='toolbar'>
+                <img onClick={this.openLightbox} src={record.fields.PageHeroImages[0].url}></img>
+                <div style={borderStyle} className='toolbar'>
                  <div className='row'>
                   <div className='col-2'></div>
                   <div className='col-8'>{record.fields.PageHeroImageCaptions}</div>
@@ -169,7 +204,9 @@ class Exhibition extends Component {
                 {record.fields.PageBodyImages.map((x,i)=>{
 
                     return(
-                      <img className={record.fields.PageBodyImages.length > 2 ? "col-4" : "col-12"} src={x.url}></img>
+                      <div className={record.fields.PageBodyImages.length > 2 ? "col-4" : "col-12"} >
+                        <img  onClick={this.openLightbox} src={x.url} />
+                      </div>
                       )
                   })
       }
@@ -180,7 +217,7 @@ class Exhibition extends Component {
           :
           <div className='page-body container-fluid'>
             <div className='row'>
-              <div className='col-12 text-medium baskerville'><ReactMarkdown source={record.fields.PageDescription}/></div>
+              <div className={record.fields.PageBigText ? ' text-large baskerville col-12' :' text-medium baskerville col-12'}><ReactMarkdown source={record.fields.PageDescription}/></div>
             </div>
           </div>
         } 
@@ -189,7 +226,7 @@ class Exhibition extends Component {
             <div className='row'>
 
               <div className='col-6 '><ReactMarkdown style={bookButton} className='text-medium baskerville' source={record.fields.FeaturedBookText}/><a className='book-button' href={record.fields.FeaturedBookLink}><span className='text-medium'>Visit Bookshop</span></a></div>
-              <div className='col-6'><img src={record.fields.FeaturedBookImage[0].url}></img></div>
+              <div className='col-6'><img onClick={this.openLightbox} src={record.fields.FeaturedBookImage[0].url}></img></div>
             </div>
           </div>
         :""}
@@ -198,7 +235,7 @@ class Exhibition extends Component {
         </div>
        ) : 'loading'
     return (
-    <div className='exhibition'>
+    <div style={pageStyle} className='exhibition'>
       <Navigation></Navigation>
       <Menutrigger style={logoStyle}></Menutrigger>
           <Mainmenu></Mainmenu>
@@ -207,6 +244,10 @@ class Exhibition extends Component {
       
          {everything}
      </div>
+         <div className='archive-links'>
+          <h1 onClick={this.scrollTop} className='baskerville text-large'>Back to Top</h1>
+      </div>
+     <Footer style={borderStyle}></Footer>
      </div>
 
 

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import {Navigation} from '../';
-import {Mainmenu} from '../';
+import {Mainmenu, Footer} from '../';
 import {Menutrigger} from '../';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -22,8 +22,39 @@ class Event extends Component {
     
     };
     this.formatDate = this.formatDate.bind(this);
+    this.scrollTop = this.scrollTop.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
+        
+        this.handleScroll = this.handleScroll.bind(this);
+        this.openLightbox = this.openLightbox.bind(this);
    }
+    componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll);
+  }
+  scrollTop(){
+       window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+      openLightbox(e){
+    console.log(e)
+    var img_url = e.target.src;
+    var newImg = document.createElement('img');
+    newImg.src = img_url;
+    var lightbox = document.getElementById('light-box');
+    var lightboxInner = lightbox.getElementsByClassName("inner")[0];
+    lightboxInner.innerHTML = '';
+    lightboxInner.appendChild(newImg);
+    lightbox.classList.add('on')
+
+  }
+     handleScroll(){
+    document.getElementsByClassName('App-header');
+    var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    if(scrollTop > 0){
+      document.getElementsByClassName('App-header')[0].classList.add('small-header')
+    } else{
+      document.getElementsByClassName('App-header')[0].classList.remove('small-header')
+    }
+  }
     getOrdinalNum(number) {
       let selector;
 
@@ -56,11 +87,16 @@ class Event extends Component {
 
    render() {
     const {record} = this.props
+     var navStyle= {
+        backgroundColor: record.fields.PageBackgroundColor
+      }
     var pageStyle = {
         backgroundColor: record.fields.PageBackgroundColor,
-        borderColor: record.fields.PageLineColor,
         color: record.fields.PageTextColor
       };
+    var borderStyle={
+      borderColor: record.fields.PageLineColor,
+    }
       var bookButton = {
         color: record.fields.PageBackgroundColor
       }
@@ -77,7 +113,7 @@ class Event extends Component {
 
                     return(
                       <div>
-                      <img src={x.url}></img>
+                      <img onClick={this.openLightbox} src={x.url}></img>
                       <div className='caption row'>
                         
                       {record.fields.PageHeroImageCaptions ? 
@@ -101,15 +137,15 @@ class Event extends Component {
     (
        
         <div className='event-page' key={record.id} >
-          <div className='banner row'>
-            <div className='header text-medium baskerville'> Event </div>
+          <div style={navStyle} className='banner row'>
+            <div style={borderStyle} className='header text-medium '> Event </div>
           </div>
 
             <div className='row'>
           <div className='col-6'>
             <header>
             {record.fields.HeaderImage ? 
-              <img src={record.fields.HeaderImage[0].url}/>
+              <img onClick={this.openLightbox} src={record.fields.HeaderImage[0].url}/>
               : 
              ""
             }
@@ -121,17 +157,25 @@ class Event extends Component {
 
             </header>
 
-            <div className='toolbar'>
-              <div className='row'>
+            <div style={borderStyle} className='toolbar'>
+            {record.fields.PageDateTimeText ? 
+                <div className='row'>
                  <div className='col-6'>
-                 <ReactMarkdown source={record.fields.PageDateTimeText} /></div>
+                 <ReactMarkdown source={record.fields.PageDateTimeText} />
+                 </div>
                  <div className='col-6'>
                  <ReactMarkdown source={record.fields.PageDetailsRight} />
                 </div>
-           
-              </div>
+                </div>
+               : 
+               <div className='row'>
+                 <div className='col-12'>
+                 <ReactMarkdown source={record.fields.PageDetailsRight} />
+                </div></div>}
+
+        
             </div>
-            <div className=' text-small baskerville'><ReactMarkdown source={record.fields.PageDescription}/></div>
+            <div className={record.fields.PageBigText ? ' text-large baskerville' :' text-small baskerville'}><ReactMarkdown source={record.fields.PageDescription}/></div>
           </div>
           <div className='col-6 second-column'>
           {record.fields.PageHeroImages ?
@@ -145,11 +189,10 @@ class Event extends Component {
                 </div>
                 :
                 <div>
-                <img src={record.fields.PageHeroImages[0].url}></img>
-                <div className='toolbar'>
+                <img onClick={this.openLightbox} src={record.fields.PageHeroImages[0].url}></img>
+                <div style={borderStyle} className='toolbar'>
                  <div className='row'>
-                  <div className='col-2'></div>
-                  <div className='col-8'>{record.fields.PageHeroImageCaptions}</div>
+                  <div className='col-12 image-caption'>{record.fields.PageHeroImageCaptions}</div>
                  
                   </div>
                 </div>
@@ -164,7 +207,7 @@ class Event extends Component {
         </div>
        ) : 'loading'
     return (
-    <div className='exhibition'>
+    <div style={pageStyle} className='exhibition'>
       <Navigation></Navigation>
       <Menutrigger style={logoStyle}></Menutrigger>
           <Mainmenu></Mainmenu>
@@ -173,6 +216,10 @@ class Event extends Component {
       
          {everything}
      </div>
+     <div className='archive-links'>
+          <h1 onClick={this.scrollTop} className='baskerville text-large'>Back to Top</h1>
+      </div>
+     <Footer style={borderStyle}></Footer>
      </div>
 
 

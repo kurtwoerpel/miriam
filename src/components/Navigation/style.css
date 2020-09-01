@@ -16,6 +16,68 @@ nav{
 	transform:rotate(-45deg) translateY(25px) translateX(-45px);
 	
 }
+.happening.small-header .logo{
+	position: fixed;
+}
+.happening.small-header .banner{
+	position: fixed;
+	left:15px;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+.happening.small-header .header.text-large.baskerville{
+  font-size:24px;
+  line-height: 1.3;
+  position: fixed;
+  top:0;
+  background: white;
+  z-index: 1;
+  width:calc(100% - 50px);
+}
+ .happening.small-header .main-area{
+	margin-top:125px;
+}
+.happening.small-header .header {
+    padding: 10px 0;
+    margin: 18px 25px 0;
+    font-size:24px;
+}
+
+ .happening.small-header .whitearea{
+	background: white;
+	position: fixed;
+	width:100%;
+	z-index: 1;
+	overflow: hidden;
+	height:100px;
+	top:0;
+	left:0;
+}
+ .happening.small-header .sub-menu{
+	background: white;
+	z-index: 1;
+	top:60px;
+	width:calc(100% - 50px);
+	position: fixed;
+}
+ .happening.small-header nav .logo, .happening.small-header .exhibition > .logo {
+  border: none;
+  font-size: 24px;
+  height: auto;
+  width:auto;
+  line-height: 1;
+  margin-top:5px;
+  padding:0;
+/*  background:transparent;*/
+  outline:none;
+}
+.happening.small-header .nav-bookstore{
+	transform:none;
+	top: 25px;
+    position: fixed;
+    right: 25px;
+}
 .nav-bookstore a{
 	text-decoration: none;
 }

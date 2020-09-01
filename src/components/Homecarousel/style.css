@@ -11,6 +11,18 @@
 	padding:25px;
 	
 }
+.carousel-slide a{
+ border:none;
+ transition:0.2s;
+}
+.carousel-slide a{
+	display: inline-block;
+}
+.carousel-slide a:hover{
+ border:none;
+ opacity: 0.9;
+ transform: rotateY(-25deg)
+}
 .carousel-slide > div{
 display: flex;
 	flex-direction: column;
@@ -38,8 +50,8 @@ display: flex;
 margin-bottom:15px;
 		width:auto;
 
-		max-height:30vw;
-	min-height:30vw;
+		max-height:25vw;
+	min-height:25vw;
 	position: relative;
 }
 

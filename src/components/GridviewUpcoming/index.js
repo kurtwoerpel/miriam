@@ -60,7 +60,7 @@ class GridviewUpcoming extends Component {
     const {records, tense} = this.props
     const everythings = records.length > 0 ? records.map((x)=>{
       const divStyle={
-        backgroundImage: (!x.fields.HeroImages ? '' : "url(" + x.fields.HeroImages[0].url + ")"),
+        backgroundImage: (!x.fields.PageHeroImages ? '' : "url(" + x.fields.PageHeroImages[0].url + ")"),
         backgroundSize: "cover",
         backgroundPosition: "center"
       }
@@ -104,7 +104,7 @@ class GridviewUpcoming extends Component {
          linkroot = '/exhibition/'
       }else if(x.type == 'event'){
         linkroot = '/event/'
-      }else if(x.type == 'announcement'){
+      }else {
         linkroot = '/announcement/'
       }
     
@@ -118,31 +118,34 @@ class GridviewUpcoming extends Component {
         </a>
        )
       }) : 'loading'
-     if(tense == 'upcoming' && upcoming.length == 1){
-       var linkroot = ''
-      if(upcoming[0].type == 'exhibition'){
-         linkroot = '/exhibition/'
-      }else if(upcoming[0].type == 'event'){
-        linkroot = '/event/'
-      }else {
-        linkroot = '/announcement/'
-      }
-      window.location.href=linkroot+upcoming[0].id
-    }
-    if(tense == 'current' && current.length == 1){
-       var linkroot = ''
-      if(current[0].type == 'exhibition'){
-         linkroot = '/exhibition/'
-      }else if(current[0].type == 'event'){
-        linkroot = '/event/'
-      }else if(current[0].type == 'announcement'){
-        linkroot = '/announcement/'
-      }
-      window.location.href=linkroot+current[0].id
-    }
+    //  if(tense == 'upcoming' && upcoming.length == 1){
+    //    var linkroot = ''
+    //   if(upcoming[0].type == 'exhibition'){
+    //      linkroot = '/exhibition/'
+    //   }else if(upcoming[0].type == 'event'){
+    //     linkroot = '/event/'
+    //   }else {
+    //     linkroot = '/announcement/'
+    //   }
+    //   window.location.href=linkroot+upcoming[0].id
+    // }
+    // if(tense == 'current' && current.length == 1){
+    //    var linkroot = ''
+    //   if(current[0].type == 'exhibition'){
+    //      linkroot = '/exhibition/'
+    //   }else if(current[0].type == 'event'){
+    //     linkroot = '/event/'
+    //   }else if(current[0].type == 'announcement'){
+    //     linkroot = '/announcement/'
+    //   }
+    //   window.location.href=linkroot+current[0].id
+    // }
     return (
 
      <div className='grid-view upcoming row'>
+     {upcoming.length < 1 ?
+              <div>more coming soon...</div>
+              :""}
          {everythings}
      </div>
 

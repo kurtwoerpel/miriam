@@ -3,6 +3,7 @@ footer{
 	margin:0 25px;
 	margin-right:25px;
 	margin-left:25px;
+	margin-top:15px;
 	border-top:1px solid black;
 	padding:15px 0;
 }
@@ -16,6 +17,8 @@ footer .col-3 p{
 	font-weight: normal;
 }
 footer .col-3 h1{
+	font-size: 18px;
+    margin: 0;
 	font-weight: bold;
 }
 @media(max-width: 768px){

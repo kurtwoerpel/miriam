@@ -20,8 +20,31 @@ class Listview extends Component {
     this.formatDate = this.formatDate.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
     this.filterTags = this.filterTags.bind(this);
+    this.onToggleOpen = this.onToggleOpen.bind(this);
    }
+  onToggleOpen(e){
+ var el = e.target;
+    if(el.classList.contains('list-item')){
+      el = e.target;
+    }else{
+      el = e.target.closest(".list-item");
+    }
+    console.log('mew')
+    el.style.background = e.target.getAttribute('data-bg-color')
+    el.style.color = e.target.getAttribute('data-color')
+  }
+  onToggleClose(e){
+    var el = e.target
+     if(el.classList.contains('list-item')){
+       el = e.target;
+    }else{
+       el = e.target.closest(".list-item");
+    }
 
+    console.log('mew')
+    el.style.background = "white"
+    el.style.color = "black"
+  }
   filterTags(e){
 
     let currentClass = e.target.text;
@@ -82,11 +105,16 @@ class Listview extends Component {
     let current = [];
     let urlswitch = false;
     let allTags = [];
+
     const everythings = records.length > 0 ? records.map((x)=>{
       const divStyle={
         backgroundImage: (!x.fields.PageHeroImages ? '' : "url(" + x.fields.PageHeroImages[0].url + ")"),
         backgroundSize: "cover",
         backgroundPosition: "center"
+      }
+      var listStyle = {
+        background: x.fields.ThumbnailBgColor,
+        color: x.fields.ThumbnailColor
       }
       if(x.fields.Tags){
         for (var i = x.fields.Tags.split(" ").length - 1; i >= 0; i--) {
@@ -129,21 +157,20 @@ class Listview extends Component {
       }
       return(
 
-        <a href={linkroot+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on row" :  x.fields.Tags + " "+ dateClass + " list-item row"} >
+        <a onMouseEnter={this.onToggleOpen} onMouseLeave={this.onToggleClose} data-bg-color={x.fields.ThumbnailBgColor} data-color={x.fields.ThumbnailColor} href={linkroot+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on row" :  x.fields.Tags + " "+ dateClass + " list-item row"} >
           <h1 className='text-small baskerville col-special'>{x.fields.Title}</h1>
           <div className='text-small baskerville col-special'>
-          {x.fields.StartDate ? 
           
-          <h1 className='text-small baskerville'>{this.formatDate(new Date(x.fields.StartDate))[0]}<br></br>{this.formatDate(new Date(x.fields.StartDate))[1]}</h1>
-            : <h1 className='text-small baskerville '></h1> }
-            {x.fields.EndDate ? 
-          <h1 className='text-small baskerville'> - {this.formatDate(new Date(x.fields.EndDate))[0]}<br></br>{this.formatDate(new Date(x.fields.EndDate))[1]}</h1>
-            : <h1 className='text-small baskerville '></h1> }
+          <h1 className='text-small baskerville'>{x.fields.PageDateTimeText}</h1>
+         
+     
             </div>
-          <div className='text-small baskerville col-special'>{x.fields.Tags ? (x.fields.Tags.split(' ').join(', ')) :""}</div>
+          <div className='text-small baskerville col-special'>{x.fields.Tags ? (x.fields.Tags.split(',').join(', ')) :""}</div>
           <h1 className='people text-small baskerville col-special'><ReactMarkdown source= {x.fields.People}></ReactMarkdown></h1>
-          <div style={divStyle} className='col-special'>
-          
+          <div className='col-special'>
+            {x.fields.PageHeroImages ? 
+              <img src={x.fields.PageHeroImages[0].url}/>
+            :""}
           </div>
           
         </a>

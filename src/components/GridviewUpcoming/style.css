@@ -9,6 +9,9 @@
 .grid-item.on{
 	display:block;
 }
+.upcoming.grid-item h1.title{
+	font-weight:normal;
+}
 .grid-item h1{
 	font-weight:bold;
 	margin:0;

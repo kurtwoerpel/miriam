@@ -17,6 +17,9 @@
 .event-page .toolbar .col-6 p{
 	margin:0;
 }
+.image-caption{
+	text-align: center;
+}
 .event-page .toolbar{
 	margin:10px 0;
 	width:100%;

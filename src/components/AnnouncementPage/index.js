@@ -44,7 +44,7 @@ class AnnouncementPage extends Component {
      <header className="App-header happening">
    
          {this.findRecord()}
-         <Footer></Footer>
+        
       </header>
 
 

@@ -25,7 +25,7 @@ class Footer extends Component {
 
     return (
 
-     <footer>
+     <footer style={this.props.style}>
      <div className='row'>
         <div className='col-3'>
           <h1 className='text-small'>Miriam</h1>
@@ -40,7 +40,7 @@ class Footer extends Component {
             </p>
         </div>
         <div className='col-3'>
-            <p className='text-tiny baskerville'>info@miriamgallery.com</p>
+            <p className='text-tiny baskerville'><a>Join Our Mailing List</a><br/>info@miriamgallery.com</p>
         </div>
         </div>
       </footer>
