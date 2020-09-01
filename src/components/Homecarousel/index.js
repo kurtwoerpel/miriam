@@ -135,12 +135,20 @@ class Homecarousel extends Component {
     }
     const slides = carousel_slides.length > 0 ? carousel_slides.map((x,i)=>{
       if(x.fields.public){
-      var divStyle = {
-        backgroundColor: x.fields.BackgroundColor,
-        backgroundImage: (x.fields.BackgroundImage ? 'url(' + x.fields.BackgroundImage[0].url + ')' : 'none')
-        // WebkitTransition: 'all', // note the capital 'W' here
-        // msTransition: 'all' // 'ms' is the only lowercase vendor prefix
-      };
+        if(x.fields.TileBg){
+           var divStyle = {
+            backgroundColor: x.fields.BackgroundColor,
+            backgroundImage: (x.fields.BackgroundImage ? 'url(' + x.fields.BackgroundImage[0].url + ')' : 'none'),
+            backgroundRepeat:"repeat",
+            backgroundSize: "10vw"
+          }
+        }else{
+          var divStyle = {
+            backgroundColor: x.fields.BackgroundColor,
+            backgroundImage: (x.fields.BackgroundImage ? 'url(' + x.fields.BackgroundImage[0].url + ')' : 'none')
+          }
+        }
+      
       var logoStyle = {
       	backgroundColor: x.fields.LogoBackgroundColor,
       	color: x.fields.LogoColor
@@ -168,7 +176,11 @@ class Homecarousel extends Component {
           <Menutrigger style={logoStyle}></Menutrigger>
           <h1 style={headlineStyle} className='text-large baskerville title'>{x.fields.Headline}</h1>
            {!x.fields.HeroImage ? '' :
-            <img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/>
+
+            
+            <div className={x.fields.HeroImageStyle}><img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/></div>
+           
+            
           }
           <div>
           {!x.fields.SubHeading ? '' :
@@ -187,7 +199,7 @@ class Homecarousel extends Component {
           <Menutrigger style={logoStyle}></Menutrigger>
           <div><a href={x.fields.Slidelink} ><h1 style={headlineStyle} className='text-large baskerville title'>{x.fields.Headline}</h1></a></div>
            {!x.fields.HeroImage ? '' :
-           <div> <a href={x.fields.Slidelink} ><img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/></a></div>
+           <div> <a href={x.fields.Slidelink} > <div className={x.fields.HeroImageStyle}><img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/></div></a></div>
           }
           {!x.fields.SubHeading ? '' :
           <div><a href={x.fields.Slidelink} ><h1 style={subheadlineStyle} className='text-large baskerville'>{x.fields.SubHeading}</h1></a></div>

@@ -11,6 +11,50 @@
 	padding:25px;
 	
 }
+.full-bleed{
+	overflow: visible;
+	top:0;
+	left:50%;
+	transform:translateX(-50%);
+	pointer-events: none;
+	z-index: 2;
+	text-align: center;
+	position: absolute;
+}
+.full-bleed img{
+
+	top:0;
+	left:0;
+	width: auto;
+	min-height:100vh;
+/*	min-height:100vh;*/
+}
+.crop-height .carousel-slide-image{
+	max-height: none;
+	min-height: none;
+	margin-top:-50%;
+	transform:translateY(50%);
+}
+.crop-height {
+	overflow: hidden;
+	max-height:40vh;
+	height:40vh;
+}
+
+.crop-width .carousel-slide-image{
+	max-height: 40vh;
+	overflow-y:visible;
+	width: auto;
+	max-width: none;
+	margin-left:-25%;
+
+}
+.crop-width {
+	overflow-x: hidden;
+	max-width:40vh;
+	width:40vh;
+}
+
 .carousel-slide a{
  border:none;
  transition:0.2s;

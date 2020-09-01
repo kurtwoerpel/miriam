@@ -111,8 +111,8 @@ class Exhibition extends Component {
       var slides = record.fields.PageHeroImages.map((x,i)=>{
 
                     return(
-                      <div>
-                      <img  onClick={this.openLightbox} src={x.url}></img>
+                      <div className={record.fields.PageHeroImageStyle}>
+                      <img onClick={this.openLightbox} src={x.url}></img>
                       <div className='caption row'>
                         <span className='counter col-2'>{(i+1)+"/"+ record.fields.PageHeroImages.length}</span>
                       {record.fields.PageHeroImageCaptions ? 
@@ -167,7 +167,7 @@ class Exhibition extends Component {
               <div className='top'>
               {record.fields.PageHeroImages.length > 1 ?
 
-                <div>
+                <div className={record.fields.PageHeroImageStyle}>
                 {record.fields.PageHeroImagesGrid ? 
                   <div className='hero-grid'>
                   {slides}
@@ -181,7 +181,7 @@ class Exhibition extends Component {
               }
                 </div>
                 :
-                <div>
+                <div className={record.fields.PageHeroImageStyle}>
                 <img onClick={this.openLightbox} src={record.fields.PageHeroImages[0].url}></img>
                 <div style={borderStyle} className='toolbar'>
                  <div className='row'>

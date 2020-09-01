@@ -21,6 +21,34 @@ padding: 23px 0;
 .col-4 img{
 	margin:5px 0;
 }
+.top .inset img{
+	height: 80vh;
+	width: auto;
+}
+.top .inset {
+	text-align: center;
+}
+.top .crop-height , .top .crop-width {
+	overflow: hidden;
+}
+.top .crop-height{
+	height: 80vh;
+	min-height:80vh;
+}
+.top .crop-width{
+	width: calc(100vw - 10px);
+	text-align: center;
+	max-width: none;
+}
+.top .crop-height img{
+	width: calc(100% - 30px);
+	height: auto;
+}
+.top .crop-width img{
+	height: 80vh;
+	max-width: none;
+	width: auto;
+}
 .exhibition .col-6 .row{
 	margin:0;
 }
