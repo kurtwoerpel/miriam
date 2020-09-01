@@ -6,7 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import slugify from "react-slugify"
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class GridviewCurrent extends Component {
@@ -109,7 +109,7 @@ if(dateClass == tense){
         linkroot = '/announcement/'
       }
       return(
-            <a style={thumbStyle} href={linkroot+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on " :  x.fields.Tags + " "+ dateClass + " grid-item "} >
+            <a style={thumbStyle} href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on " :  x.fields.Tags + " "+ dateClass + " grid-item "} >
               <div className='grid-image' style={divStyle}></div>
               <div className='grid-text'>
                 <h1 className='text-large title baskerville'>{x.fields.Title}</h1>

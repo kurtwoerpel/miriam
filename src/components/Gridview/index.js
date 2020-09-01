@@ -6,7 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import slugify from "react-slugify"
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Gridview extends Component {
@@ -106,7 +106,7 @@ class Gridview extends Component {
         linkroot = '/announcement/'
       }
         return(
-        <a href={linkroot+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-special" :  x.fields.Tags + " "+ dateClass + " grid-item col-special"} >
+        <a href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-special" :  x.fields.Tags + " "+ dateClass + " grid-item col-special"} >
           <div className='grid-image' style={divStyle}></div>
           <h1 className='text-tiny title'>{x.fields.Title}</h1>
           <h1 className='text-tiny baskerville'>{x.fields.PageDateTimeText}</h1>

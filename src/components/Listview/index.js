@@ -8,7 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-
+import slugify from "react-slugify"
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Listview extends Component {
 
@@ -157,7 +157,7 @@ class Listview extends Component {
       }
       return(
 
-        <a onMouseEnter={this.onToggleOpen} onMouseLeave={this.onToggleClose} data-bg-color={x.fields.ThumbnailBgColor} data-color={x.fields.ThumbnailColor} href={linkroot+x.id} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on row" :  x.fields.Tags + " "+ dateClass + " list-item row"} >
+        <a onMouseEnter={this.onToggleOpen} onMouseLeave={this.onToggleClose} data-bg-color={x.fields.ThumbnailBgColor} data-color={x.fields.ThumbnailColor} href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on row" :  x.fields.Tags + " "+ dateClass + " list-item row"} >
           <h1 className='text-small baskerville col-special'>{x.fields.Title}</h1>
           <div className='text-small baskerville col-special'>
           
