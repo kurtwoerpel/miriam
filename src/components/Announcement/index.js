@@ -188,7 +188,7 @@ class Announcement extends Component {
                 </div></div>}
               
             </div>
-            <div className={record.fields.PageBigText ? 'text-large' : ' text-small baskerville'}><ReactMarkdown className={record.fields.PageSkinny ? "page-skinny" : ""} source={record.fields.PageDescription} /></div>
+            <div className={record.fields.PageBigText ? 'text-medium' : ' text-small baskerville'}><ReactMarkdown className={record.fields.PageSkinny ? "page-skinny" : ""} source={record.fields.PageDescription} /></div>
           </div>          
           </div>
         </div>
