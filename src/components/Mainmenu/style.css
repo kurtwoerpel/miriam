@@ -73,6 +73,7 @@
   #main-menu{
       width: calc(100%);
       display: block;
+      padding:10px;
       height: auto;
       min-height: 100vh;
   }
@@ -90,12 +91,15 @@
     text-align: center;
     display: block;
     position: relative;
-    margin-top: 55px;
+    margin-top: 75px;
   }
   #main-menu ul a{
     display: block;
     padding:10px;
     border-bottom: 1px solid inherit;
+  }
+  #main-menu ul a{
+    border-top:1px solid inherit;
   }
   .menu-image{
     display: none;

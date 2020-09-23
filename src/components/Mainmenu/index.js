@@ -45,6 +45,7 @@ class Mainmenu extends Component {
     let logoStyle;
     let menuStyle;
     let aStyle;
+    let afirstStyle;
     if(info){
       logoStyle = {
         'color': info[0].fields.LogoTextColor,
@@ -60,6 +61,11 @@ class Mainmenu extends Component {
         
         'borderBottom': "1px solid " + info[0].fields.MenuTextColor
       }
+      afirstStyle = {
+        
+        'borderTop': "1px solid " + info[0].fields.MenuTextColor,
+         'borderBottom': "1px solid " + info[0].fields.MenuTextColor
+      }
     }
     
     
@@ -69,7 +75,7 @@ class Mainmenu extends Component {
       <div className='blanket' onClick={this.blanketClose}><span></span><span></span></div>
        <a href='/'><div style={logoStyle} className='logo text-medium'>Miriam</div></a>
          <ul className='text-small baskerville'>
-            <li><a style={aStyle} href='/current'>Current</a></li>
+            <li><a style={afirstStyle} href='/current'>Current</a></li>
             <li><a style={aStyle} href='/upcoming'>Upcoming</a></li>
             <li><a style={aStyle} href='/past'>Past</a></li>
             <li><a style={aStyle} href='/info'>Info</a></li>
