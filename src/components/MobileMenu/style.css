@@ -1,0 +1,26 @@
+.mobile-menu-trigger{
+	display:none;
+	border: 1px solid black;
+}
+.mobile-menu-trigger span{
+	height: 13px;
+	width: 60px;
+	display: block;
+}
+.mobile-menu-trigger span{
+	border-bottom: 1px solid black;
+
+}
+.mobile-menu-trigger span:last-child{
+   border-bottom:none;
+
+}
+@media(max-width: 768px){
+	.mobile-menu-trigger{
+		display: block;
+		position: fixed;
+		top:10px;
+		right:10px;
+		z-index: 9;
+	}
+}

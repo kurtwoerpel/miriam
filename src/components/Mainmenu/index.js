@@ -43,7 +43,8 @@ class Mainmenu extends Component {
     const {info} = this.state
     console.log(info)
     let logoStyle;
-    let menuStyle
+    let menuStyle;
+    let aStyle;
     if(info){
       logoStyle = {
         'color': info[0].fields.LogoTextColor,
@@ -52,7 +53,12 @@ class Mainmenu extends Component {
 
       menuStyle = {
         'color': info[0].fields.MenuTextColor,
+        'borderColor': info[0].fields.MenuTextColor,
         'backgroundColor': info[0].fields.MenuBackgroundColor
+      }
+       aStyle = {
+        
+        'borderBottom': "1px solid " + info[0].fields.MenuTextColor
       }
     }
     
@@ -60,14 +66,14 @@ class Mainmenu extends Component {
     return (
 
       <div style={menuStyle} id='main-menu'>
-      <div className='blanket' onClick={this.blanketClose}></div>
+      <div className='blanket' onClick={this.blanketClose}><span></span><span></span></div>
        <a href='/'><div style={logoStyle} className='logo text-medium'>Miriam</div></a>
          <ul className='text-small baskerville'>
-            <li><a href='/current'>Current</a></li>
-            <li><a href='/upcoming'>Upcoming</a></li>
-            <li><a href='/past'>Past</a></li>
-            <li><a href='/info'>Info</a></li>
-            <li><a>Bookshop</a></li>
+            <li><a style={aStyle} href='/current'>Current</a></li>
+            <li><a style={aStyle} href='/upcoming'>Upcoming</a></li>
+            <li><a style={aStyle} href='/past'>Past</a></li>
+            <li><a style={aStyle} href='/info'>Info</a></li>
+            <li><a style={aStyle}>Bookshop</a></li>
          </ul>
          
          {info ? 
@@ -77,9 +83,9 @@ class Mainmenu extends Component {
             <img src ={info[0].fields.MenuImage[0].url}/>
             :""}
           </div>
-         <div className='info-menu text-tiny'>
-         <ReactMarkdown source={info[0].fields.LocationText} />
-         <ReactMarkdown source={info[0].fields.HoursText} />
+         <div className='info-menu text-tiny row'>
+         <ReactMarkdown className="col-6 col-lg-12" source={info[0].fields.LocationText} />
+         <ReactMarkdown className="col-6 col-lg-12" source={info[0].fields.HoursText} />
          </div>
          </div>
          : 'poop' }

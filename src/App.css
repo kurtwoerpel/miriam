@@ -2,6 +2,9 @@
    font-family:'BrownPro', sans-serif;
    font-size:24px;
 }
+header{
+  overflow-x:hidden;
+}
 ul{
   list-style: none;
   padding:0;
@@ -86,7 +89,7 @@ hr{
     font-size: 24px;
   }
   .text-large{
-    font-size: 45px;
+    font-size: 35px;
   }
 
 }

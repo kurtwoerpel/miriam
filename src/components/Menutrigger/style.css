@@ -25,11 +25,20 @@
 }
 
 @media(max-width: 768px){
-	.logo{
-		width:86px;
-		height:35px;
-		padding:0 3px;
-		top:5px;
-		left:5px;
+	nav{
+		border-bottom:1px solid black;
+		margin-top:80px;
+		width: calc(100% - 16px);
+		left: 8px;
+	}
+	.pastpage .logo{
+		top:10px;
+	}
+	.logo {
+	    width: auto;
+	    height: auto;
+	    padding: 11px 10px;
+	    top: 10px;
+	    left: 10px;
 	}
 }

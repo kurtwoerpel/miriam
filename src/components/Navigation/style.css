@@ -90,13 +90,14 @@ nav{
 @media(max-width: 768px){
 	.nav-bookstore {
 		top:0;
+		display: none;
 	    right: 5px;
 	    max-width: 67px;
 	    overflow: hidden;
 	    text-decoration: none;
 	    font-weight: bold;
 	    width: auto;
-	    display: inline-block;
+/*	    display: inline-block;*/
 	    float: right;
 	    transform: rotate(-12deg) translateY(0px) translateX(-10px);
 	}

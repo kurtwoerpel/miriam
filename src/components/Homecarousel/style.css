@@ -9,8 +9,8 @@
 	background-size:cover;
 	text-align: center;
 	padding:25px;
-	
 }
+
 .full-bleed{
 	overflow: visible;
 	top:0;
@@ -167,10 +167,14 @@ margin-bottom:15px;
 		right:10px;
 	}
 	.carousel-slide{
-		padding:50px 10px 25px;
+		height: calc(100vh);
+		padding:100px 10px 35px;
+	}
+	.carousel-slide > div{
+		height: calc(100vh - 135px);
 	}
 	.carousel-slide-image{
-		max-height:40vh;
+		max-height:30vh;
 		width:auto;
 	}
 	
