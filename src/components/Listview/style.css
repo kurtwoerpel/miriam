@@ -118,7 +118,7 @@ button[aria-expanded="true"]{
 	.pastpage.list-header nav .logo{
 		width: auto;
 		height: auto;
-		left: -2px;
+		left: 8px;
 		 padding: 11px 10px;
 		 transform: none;
 	}

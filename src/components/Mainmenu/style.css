@@ -3,6 +3,9 @@
 	padding:0;
 	margin-top:100px;
 }
+#main-menu ul a:first-child{
+   padding-top:50px;
+  }
 #main-menu a{
   text-decoration: none;
 }
@@ -92,6 +95,9 @@
     display: block;
     position: relative;
     margin-top: 75px;
+  }
+  #main-menu ul a:first-child{
+   padding-top:10px;
   }
   #main-menu ul a{
     display: block;
