@@ -16,6 +16,35 @@ nav{
 	transform:rotate(-45deg) translateY(25px) translateX(-45px);
 	
 }
+
+.nav-bookstore a{
+	text-decoration: none;
+}
+.nav-bookstore:hover{
+	filter:invert(100%);
+	-webkit-filter:invert(100%);
+	-moz-filter:invert(100%);
+	-o-filter:invert(100%);
+}
+@media(max-width: 768px){
+	.nav-bookstore {
+		top:0;
+		display: none;
+	    right: 5px;
+	    max-width: 67px;
+	    overflow: hidden;
+	    text-decoration: none;
+	    font-weight: bold;
+	    width: auto;
+/*	    display: inline-block;*/
+	    float: right;
+	    transform: rotate(-12deg) translateY(0px) translateX(-10px);
+	}
+	.logo{
+		position: fixed;
+	}
+}
+@media(min-width: 768px){
 .happening.small-header .logo{
 	position: fixed;
 }
@@ -78,27 +107,4 @@ nav{
     position: fixed;
     right: 25px;
 }
-.nav-bookstore a{
-	text-decoration: none;
-}
-.nav-bookstore:hover{
-	filter:invert(100%);
-	-webkit-filter:invert(100%);
-	-moz-filter:invert(100%);
-	-o-filter:invert(100%);
-}
-@media(max-width: 768px){
-	.nav-bookstore {
-		top:0;
-		display: none;
-	    right: 5px;
-	    max-width: 67px;
-	    overflow: hidden;
-	    text-decoration: none;
-	    font-weight: bold;
-	    width: auto;
-/*	    display: inline-block;*/
-	    float: right;
-	    transform: rotate(-12deg) translateY(0px) translateX(-10px);
-	}
 }

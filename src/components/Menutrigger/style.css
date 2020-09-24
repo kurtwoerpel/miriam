@@ -39,6 +39,7 @@
 	    height: auto;
 	    padding: 11px 10px;
 	    top: 10px;
+	    position: fixed;
 	    left: 10px;
 	}
 	.pastpage nav .logo {

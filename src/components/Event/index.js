@@ -142,7 +142,7 @@ class Event extends Component {
           </div>
 
             <div className='row'>
-          <div className='col-6'>
+          <div className='col-12 col-sm-6'>
             <header>
             {record.fields.HeaderImage ? 
               <img onClick={this.openLightbox} src={record.fields.HeaderImage[0].url}/>
@@ -177,7 +177,7 @@ class Event extends Component {
             </div>
             <div className={record.fields.PageBigText ? ' text-large baskerville' :' text-small baskerville'}><ReactMarkdown source={record.fields.PageDescription}/></div>
           </div>
-          <div className='col-6 second-column'>
+          <div className='col-12 col-sm-6 second-column'>
           {record.fields.PageHeroImages ?
               <div className='top'>
               {record.fields.PageHeroImages.length > 1 ?

@@ -198,13 +198,13 @@ class Exhibition extends Component {
         {record.fields.PageBodyImages ? 
           <div className='page-body container-fluid'>
             <div className='row'>
-              <div className='col-6 text-small baskerville'><ReactMarkdown source={record.fields.PageDescription}/></div>
-              <div className='col-6 second-column text-small baskerville'>
+              <div className='col-12 col-sm-6 text-small baskerville'><ReactMarkdown source={record.fields.PageDescription}/></div>
+              <div className='col-12 col-sm-6 second-column text-small baskerville'>
               <div className='row'>
                 {record.fields.PageBodyImages.map((x,i)=>{
 
                     return(
-                      <div className={record.fields.PageBodyImages.length > 2 ? "col-4" : "col-12"} >
+                      <div className={record.fields.PageBodyImages.length > 2 ? "col-6 col-sm-4" : "col-12"} >
                         <img  onClick={this.openLightbox} src={x.url} />
                       </div>
                       )
