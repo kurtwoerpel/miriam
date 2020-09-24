@@ -7,20 +7,24 @@ footer{
 	border-top:1px solid black;
 	padding:15px 0;
 }
-footer .col-3{
+footer .col-sm-3{
 	text-align: center;
 	display: flex;
 	flex-direction: column;	
 	justify-content: center;
 }
-footer .col-3 p{
+footer .col-sm-3 p{
 	font-weight: normal;
 }
-footer .col-3 h1{
+footer .col-sm-3 h1{
 	font-size: 18px;
     margin: 0;
 	font-weight: bold;
 }
 @media(max-width: 768px){
+   footer .col-sm-3{
+   	text-align: left;
+   	word-break: break-word;
 
+   }
 }
