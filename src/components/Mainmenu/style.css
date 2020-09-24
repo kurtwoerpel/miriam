@@ -99,6 +99,9 @@
   #main-menu ul a:first-child{
    padding-top:10px;
   }
+  #main-menu ul li:first-child a{
+   padding-top:10px;
+  }
   #main-menu ul a{
     display: block;
     padding:10px;
