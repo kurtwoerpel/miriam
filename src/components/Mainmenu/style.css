@@ -3,7 +3,7 @@
 	padding:0;
 	margin-top:100px;
 }
-#main-menu ul a:first-child{
+#main-menu ul li:first-child a{
    padding-top:50px;
   }
 #main-menu a{

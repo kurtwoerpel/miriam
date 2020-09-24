@@ -23,6 +23,7 @@ h1.mailing{
 }
 .info-page .text-large.description-text{
 	line-height: 1;
+	margin-top:20px;
 }
 .info-page .col-sm-12{
 	padding:0 10px;

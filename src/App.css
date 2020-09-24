@@ -20,6 +20,12 @@ ul{
   background: rgba(0,0,0,0.9);
   display: none;
 }
+.oops-image{
+  display: block;
+  margin:0 auto;
+  margin-top:100px;
+  max-height: 400px;
+}
 #light-box img{
   max-height:90vh;
 }
@@ -79,7 +85,7 @@ hr{
   text-align: center;
   width:100%;
   max-width: 1050px;
-  margin:200px auto 0;
+  margin:20px auto 0;
 }
 @media(max-width: 768px){
   .text-small{

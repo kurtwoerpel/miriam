@@ -92,10 +92,47 @@ button[aria-expanded="true"]{
 	margin:0;
 	padding:0px;
 	}
+	.list-item-menu .col-special{
+		display: none;
+	}
+	.list-item-menu .col-special:nth-child(2){
+		display: inline-block;
+		width: 50%;
+		font-size:24px;
+		border-bottom:1px solid black;
+		margin:0;
+		padding:5px 0;
+	}
+	.list-item-menu .col-special:nth-child(3){
+		display: inline-block;
+		width: 50%;
+		font-size:24px;
+		background: black;
+		color:white;
+		margin:0;
+		padding:5px 10px;
+	}
+	.list-item-menu{
+		margin:0;
+		position: fixed;
+		width:100%;
+		left:0;
+		top:80px;
+		background: white;
+		z-index: 9;
+		border-bottom:none;
+		padding:0;
+		padding:0 10px;
+	}
+	.list-item-menu .col-special:nth-child(3) button{
+		color:white;
+	}
+	
 	.list-item.mew .col-special:first-child{
 		text-align: left;
 		padding:0 10px;
 		width: 50%;
+
 	}
 	.list-item.mew .col-special:nth-child(2){
 		display: none;
@@ -112,9 +149,18 @@ button[aria-expanded="true"]{
 		display: none;
 	}
 	.pastpage.list-header .main-area{
-		margin-top:80px;
+		margin-top:120px;
 	}
+   .pastpage.list-header .list-item-menu .col-special:nth-child(3) .dropdown-item{
+   	width: 195px;
 
+
+   }
+   .list-item-menu .col-special:nth-child(3) .dropdown-menu.show{
+     left:-11px !important;
+     max-height: 500px;
+     overflow: scroll;
+   }
 	.pastpage.list-header nav .logo{
 		width: auto;
 		height: auto;

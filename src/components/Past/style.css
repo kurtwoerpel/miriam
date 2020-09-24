@@ -237,4 +237,7 @@
 		border:1px solid black;
 		outline: none;
 	}
+	.pastpage.list-header .whitearea, .pastpage.small-header .whitearea{
+		height: 80px;
+	}
 }
