@@ -10,7 +10,9 @@
 	text-align: center;
 	padding:25px;
 }
-
+.mobile-controls{
+	display: none;
+}
 .full-bleed{
 	overflow: visible;
 	top:0;
@@ -21,6 +23,7 @@
 	text-align: center;
 	position: absolute;
 }
+
 .full-bleed img{
 
 	top:0;
@@ -169,6 +172,55 @@ margin-bottom:15px;
 	.carousel-slide{
 		height: calc(100vh);
 		padding:100px 10px 35px;
+	}
+	.carousel-slide > div{
+		position: relative;
+
+	}
+	.prev-invisible.invisible-block,.next-invisible.invisible-block{
+		display: block;
+		opacity: 1;
+		height: 50px;
+		display: none;
+		top:auto;
+		z-index: 9;
+		left:-10px;
+		bottom:-40px;
+		position: absolute;
+		width: 0; 
+		background: transparent;
+		height: 0; 
+		border-top: 60px solid transparent;
+		border-bottom: 60px solid transparent;
+		border-left: 60px solid green;
+	}
+
+	.next-invisible.invisible-block{
+		right:-10px;
+		left:auto;
+	}
+	.prev-invisible.invisible-block{
+		transform:scaleX(-1);
+		background: transparent;
+		outline:black;
+	}
+	.mobile-controls{
+		display: block;
+		width:100%;
+		border-top:1px solid black;
+		padding:10px 0;
+		margin-bottom:-10px;
+	}
+	.mobile-controls span{
+		padding-top:8px;
+		display: inline-block;
+	}
+	.mobile-controls svg:first-child{
+		float:left;
+	}
+	.mobile-controls svg:last-child{
+		float:right;
+		transform:scaleX(-1);
 	}
 	.carousel-slide > div{
 		height: calc(100vh - 135px);
