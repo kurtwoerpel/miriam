@@ -109,7 +109,7 @@ class GridviewUpcoming extends Component {
       }
     
       return(
-        <a href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-6 col-sm-6" :  x.fields.Tags + " "+ dateClass + " grid-item col-6 col-sm-6"} >
+        <a href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-12 col-sm-6" :  x.fields.Tags + " "+ dateClass + " grid-item col-12 col-sm-6"} >
          <div style={thumbStyle}>
           <h1 className='text-medium title baskerville'>{x.fields.ThumbnailHed}</h1>
           <div className='grid-image' style={divStyle}></div>

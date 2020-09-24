@@ -110,9 +110,10 @@ if(dateClass == tense){
       }
       return(
             <a style={thumbStyle} href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on " :  x.fields.Tags + " "+ dateClass + " grid-item "} >
+              <h1 className='text-large title mobile-title baskerville'>{x.fields.Title}</h1>
               <div className='grid-image' style={divStyle}></div>
               <div className='grid-text'>
-                <h1 className='text-large title baskerville'>{x.fields.Title}</h1>
+                <h1 className='text-large title desktop-title baskerville'>{x.fields.Title}</h1>
                 <h1 className='text-small baskerville'>{x.fields.PageDateTimeText}</h1>
               </div>
             </a>

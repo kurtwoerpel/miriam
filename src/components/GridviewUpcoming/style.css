@@ -49,5 +49,19 @@
 @media(max-width: 768px){
 	.grid-image{
 		height:80px;
+		margin: 0 auto;
+		display: block;
+
+	}
+	.upcoming .grid-image{
+		width: 100%;
+		height: 200px;
+	}
+	.grid-item.current .grid-text{
+		display: block;
+		width:calc(100%);
+		margin:0;
+		float:none;
+
 	}
 }

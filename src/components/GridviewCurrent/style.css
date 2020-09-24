@@ -45,8 +45,44 @@
 .grid-item.current:nth-child(odd) .grid-image, .grid-item.current:nth-child(odd) .grid-text{
 	float:right;
 }
+.mobile-title{
+	display: none;
+}
+.desktop-title{
+	display: block;
+}
 @media(max-width: 768px){
 	.grid-image{
-		height:80px;
+		display: block;
+		width:calc(90%);
+		margin:0 auto;
+		float:none;
+	}
+	.grid-item.current.on{
+		height: auto;
+	}
+	.mobile-title{
+		text-align: center;
+		font-weight: normal;
+		padding:0 10px;
+		display: block;
+	}
+	.desktop-title{
+		display: none;
+	}
+    .grid-item.current .grid-image,.grid-item.current:nth-child(odd) .grid-image, .grid-item.current:nth-child(odd) .grid-text, .grid-item.current:nth-child(even) .grid-image, .grid-item.current:nth-child(even) .grid-text{
+    	width:calc(90%);
+    	float:none;
+    	display: block;
+    	margin:10px auto;
+
+	}
+	.grid-item.current .grid-text{
+		display: block;
+		width:calc(100%);
+		margin:0;
+		height: auto;
+		float:none;
+
 	}
 }

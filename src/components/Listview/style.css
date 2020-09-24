@@ -92,6 +92,57 @@ button[aria-expanded="true"]{
 	margin:0;
 	padding:0px;
 	}
+	.list-item.mew .col-special:first-child{
+		text-align: left;
+		padding:0 10px;
+		width: 50%;
+	}
+	.list-item.mew .col-special:nth-child(2){
+		display: none;
+	}
+	.list-item.mew .col-special:nth-child(3){
+		display: none;
+	}
+	.list-item.mew .col-special:last-child{
+		text-align: left;
+		padding:0 10px;
+		width: 50%;
+	}
+	.sub-menu{
+		display: none;
+	}
+	.pastpage.list-header .main-area{
+		margin-top:80px;
+	}
+
+	.pastpage.list-header nav .logo{
+		width: auto;
+		height: auto;
+		left: -2px;
+		 padding: 11px 10px;
+		 transform: none;
+	}
+	.pastpage.list-header .header.text-large, .pastpage.small-header .header.text-large{
+		width: 100%;
+	}
+	.pastpage.list-header .whitearea, .pastpage.small-header .whitearea{
+		background: transparent;
+	}
+	.list-item.mew{
+		height: 150px;
+		position: relative;
+		overflow: hidden;
+	}
+	.col-special .mobile-title{
+		text-align: left;
+		padding:0;
+		margin-top:10px;
+		position: absolute;
+		bottom:0;
+		width: 50%;
+		font-family: BrownPro;
+		font-weight: bold;
+	}
 	.list-item-menu{
 		display: none;
 	}

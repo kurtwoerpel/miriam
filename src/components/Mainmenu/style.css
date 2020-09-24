@@ -52,7 +52,7 @@
     overflow: visible;
   }
   #main-menu.open .blanket span{ 
-    height: 2px;
+    height: 1px;
     background: white;
     position: fixed;
     display: block;

@@ -128,12 +128,12 @@
 	.pastpage .nav-bookstore, .pastpage.list-header .nav-bookstore {
 		top:0;
 	    right: 5px;
+	    display: none;
 	    max-width: 67px;
 	    overflow: hidden;
 	    text-decoration: none;
 	    font-weight: bold;
 	    width: auto;
-	    display: inline-block;
 	    float: right;
 	    transform: rotate(-12deg) translateY(0px) translateX(-10px);
 	}
@@ -167,6 +167,9 @@
 		margin-top:15px;
 		float:none;
 	}
+	.pastpage .main-area{
+		margin-top:90px;
+	}
 	.search-text{
 		position: absolute;
 		left:8px;
@@ -179,10 +182,17 @@
 		text-align: center;
 	}
 	.pastpage .header.text-large{
-	  margin:50px 0 0;
+	  margin:0px 0 0;
 	  margin-right: 0;
 	  width:100%;
-
+	  border:none;
+	  font-size:24px;
+	  background: white;
+	  position: fixed;
+	  height: 80px;
+	  font-weight: bold;
+	  padding-top:25px;
+	  text-align: center;
 	}
 	.search .letsgo{
 		background: black;
@@ -210,15 +220,20 @@
 		padding-left:80px;
 		font-size:18px;
 	}
+	.pastpage.list-header nav .logo{
+		height: auto;
+		width: auto;
+		padding: 11px 10px;
+	}
 	.pastpage nav .logo{
 		background: white;
 		color: black;
 		padding: 0px 3px;
 	    height: 35px;
 	    width: 86px;
-	    left:10px;
+	    left:-3px;
 	    top:5px;
-	    transform:scale(1.2);
+	    transform:scale(1);
 		border:1px solid black;
 		outline: none;
 	}

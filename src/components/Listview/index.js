@@ -157,8 +157,9 @@ class Listview extends Component {
       }
       return(
 
-        <a onMouseEnter={this.onToggleOpen} onMouseLeave={this.onToggleClose} data-bg-color={x.fields.ThumbnailBgColor} data-color={x.fields.ThumbnailColor} href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on row" :  x.fields.Tags + " "+ dateClass + " list-item row"} >
-          <h1 className='text-small baskerville col-special'>{x.fields.Title}</h1>
+        <a onMouseEnter={this.onToggleOpen} onMouseLeave={this.onToggleClose} data-bg-color={x.fields.ThumbnailBgColor} data-color={x.fields.ThumbnailColor} href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on mew row" :  x.fields.Tags + " "+ dateClass + " list-item mew row"} >
+          <h1 className='text-small baskerville col-special'>{x.fields.Title}<h1 className='mobile-title text-small '>{x.fields.PageDateTimeText}</h1></h1>
+
           <div className='text-small baskerville col-special'>
           
           <h1 className='text-small baskerville'>{x.fields.PageDateTimeText}</h1>

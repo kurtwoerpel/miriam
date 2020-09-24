@@ -27,18 +27,22 @@
 @media(max-width: 768px){
 	nav{
 		border-bottom:1px solid black;
-		margin-top:80px;
+		height:80px;
 		width: calc(100% - 16px);
 		left: 8px;
 	}
 	.pastpage .logo{
 		top:10px;
 	}
-	.logo {
+	.logo, .pastpage nav .logo {
 	    width: auto;
 	    height: auto;
 	    padding: 11px 10px;
 	    top: 10px;
 	    left: 10px;
 	}
+	.pastpage nav .logo {
+		left:-3px;
+	}
+
 }
