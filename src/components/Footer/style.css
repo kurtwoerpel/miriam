@@ -25,6 +25,9 @@ footer .col-sm-3 h1{
    footer .col-sm-3{
    	text-align: left;
    	word-break: break-word;
-
+   	font-family: "BrownPro";
+   }
+   footer .col-sm-3 p{
+   	font-family: "BrownPro";
    }
 }
