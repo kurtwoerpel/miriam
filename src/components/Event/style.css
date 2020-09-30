@@ -14,21 +14,35 @@
 .event-page .toolbar .col-6:last-child{
 	text-align: right;
 }
+.second-column .top img{
+	margin:0;
+}
 .event-page .toolbar .col-6 p{
 	margin:0;
 }
 .image-caption{
 	text-align: center;
 }
+.toolbar .col-6{
+	padding:0;
+}
 .event-page .toolbar{
 	margin:10px 0;
 	width:100%;
 }
 .event-page {
+	border-bottom:1px solid;
+	padding-bottom:15px;
 	margin-bottom:15px;
 }
 .event-page .header-with-image{
 	top:200px;
+}
+@media(max-width: 768px){
+	.event-page .toolbar{
+	    font-size: 24px;
+	    line-height: 1.2;
+	}
 }
 /*.exhibition .header {
 

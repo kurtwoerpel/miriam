@@ -18,8 +18,17 @@ class GridviewCurrent extends Component {
     };
      this.formatDate = this.formatDate.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
+    this.invertColor = this.invertColor.bind(this);
 
    }
+  invertColor(event){
+    var b = event.target.style.backgroundColor;
+    var c = event.target.style.color;
+
+    event.target.style.color = b;
+    event.target.style.backgroundColor = c;
+
+  }
  getOrdinalNum(number) {
       let selector;
 

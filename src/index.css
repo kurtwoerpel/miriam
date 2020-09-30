@@ -4,9 +4,15 @@
 }
 @font-face {
   font-family: 'BrownPro';
-  src: local('BrownPro'), url(./fonts/BrownPro/BrownPro-Regular.otf) format('opentype');
+  src: local('BrownPro'), url(./fonts/BrownPro/BrownPro_Bold.otf) format('opentype');
 }
-
+a{
+  border-color:inherit !important;
+}
+p a:hover{
+  filter:invert(1)!important;
+  mix-blend-mode: difference;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,3 +26,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

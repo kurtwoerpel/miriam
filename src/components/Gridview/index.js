@@ -20,6 +20,7 @@ class Gridview extends Component {
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
 
    }
+  
  getOrdinalNum(number) {
       let selector;
 

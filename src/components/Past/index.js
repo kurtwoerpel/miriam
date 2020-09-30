@@ -58,7 +58,7 @@ class Past extends Component {
     const {listview} = this.state
     return (
 
-     <header className={listview ? "App-header pastpage list-header" : "App-header pastpage" }>
+     <header className={listview ? "App-header pastpage " : "App-header pastpage" }>
          <div className='whitearea'>
           <Navigation></Navigation>
           <Mainmenu></Mainmenu>

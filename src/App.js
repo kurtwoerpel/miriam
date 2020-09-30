@@ -59,6 +59,9 @@ class App extends React.Component {
           this.setState({ events: res.records })
         })
         .catch(error => console.log(error))
+  
+
+        
   }
 
 

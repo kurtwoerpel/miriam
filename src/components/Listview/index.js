@@ -30,8 +30,8 @@ class Listview extends Component {
       el = e.target.closest(".list-item");
     }
     console.log('mew')
-    el.style.background = e.target.getAttribute('data-bg-color')
-    el.style.color = e.target.getAttribute('data-color')
+    // el.style.background = e.target.getAttribute('data-bg-color')
+    // el.style.color = e.target.getAttribute('data-color')
   }
   onToggleClose(e){
     var el = e.target

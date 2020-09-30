@@ -52,12 +52,17 @@
 	vertical-align: top;
 	padding:5px;
 	display: inline-block;
-	margin-left:10px;
+	margin-left:5px;
 }
 .search .letsgo svg{
   width: 20px;
   margin-left:5px;
   margin-top:-10px;
+}
+.search .letsgo:hover{
+	filter:invert(1);
+	cursor: pointer;
+	border:1px solid white;
 }
 .search .letsgo svg polygon{
 	fill:white;
@@ -67,12 +72,16 @@
 	width: 500px;
 	background: transparent;
 	position: relative;
+	font-family:"Baskerville";
 	padding-left:100px;
 }
+
+
 .search-text{
 	position: absolute;
 	left:8px;
-	top:3px;
+	top:7px;
+	font-family:"BrownPro";
 	content:'Search';
 }
 .pastpage.list-header .nav-bookstore{
@@ -92,9 +101,13 @@
 .header{
 	text-align: center;
 	width:calc(100% - 50px);
-	margin:25px 25px 0;
-	border-bottom:1px solid black;
-	border-top: 1px solid black;
+	margin:21px 25px 0;
+	border-bottom:1px solid;
+	border-top: 1px solid;
+}
+.sub-menu button{
+	padding-top:5px;
+	padding-bottom:5px;
 }
 
 .sub-menu button:first-child{

@@ -17,6 +17,9 @@
 	margin:0;
 	margin-bottom:0;
 }
+.info-page .header{
+	    margin: 13px 25px 0;
+}
 .grid-item h1.title{
 	padding-top:25px;
 }
@@ -29,9 +32,11 @@
 .upcoming.grid-item{
 	padding:0px;
 }
-.upcoming.grid-view{
+.upcoming.grid-view.row{
 	margin:0;
+	margin-bottom:15px;
 }
+
 .grid-item.upcoming h1,  .grid-item.upcoming h2{
 	text-align: center;
 /*    padding-bottom: 25px;*/
@@ -39,9 +44,26 @@
 }
 .upcoming.grid-item > div{
 	border:1px solid black;
-	margin:5px;
+	margin:15px 15px 0px 0px;
 	padding:15px;
 }
+.upcoming.grid-item:nth-child(even) > div{
+	margin-right:0;
+
+}
+.grid-item.col-special{
+  margin:15px 15px 0px 0px;
+  padding:0;
+  width: calc(20% - 15px);
+}
+.grid-item.col-special:nth-child(5){
+  margin-right:0;
+  padding:0;
+}
+.grid-view.row{
+	margin:0;
+}
+
 .upcoming .grid-image{
 	height:300px;
 	border:1px solid black;

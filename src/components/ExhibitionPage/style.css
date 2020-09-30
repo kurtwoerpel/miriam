@@ -1,0 +1,25 @@
+.exhibition .second-column .col-sm-4{
+	padding-top:0px;
+	padding-left:15px;
+	padding-right:0;
+	padding-bottom:15px;
+}
+.exhibition .second-column .col-sm-4:nth-child(3n){
+    padding-right:15px;
+}
+.exhibition .top img{
+	margin-bottom: 15px;
+	margin-top:15px;
+}
+
+@media(max-width: 768px) {
+	.exhibition .second-column .col-sm-4:nth-child(3n){
+	    padding-right:0px;
+	}
+	.exhibition .second-column .col-sm-4:nth-child(even){
+	    padding-left:15px;
+	}
+	.exhibition .second-column{
+		border-left:none;
+	}
+}

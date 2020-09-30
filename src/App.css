@@ -9,6 +9,11 @@ ul{
   list-style: none;
   padding:0;
 }
+
+.header{
+      margin: 20px 25px 0;
+      padding:10px 0;
+}
 #light-box{
   top:0;
   left:0;
@@ -91,6 +96,9 @@ hr{
   .text-small{
     font-size: 18px;
   }
+  .pastpage .baskerville.text-small{
+    font-size:24px;
+  }
   .text-medium{
     font-size: 24px;
   }
@@ -151,4 +159,10 @@ button.on{
   background:black;
   color:white;
   border:1px solid black;
+}
+@media(max-width: 768px){
+  #light-box img {
+    max-height:70vh;
+    max-width: 80vw;
+  }
 }

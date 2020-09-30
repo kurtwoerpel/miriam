@@ -59,8 +59,13 @@ class GridviewUpcoming extends Component {
     let allTags = []; 
     const {records, tense} = this.props
     const everythings = records.length > 0 ? records.map((x)=>{
+      var mybg = !x.fields.ThumbnailImage ? '' : "url(" + x.fields.ThumbnailImage[0].url + ")";
+      if(mybg == ''){
+          mybg = !x.fields.PageHeroImages ? '' : "url(" + x.fields.PageHeroImages[0].url + ")";
+      }
+
       const divStyle={
-        backgroundImage: (!x.fields.PageHeroImages ? '' : "url(" + x.fields.PageHeroImages[0].url + ")"),
+        backgroundImage: mybg,
         backgroundSize: "cover",
         backgroundPosition: "center"
       }
@@ -107,7 +112,7 @@ class GridviewUpcoming extends Component {
       }else {
         linkroot = '/announcement/'
       }
-    
+    if(dateClass == "upcoming"){
       return(
         <a href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-12 col-sm-6" :  x.fields.Tags + " "+ dateClass + " grid-item col-12 col-sm-6"} >
          <div style={thumbStyle}>
@@ -116,7 +121,7 @@ class GridviewUpcoming extends Component {
            <h1 className='text-small baskerville'>{x.fields.ThumbnailSubHed}</h1>
          </div>
         </a>
-       )
+       )}
       }) : 'loading'
     //  if(tense == 'upcoming' && upcoming.length == 1){
     //    var linkroot = ''

@@ -204,7 +204,7 @@ class Announcement extends Component {
          {everything}
      </div>
      <div className='archive-links'>
-          <h1 onClick={this.scrollTop} className='baskerville text-large'>Back to Top</h1>
+          <h1 className='baskerville text-large'><a href="javascript:history.back()">Back</a>, <span onClick={this.scrollTop}>Top</span></h1>
       </div>
       <Footer style={borderStyle}></Footer>
      </div>

@@ -14,7 +14,21 @@ h1.mailing{
 	padding:20px 0;
 	margin:20px 0;
 }
-
+.visit-us{
+	line-height: 1.2;
+}
+.info-page .top .alice-carousel__dots{
+	bottom:-35px;
+}
+.info-page .top .alice-carousel__dots-item:hover, .info-page .top .alice-carousel__dots-item.__active{
+	background: black;
+}
+.info-page .top .alice-carousel__dots-item{
+	border:1px solid black;
+}
+.info-page .alice-carousel{
+	 margin-bottom:25px;
+}
 .info-page .top img{
 	margin:0;
 }
