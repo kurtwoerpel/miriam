@@ -14,13 +14,23 @@ class GridviewCurrent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+      hovers: {},
     };
+        this.hoverOn = this.hoverOn.bind(this);
+    this.hoverOff = this.hoverOff.bind(this);
      this.formatDate = this.formatDate.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
     this.invertColor = this.invertColor.bind(this);
 
    }
+   hoverOn(id, hoverstate){
+  hoverstate[id] = true;
+  this.setState({hovers: hoverstate})
+ }
+ hoverOff(id, hoverstate){
+  hoverstate[id] = false;
+  this.setState({hovers: hoverstate})
+ }
   invertColor(event){
     var b = event.target.style.backgroundColor;
     var c = event.target.style.color;
@@ -66,6 +76,7 @@ class GridviewCurrent extends Component {
     let current = [];
     let urlswitch = false;
     let allTags = []; 
+    const{hovers} = this.state
     const {records, tense} = this.props
     const everythings = records.length > 0 ? records.map((x)=>{
       const divStyle={
@@ -108,6 +119,10 @@ class GridviewCurrent extends Component {
         "color":x.fields.ThumbnailColor,
         "backgroundColor":x.fields.ThumbnailBgColor
       }
+      var hoverStyle = {
+         "backgroundColor":x.fields.ThumbnailColor,
+        "color":x.fields.ThumbnailBgColor
+      }
 if(dateClass == tense){
    var linkroot = ''
       if(x.type == 'exhibition'){
@@ -118,7 +133,7 @@ if(dateClass == tense){
         linkroot = '/announcement/'
       }
       return(
-            <a style={thumbStyle} href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on " :  x.fields.Tags + " "+ dateClass + " grid-item "} >
+            <a onMouseOver={()=> this.hoverOn(x.id,hovers)} onMouseLeave={()=> this.hoverOff(x.id,hovers)}  style={hovers[x.id] ? hoverStyle : thumbStyle} href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on " :  x.fields.Tags + " "+ dateClass + " grid-item "} >
               <h1 className='text-large title mobile-title baskerville'>{x.fields.Title}</h1>
               <div className='grid-image' style={divStyle}></div>
               <div className='grid-text'>

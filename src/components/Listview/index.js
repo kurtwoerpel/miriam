@@ -15,13 +15,23 @@ class Listview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    
+      hovers:{},
     };
     this.formatDate = this.formatDate.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
     this.filterTags = this.filterTags.bind(this);
     this.onToggleOpen = this.onToggleOpen.bind(this);
+     this.hoverOn = this.hoverOn.bind(this);
+    this.hoverOff = this.hoverOff.bind(this);
    }
+   hoverOn(id, hoverstate){
+  hoverstate[id] = true;
+  this.setState({hovers: hoverstate})
+ }
+ hoverOff(id, hoverstate){
+  hoverstate[id] = false;
+  this.setState({hovers: hoverstate})
+ }
   onToggleOpen(e){
  var el = e.target;
     if(el.classList.contains('list-item')){
@@ -100,6 +110,7 @@ class Listview extends Component {
    
    render() {
     const {records, tense} = this.props
+    const {hovers} = this.state
     let upcoming = [];
     let past = [];
     let current = [];
@@ -115,6 +126,10 @@ class Listview extends Component {
       var listStyle = {
         background: x.fields.ThumbnailBgColor,
         color: x.fields.ThumbnailColor
+      }
+      var hoverStyle = {
+        color: x.fields.ThumbnailBgColor,
+        background: x.fields.ThumbnailColor
       }
       if(x.fields.Tags){
         for (var i = x.fields.Tags.split(" ").length - 1; i >= 0; i--) {
@@ -157,7 +172,7 @@ class Listview extends Component {
       }
       return(
 
-        <a onMouseEnter={this.onToggleOpen} onMouseLeave={this.onToggleClose} data-bg-color={x.fields.ThumbnailBgColor} data-color={x.fields.ThumbnailColor} href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on mew row" :  x.fields.Tags + " "+ dateClass + " list-item mew row"} >
+        <a style={hovers[x.id] ? listStyle : {}} onMouseOver={()=> this.hoverOn(x.id,hovers)} onMouseLeave={()=> this.hoverOff(x.id,hovers)} data-bg-color={x.fields.ThumbnailBgColor} data-color={x.fields.ThumbnailColor} href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " list-item on mew row" :  x.fields.Tags + " "+ dateClass + " list-item mew row"} >
           <h1 className='text-small baskerville col-special'>{x.fields.Title}<h1 className='mobile-title text-small '>{x.fields.PageDateTimeText}</h1></h1>
 
           <div className='text-small baskerville col-special'>

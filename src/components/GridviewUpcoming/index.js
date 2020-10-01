@@ -14,12 +14,22 @@ class GridviewUpcoming extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    
+      hovers:{},
     };
      this.formatDate = this.formatDate.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
+    this.hoverOn = this.hoverOn.bind(this);
+    this.hoverOff = this.hoverOff.bind(this);
 
    }
+ hoverOn(id, hoverstate){
+  hoverstate[id] = true;
+  this.setState({hovers: hoverstate})
+ }
+ hoverOff(id, hoverstate){
+  hoverstate[id] = false;
+  this.setState({hovers: hoverstate})
+ }
  getOrdinalNum(number) {
       let selector;
 
@@ -57,6 +67,7 @@ class GridviewUpcoming extends Component {
     let current = [];
     let urlswitch = false;
     let allTags = []; 
+    const {hovers} = this.state
     const {records, tense} = this.props
     const everythings = records.length > 0 ? records.map((x)=>{
       var mybg = !x.fields.ThumbnailImage ? '' : "url(" + x.fields.ThumbnailImage[0].url + ")";
@@ -69,6 +80,7 @@ class GridviewUpcoming extends Component {
         backgroundSize: "cover",
         backgroundPosition: "center"
       }
+
       if(x.fields.Tags){
         for (var i = x.fields.Tags.split(" ").length - 1; i >= 0; i--) {
           if(!allTags.includes(x.fields.Tags.split(" ")[i])){
@@ -104,6 +116,10 @@ class GridviewUpcoming extends Component {
         "color":x.fields.ThumbnailColor,
         "backgroundColor":x.fields.ThumbnailBgColor
       }
+      const hoverStyle= {
+        "backgroundColor":x.fields.ThumbnailColor,
+        "color":x.fields.ThumbnailBgColor
+      }
       var linkroot = ''
       if(x.type == 'exhibition'){
          linkroot = '/exhibition/'
@@ -114,8 +130,8 @@ class GridviewUpcoming extends Component {
       }
     if(dateClass == "upcoming"){
       return(
-        <a href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-12 col-sm-6" :  x.fields.Tags + " "+ dateClass + " grid-item col-12 col-sm-6"} >
-         <div style={thumbStyle}>
+        <a onMouseOver={()=> this.hoverOn(x.id,hovers)} onMouseLeave={()=> this.hoverOff(x.id,hovers)} href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-12 col-sm-6" :  x.fields.Tags + " "+ dateClass + " grid-item col-12 col-sm-6"} >
+         <div style={hovers[x.id] ? hoverStyle : thumbStyle}>
           <h1 className='text-medium title baskerville'>{x.fields.ThumbnailHed}</h1>
           <div className='grid-image' style={divStyle}></div>
            <h1 className='text-small baskerville'>{x.fields.ThumbnailSubHed}</h1>

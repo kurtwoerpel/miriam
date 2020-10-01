@@ -1,5 +1,6 @@
  import React, { Component } from 'react';
 import './style.css';
+import Grid from "./"
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,13 +15,23 @@ class Gridview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    
+      hovers:{}
     };
      this.formatDate = this.formatDate.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
+      this.hoverOn = this.hoverOn.bind(this);
+    this.hoverOff = this.hoverOff.bind(this);
 
    }
   
+  hoverOn(id, hoverstate){
+  hoverstate[id] = true;
+  this.setState({hovers: hoverstate})
+ }
+ hoverOff(id, hoverstate){
+  hoverstate[id] = false;
+  this.setState({hovers: hoverstate})
+ }
  getOrdinalNum(number) {
       let selector;
 
@@ -53,6 +64,7 @@ class Gridview extends Component {
 
 
    render() {
+    const {hovers} = this.state
     let upcoming = [];
     let past = [];
     let current = [];
@@ -64,6 +76,10 @@ class Gridview extends Component {
         backgroundImage: (!x.fields.PageHeroImages ? '' : "url(" + x.fields.PageHeroImages[0].url + ")"),
         backgroundSize: "cover",
         backgroundPosition: "center"
+      }
+      var listStyle = {
+        background: x.fields.ThumbnailBgColor,
+        color: x.fields.ThumbnailColor
       }
       if(x.fields.Tags){
         for (var i = x.fields.Tags.split(" ").length - 1; i >= 0; i--) {
@@ -106,8 +122,9 @@ class Gridview extends Component {
       }else {
         linkroot = '/announcement/'
       }
+      //{title,PageDateTimeText, divStyle, id, dateClass, linkroot, tags, tense }
         return(
-        <a href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-special" :  x.fields.Tags + " "+ dateClass + " grid-item col-special"} >
+        <a style={hovers[x.id] ? listStyle : {}} onMouseOver={()=> this.hoverOn(x.id,hovers)} onMouseLeave={()=> this.hoverOff(x.id,hovers)}  href={linkroot+slugify(x.fields.Title)} key={x.id} id={x.id} className={dateClass == tense ? x.fields.Tags + " "+ dateClass + " grid-item on col-special" :  x.fields.Tags + " "+ dateClass + " grid-item col-special"} >
           <div className='grid-image' style={divStyle}></div>
           <h1 className='text-tiny title'>{x.fields.Title}</h1>
           <h1 className='text-tiny baskerville'>{x.fields.PageDateTimeText}</h1>
@@ -115,28 +132,7 @@ class Gridview extends Component {
        )
       }
       }) : 'loading'
-    //  if(tense == 'upcoming' && upcoming.length == 1){
-    //  var linkroot = ''
-    //   if(current[0].type == 'exhibition'){
-    //      linkroot = '/exhibition/'
-    //   }else if(upcoming[0].type == 'event'){
-    //     linkroot = '/event/'
-    //   }else {
-    //     linkroot = '/announcement/'
-    //   }
-    //   window.location.href=linkroot+upcoming[0]
-    // }
-    // if(tense == 'current' && current.length == 1){
-    //    var linkroot = ''
-    //   if(current[0].type == 'exhibition'){
-    //      linkroot = '/exhibition/'
-    //   }else if(current[0].type == 'event'){
-    //     linkroot = '/event/'
-    //   }else {
-    //     linkroot = '/announcement/'
-    //   }
-    //   window.location.href=linkroot+current[0]
-    // }
+ 
     return (
 
      <div className='grid-view row'>
