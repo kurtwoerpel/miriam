@@ -41,21 +41,18 @@ class App extends React.Component {
       fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/exhibitions?api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
         .then(res => res.json())
         .then(res => {
-          console.log(res.records)
           this.setState({ records: res.records })
         })
         .catch(error => console.log(error))
       fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/announcements?api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
         .then(res => res.json())
         .then(res => {
-          console.log(res.records)
           this.setState({ announcements: res.records })
         })
         .catch(error => console.log(error))
       fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/events?api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
         .then(res => res.json())
         .then(res => {
-          console.log(res.records)
           this.setState({ events: res.records })
         })
         .catch(error => console.log(error))
@@ -78,8 +75,7 @@ render() {
 });
 
   const everything = records.concat(announcements).concat(events).sort((a, b) => (a.fields.StartTime < b.fields.StartTime) ? 1 : -1)
-   console.log(everything)
-  console.log(records)
+
   return (
     <Router>
     <div className="App">

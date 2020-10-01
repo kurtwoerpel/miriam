@@ -36,16 +36,17 @@ class Homecarousel extends Component {
    }
 
    componentDidMount() {
-      fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/homepage_carousel?api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
+      fetch('https://api.airtable.com/v0/apprjbiiZGRAW9lxA/homepage_carousel?view=main&api_key='+process.env.REACT_APP_AIRTABLE_API_KEY)
         .then(res => res.json())
         .then(res => {
           this.setState({ carousel_slides: res.records })
+          console.log(res.records)
         })
         .catch(error => console.log(error))
     }
 
   handler(){
-  console.log('handler')
+
     const slides = document.getElementsByClassName('carousel-slide');
        for (var i = slides.length - 1; i >= 0; i--) {
          if(slides[i].classList.contains('selected')){
@@ -58,38 +59,7 @@ class Homecarousel extends Component {
          }
        }
   }
-//   showRight(e){
-//     document.getElementsByClassName('left-arrow')[0].classList.remove('on')
-//     document.getElementsByClassName('right-arrow')[0].classList.add('on')
-   
 
-//   }
-//   showLeft(e){
-//     document.getElementsByClassName('right-arrow')[0].classList.remove('on')
-//     document.getElementsByClassName('left-arrow')[0].classList.add('on')
-
-
-
-
-//   }
-//    moveRight(e){
-//     let x = e.nativeEvent.clientX;
-//     let y = e.nativeEvent.clientY;
-//     document.getElementsByClassName('right-arrow')[0].style.left = x - 50 + 'px';
-//     document.getElementsByClassName('right-arrow')[0].style.top = y - 95 + 'px';
-//   }
-//   moveLeft(e){
-//     console.log('hi')
-
-// let x = e.nativeEvent.clientX;
-//     let y = e.nativeEvent.clientY;
-//     document.getElementsByClassName('left-arrow')[0].style.left = x - 50 + 'px';
-//     document.getElementsByClassName('left-arrow')[0].style.top = y - 95 + 'px';
-//     // let x = e.nativeEvent.clientX;
-//     // let y = e.nativeEvent.clientY;
-//     // document.getElementsByClassName('left-arrow')[0].style.left = x + 'px';
-//     // document.getElementsByClassName('left-arrow')[0].style.top = y + 'px';
-//   }
   goNext(){
 
        const slides = document.getElementsByClassName('carousel-slide');
@@ -123,12 +93,11 @@ class Homecarousel extends Component {
        }
       
     }
-  //onMouseEnter={(e) => this.showRight(e)} onMouseMove={(e) => this.moveRight(e)}
 
    render() {
    	const { carousel_slides, carousel, currentIndex } = this.state;
 
-  
+   
     const flickityOptions = {
     	cellAlign:'left',
     	contain:true

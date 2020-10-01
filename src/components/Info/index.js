@@ -32,7 +32,7 @@ class Info extends Component {
 
    render() {
     const {info} = this.state
-    console.log(info)
+
     if(info && info[0].fields.PageImages){
       var slides = info[0].fields.PageImages.map((x,i)=>{
 
@@ -74,12 +74,14 @@ class Info extends Component {
 
                 <div>
               
-                <AliceCarousel duration='0' autoPlay autoPlayInterval="3000"
+                <AliceCarousel ref={(el) => (this.Carousel = el)} duration='0' autoPlay autoPlayInterval="3000"
                 >
 
                   {slides}
                 </AliceCarousel>
-              
+                <button className="alice-button alice-button-prev" onClick={() => this.Carousel.slidePrev()}>Prev button</button>
+                <button className="alice-button alice-button-next" onClick={() => this.Carousel.slideNext()}>Next button</button>
+     
                 </div>
                 :
                 <div className={info[0].fields.PageImageStyle}>
@@ -108,13 +110,13 @@ class Info extends Component {
               <ReactMarkdown className="col-12 contact-text col-sm-6" source={info[0].fields.PageContactGeneral} />
               <ReactMarkdown className="col-12 contact-text col-sm-6" source={info[0].fields.PageContactBookStore} />
             </div>
-            <h1 className='selected-press-h1 baskerville text-large header-info'>Selected Press</h1>
-            <div className='row'>
+            <h1 className='selected-press-div selected-press-h1 baskerville text-large header-info'>Selected Press</h1>
+            <div className='row selected-press-div '>
               <div className='press-header baskerville col-sm-12'><div><span>Date</span><span>Publication</span></div></div>
               <ReactMarkdown className="col-12 col-sm-12" source={info[0].fields.PageSelectedPress} />
             </div>
             
-            <div className='row'><h1 className='col-12 collaborator-header baskerville text-large header-info'>Collaborators</h1>
+            <div id='collaborators' className='row'><h1 className='col-12 collaborator-header baskerville text-large header-info'>Collaborators</h1>
               <ReactMarkdown className="col-12 text-large baskerville col-sm-12" source={info[0].fields.PageCollaborators} />
             </div>
             <h1 className='col-12 mailing header-info'>

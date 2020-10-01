@@ -17,6 +17,12 @@
 	min-width: 800px;
 	margin:0 auto;
 }
+@media(max-width: 768px){
+	.event-page .page-skinny{
+		min-width: 0;
+		width: 100%;
+	}
+}
 /*.exhibition .header {
 
 padding: 23px 0;

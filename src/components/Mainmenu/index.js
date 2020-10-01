@@ -41,7 +41,7 @@ class Mainmenu extends Component {
 
    render() {
     const {info} = this.state
-    console.log(info)
+
     let logoStyle;
     let menuStyle;
     let aStyle;

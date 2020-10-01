@@ -68,7 +68,8 @@
 .carousel-slide a:hover{
  border:none;
  opacity: 0.9;
- transform: rotateY(-25deg)
+ cursor:url('./up.png') 50 50, auto;
+/* transform: rotateY(-25deg)*/
 }
 .carousel-slide > div{
 display: flex;

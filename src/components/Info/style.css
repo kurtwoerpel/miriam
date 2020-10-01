@@ -8,6 +8,9 @@
 	padding: 10px 0;
 	position: relative;
 }
+.selected-press-div, #collaborators{
+	display: none;
+}
 h1.mailing{
 	border-bottom:none;
 	text-align: center;
