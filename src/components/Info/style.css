@@ -17,6 +17,26 @@ h1.mailing{
 	padding:20px 0;
 	margin:20px 0;
 }
+.alice-wrapper{
+	position: relative;
+}
+.alice-button{
+	position:absolute;
+	top:0;
+	left:0;
+	width:33%;
+	opacity: 0;
+	height:100%;
+	cursor:url('./mew1.png') 50 50, auto;
+}
+.alice-button.alice-button-prev{
+	cursor:url('./mew1.png') 50 50, auto;
+}
+.alice-button.alice-button-next{
+	right:0;
+	left:auto;
+	cursor:url('./mew2.png') 50 50, auto;
+}
 .visit-us{
 	line-height: 1.2;
 }

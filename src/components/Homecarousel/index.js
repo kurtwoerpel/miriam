@@ -134,6 +134,12 @@ class Homecarousel extends Component {
   var borderStyle = {
         borderColor: x.fields.LogoBackgroundColor,
       }
+      var myborderStyle = {
+        borderColor: x.fields.HeadlineColor,
+      }
+      var mySVGStyle = {
+        stroke: x.fields.HeadlineColor,
+      }
       return(
 
         
@@ -177,12 +183,12 @@ class Homecarousel extends Component {
         {!x.fields.DescriptiveCopy ? '' :
          <div> <a href={x.fields.Slidelink} ><div style={descriptionStyle} className='description text-medium'><ReactMarkdown source={x.fields.DescriptiveCopy} /></div></a></div>
         }
-          <div className='mobile-controls'><svg onClick={this.goPrev} width="43" height="51" viewBox="0 0 43 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M42.25 49.3157L0.999999 25.5L42.25 1.6843L42.25 49.3157Z" stroke="black"/>
+          <div style={myborderStyle} className='mobile-controls'><svg onClick={this.goPrev} width="43" height="51" viewBox="0 0 43 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path style={mySVGStyle} d="M42.25 49.3157L0.999999 25.5L42.25 1.6843L42.25 49.3157Z" stroke="black"/>
             </svg>
-            <span> {i+1}/{carousel_slides.length}</span>
+            <span style={headlineStyle}> {i+1}/{carousel_slides.length}</span>
             <svg onClick={this.goNext} width="43" height="51" viewBox="0 0 43 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M42.25 49.3157L0.999999 25.5L42.25 1.6843L42.25 49.3157Z" stroke="black"/>
+            <path style={mySVGStyle} d="M42.25 49.3157L0.999999 25.5L42.25 1.6843L42.25 49.3157Z" stroke="black"/>
             </svg>
             </div>
         </div>

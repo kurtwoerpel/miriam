@@ -72,7 +72,7 @@ class Info extends Component {
               <div className='top'>
               {info[0].fields.PageImages.length > 1 ?
 
-                <div>
+                <div className='alice-wrapper'>
               
                 <AliceCarousel ref={(el) => (this.Carousel = el)} duration='0' autoPlay autoPlayInterval="3000"
                 >

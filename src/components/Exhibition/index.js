@@ -172,11 +172,15 @@ class Exhibition extends Component {
                   {slides}
                   </div>
                   :
-                <AliceCarousel duration='0' autoPlay autoPlayInterval="3000"
+                  <div class='alice-wrapper'>
+                <AliceCarousel ref={(el) => (this.Carousel = el)} duration='0' autoPlay autoPlayInterval="3000"
                 >
 
                   {slides}
                 </AliceCarousel>
+                <button className="alice-button alice-button-prev" onClick={() => this.Carousel.slidePrev()}>Prev button</button>
+                <button className="alice-button alice-button-next" onClick={() => this.Carousel.slideNext()}>Next button</button>
+                </div>
               }
                 </div>
                 :
