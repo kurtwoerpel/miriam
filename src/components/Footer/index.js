@@ -29,14 +29,14 @@ class Footer extends Component {
      <div className='row'>
         <div className='col-6 col-sm-3'>
           <h1 className='text-small'>Miriam</h1>
-          <p className='text-tiny baskerville'>gallery + bookshop<br/>@miriam.gallery</p>
+          <p className='text-tiny baskerville'>hello@miriam.gallery</p>
         </div>
         <div className='col-6 col-sm-3'>
           <p className='text-tiny baskerville'>319 Bedford Ave,<br/>Williamsburg<br/>Brooklyn, NY 11211</p>
         </div>
         <div className='col-6 col-sm-3'>
             <p className='text-tiny baskerville'>
-            Mon-Fri: By Appointment<br/>Sat-Sun: 8PM<br/>Always Social Distancing
+            Thurs-Sun: 1-7pm<br/>(Limited capacity walk-in + <a href="https://calendly.com/miriamgallery/astoneholdswater?month=2020-10">by appointment</a>)
             </p>
         </div>
         <div className='col-6 col-sm-3'>
