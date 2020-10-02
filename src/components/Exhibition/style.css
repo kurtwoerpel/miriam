@@ -4,6 +4,9 @@ padding: 27px 0;
     margin: 13px 25px 0;
 
 }
+.exhibition .event-page .header{
+	margin:13px 15px 0;
+}
 .three-column{
 	vertical-align: top;
 }
@@ -13,6 +16,9 @@ padding: 27px 0;
 
 .three-column img{
 	max-width:100%;
+}
+.exhibition-page{
+	margin:0 15px;
 }
 .three-column:nth-child(2){
 	border-left:1px solid;
@@ -87,8 +93,8 @@ padding: 27px 0;
 	width: calc(100% - 50px);
 	margin:10px 25px;
 	padding:10px 0;
-	border-bottom: 1px solid black;
-	border-top:1px solid black;
+	border-bottom: 1px solid;
+	border-top:1px solid;
 }
 .top .caption .col-8{
 	text-align: center;
@@ -295,6 +301,9 @@ header img{
 		padding:10px;
 
 	}
+	.exhibition-page{
+	margin:0;
+}
 	.happening .nav-bookstore {
 		top:0;
 	    right: 5px;

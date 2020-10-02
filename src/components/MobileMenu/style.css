@@ -1,6 +1,6 @@
 .mobile-menu-trigger{
 	display:none;
-	border: 1px solid black;
+	border: 1px solid;
 }
 .mobile-menu-trigger span{
 	height: 13px;
@@ -8,7 +8,7 @@
 	display: block;
 }
 .mobile-menu-trigger span{
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid;
 
 }
 .mobile-menu-trigger span:last-child{

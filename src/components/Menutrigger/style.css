@@ -26,7 +26,7 @@
 
 @media(max-width: 768px){
 	nav{
-		border-bottom:1px solid black;
+		border-bottom:1px solid;
 		height:80px;
 		width: calc(100% - 16px);
 		left: 8px;
