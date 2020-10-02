@@ -15,6 +15,9 @@
 	background:black;
 	color:white;
 }
+.archive-links h1 span:hover{
+	border-bottom:3px solid;
+}
 .archive-links {
 	text-align: center;
 }
