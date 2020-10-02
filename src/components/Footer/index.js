@@ -40,7 +40,7 @@ class Footer extends Component {
             </p>
         </div>
         <div className='col-6 col-sm-3'>
-            <p className='text-tiny baskerville'><a>Join Our Mailing List</a><br/>info@miriamgallery.com</p>
+            <p className='text-tiny baskerville'><a href='https://mailchi.mp/0a822e78bfa8/miriammailinglist'>Join Our Mailing List</a><br/>info@miriamgallery.com</p>
         </div>
         </div>
       </footer>
