@@ -30,6 +30,7 @@
 }
 .menu-image img{
   max-width: 70%;
+  max-height:20vh;
   margin-top:25px;
 }
 #main-menu.open{
