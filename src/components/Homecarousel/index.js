@@ -140,6 +140,7 @@ class Homecarousel extends Component {
       var mySVGStyle = {
         stroke: x.fields.HeadlineColor,
       }
+      if(x.fields.Headline){
       return(
 
         
@@ -195,7 +196,7 @@ class Homecarousel extends Component {
          }
         </div>
 
-       )
+       )}
      }
       }) : 'loading'
   
