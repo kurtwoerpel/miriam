@@ -20,9 +20,24 @@ class Past extends Component {
     };
     this.showList = this.showList.bind(this);
     this.showGrid = this.showGrid.bind(this);
+    this.search = this.search.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
    }
- 
+  search(event){
+    let currentClass = event.target.value;
+    let all = document.getElementsByClassName('list-item')
+
+      console.log('here')
+    for (var i = all.length - 1; i >= 0; i--) {
+        all[i].classList.remove('on')
+         if(all[i].getElementsByTagName("h1")[0].innerHTML.toLowerCase().includes(currentClass.toLowerCase()) || (all[i].getElementsByClassName("people")[0] && all[i].getElementsByClassName("people")[0].innerHTML.toLowerCase().includes(currentClass.toLowerCase()))){
+          all[i].classList.add('on')
+         }
+
+    }
+   
+     
+  }
    componentDidMount() {
       window.addEventListener('scroll', this.handleScroll);
   }
@@ -70,7 +85,7 @@ class Past extends Component {
           <div className='sub-menu'>
             <button onClick={this.showList} className={listview ? 'text-small on' : 'text-small'}>list view</button>
             <button onClick={this.showGrid} className={listview ? 'text-small' : 'text-small on'}>grid view</button>
-            <div className='search'><div className='search-text baskerville text-small'>Search</div><input type='text'/><div className='letsgo'><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 86.6"><defs></defs><polygon  points="75 43.3 0 0 0 86.6 75 43.3"/></svg></div></div>
+            <div className='search'><div className='search-text baskerville text-small'>Search</div><input onChange={this.search} type='text'/><div className='letsgo'><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 86.6"><defs></defs><polygon  points="75 43.3 0 0 0 86.6 75 43.3"/></svg></div></div>
           </div>
           </div>
           <div className='main-area'>
