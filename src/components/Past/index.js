@@ -54,7 +54,7 @@ class Past extends Component {
         published.push(records[i])
       }
     }
-    published = published.reverse();
+    // published = published.reverse();
     const {listview} = this.state
     return (
 
