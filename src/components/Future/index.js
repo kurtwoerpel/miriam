@@ -36,7 +36,11 @@ class Past extends Component {
         published.push(records[i])
       }
     }
-    published = published.reverse();
+    published = published.sort(function (a, b) {
+  if (a.fields.StartDate > b.fields.StartDate) return -1;
+  if (a.fields.StartDate < b.fields.StartDate) return 1;
+  return 0;
+});
     const {listview} = this.state
     return (
 

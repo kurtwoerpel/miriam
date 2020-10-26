@@ -174,6 +174,7 @@ class Homecarousel extends Component {
            <div className='prev-invisible invisible-block' onClick={this.goPrev} ></div>
           <div className='next-invisible invisible-block' onClick={this.goNext} ></div>
           <Menutrigger style={logoStyle}></Menutrigger>
+          <a href={x.fields.Slidelink} className="sixtypercent"></a>
           <div><a href={x.fields.Slidelink} ><h1 style={headlineStyle} className='text-large baskerville title'>{x.fields.Headline}</h1></a></div>
            {!x.fields.HeroImage ? '' :
            <div> <a href={x.fields.Slidelink} > <div className={x.fields.HeroImageStyle}><img className='carousel-slide-image' alt='hero image' src={x.fields.HeroImage[0].url}/></div></a></div>

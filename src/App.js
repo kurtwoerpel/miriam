@@ -74,7 +74,7 @@ render() {
   element.type = "event";
 });
 
-  const everything = records.concat(announcements).concat(events).sort((a, b) => (a.fields.StartTime < b.fields.StartTime) ? 1 : -1)
+  const everything = records.concat(announcements).concat(events);
 
   return (
     <Router>
