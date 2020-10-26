@@ -40,7 +40,7 @@ class Past extends Component {
     const {listview} = this.state
     return (
 
-     <header className={listview ? "App-header pastpage list-header" : "App-header pastpage" }>
+     <header className={listview ? "App-header pastpage upcoming-page list-header" : "App-header upcoming-page pastpage" }>
           <Navigation></Navigation>
           <Mainmenu></Mainmenu>
           <div className='header text-large '> Current </div>

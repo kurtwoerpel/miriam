@@ -132,7 +132,7 @@ button[aria-expanded="true"]{
 		text-align: left;
 		padding:0 10px;
 		width: 50%;
-
+		margin-bottom:50px;
 	}
 	.list-item.mew .col-special:nth-child(2){
 		display: none;
@@ -175,7 +175,7 @@ button[aria-expanded="true"]{
 		background: transparent;
 	}
 	.list-item.mew{
-		height: 150px;
+/*		height: 150px;*/
 		position: relative;
 		overflow: hidden;
 	}

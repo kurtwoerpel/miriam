@@ -60,7 +60,9 @@
 	}
 	.grid-item.current.on{
 		height: auto;
+		margin:10px 5px;
 	}
+
 	.mobile-title{
 		text-align: center;
 		font-weight: normal;
@@ -69,6 +71,13 @@
 	}
 	.desktop-title{
 		display: none;
+	}
+	.grid-item.current .grid-text, .grid-item.current .grid-image{
+		width: auto;
+		height: 150px;
+	}
+	.grid-item h1.title{
+		font-size:34px;
 	}
     .grid-item.current .grid-image,.grid-item.current:nth-child(odd) .grid-image, .grid-item.current:nth-child(odd) .grid-text, .grid-item.current:nth-child(even) .grid-image, .grid-item.current:nth-child(even) .grid-text{
     	width:calc(90%);

@@ -243,6 +243,9 @@ header img{
 		text-align: left;
 		border-left:none;
 	}
+	.exhibition .event-page .header{
+		margin:0;
+	}
 	.top img{
 		margin:0;
 	}
