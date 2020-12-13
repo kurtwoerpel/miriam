@@ -34,12 +34,12 @@ background: blue;
 	background:red;
 	left:50vw;
 /*	cursor:pointer;*/
-	cursor:url('./mew2.png') 50 50, auto;
+	cursor:url('./right.png') 50 50, auto;
 
 
 }
 .prev-invisible{
-		cursor:url('./mew1.png') 50 50, auto;
+		cursor:url('./left.png') 50 50, auto;
 }
 .fat-arrow.left-arrow{
  width: 0; 
