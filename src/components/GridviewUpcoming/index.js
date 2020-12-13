@@ -166,8 +166,8 @@ class GridviewUpcoming extends Component {
      <div className='grid-view upcoming row'>
      {upcoming.length < 1 ?
          <>
-              <div>more coming soon...</div>
-              <img style={{"display":"block"}} src={waveBear} /><br/>
+              <div className="col-12">more coming soon...</div>
+              <div className=" col-12"><img className="wave-bear" src={waveBear} /></div>
               <div className="col-12">explore other offerings...</div>
                  </>
               :""}

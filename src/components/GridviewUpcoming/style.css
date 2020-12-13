@@ -3,6 +3,11 @@
 	background-size:cover;
 	background-position:center;
 }
+.wave-bear{
+	width:50%;
+	display: block;
+	margin: 0 auto;
+}
 .grid-item{
 	display: none;
 }
