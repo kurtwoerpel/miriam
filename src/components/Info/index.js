@@ -112,7 +112,7 @@ class Info extends Component {
             <h1 className='baskerville text-large header-info'>Contact</h1>
             <div className='row'>
               <p className="col-12 contact-text col-sm-12 baskerville">All inquiries can be addressed to:<br></br>
-hello             <a href="mailto:hello@miriamgallery.com">hello@miriamgallery.com</a></p>
+             <a href="mailto:hello@miriamgallery.com">hello@miriamgallery.com</a></p>
             </div>
             <h1 className='selected-press-div selected-press-h1 baskerville text-large header-info'>Selected Press</h1>
             <div className='row selected-press-div '>
