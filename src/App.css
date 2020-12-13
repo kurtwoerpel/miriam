@@ -1,7 +1,9 @@
 .App {
    font-family:'BrownPro', sans-serif;
    font-size:24px;
+   -webkit-font-smoothing: subpixel-antialiased;
 }
+
 header{
   overflow-x:hidden;
 }
