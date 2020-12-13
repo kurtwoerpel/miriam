@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import slugify from "react-slugify"
-
+import waveBear from "./paint-bear-waving.gif"
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class GridviewUpcoming extends Component {
 
@@ -165,9 +165,15 @@ class GridviewUpcoming extends Component {
 
      <div className='grid-view upcoming row'>
      {upcoming.length < 1 ?
+         <>
               <div>more coming soon...</div>
+              <img style={{"display":"block"}} src={waveBear} /><br/>
+              <div className="col-12">explore other offerings...</div>
+                 </>
               :""}
+              
          {everythings}
+
      </div>
 
 
