@@ -74,8 +74,17 @@
 .carousel-slide a:hover{
  border:none;
  opacity: 0.9;
- cursor:url('./click.png') 50 50, auto;
+ cursor:auto;
 /* transform: rotateY(-25deg)*/
+}
+.Homepage .prev-invisible, .Homepage .next-invisible{
+  cursor:inherit;
+}
+.click-cursors{
+	opacity: 0;
+	position: fixed;
+	pointer-events: none;
+	z-index: 999;
 }
 .carousel-slide > div{
 display: flex;
