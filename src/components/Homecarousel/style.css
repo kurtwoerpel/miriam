@@ -71,10 +71,25 @@
 .carousel-slide a{
 	display: inline-block;
 }
+.carousel-slide{
+	cursor: none;
+}
+.carousel-slide *{
+	cursor:none;
+}
+.Homepage .main-carousel{
+	cursor: none;
+}
+.Homepage .main-carousel *{
+	cursor: none;
+}
+.carousel-slide .logo{
+	cursor:pointer;
+}
 .carousel-slide a:hover{
  border:none;
  opacity: 0.9;
- cursor:auto;
+/* cursor:auto;*/
 /* transform: rotateY(-25deg)*/
 }
 .Homepage .prev-invisible, .Homepage .next-invisible{
