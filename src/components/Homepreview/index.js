@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './style.css';
 import Flickity from 'flickity';
 import 'flickity/dist/flickity.min.css';
-
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,8 +14,9 @@ import {Slider} from '../';
 import {Menutrigger, Footer} from '../';
 
 
-class Homepreview extends Component {
 
+class Homepreview extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -157,6 +158,17 @@ class Homepreview extends Component {
   var borderStyle = {
         borderColor: x.fields.LogoBackgroundColor,
       }
+      const HtmlCode = props => {
+  console.log(props)
+  return (
+    <div>{ReactHtmlParser(props.value)}</div>
+  );
+};
+
+const renderers = {
+    inlineCode: HtmlCode,
+    code: HtmlCode
+  };
       return(
 
         
@@ -174,7 +186,7 @@ class Homepreview extends Component {
           <h1 style={subheadlineStyle} className='text-large baskerville'>{x.fields.SubHeading}</h1>
         }
         {!x.fields.DescriptiveCopy ? '' :
-          <div style={descriptionStyle} className='description text-medium'><ReactMarkdown source={x.fields.DescriptiveCopy} /></div>
+          <div style={descriptionStyle} className='description text-medium'><ReactMarkdown renderers={renderers} source={x.fields.DescriptiveCopy} /></div>
         }
 
         </div>

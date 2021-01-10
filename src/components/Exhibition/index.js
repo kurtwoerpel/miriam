@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import ReactMarkdown from "react-markdown";
 import {Navigation} from '../';
 import {Mainmenu} from '../';
@@ -105,7 +106,17 @@ class Exhibition extends Component {
       var headerStyle = {
         "backgroundImage": (record.fields.HeaderImage ? 'url(' + record.fields.HeaderImage[0].url + ')' : ''),
       }
-   
+           const HtmlCode = props => {
+            console.log(props)
+            return (
+              <div>{ReactHtmlParser(props.value)}</div>
+            );
+          };
+
+          const renderers = {
+              inlineCode: HtmlCode,
+              code: HtmlCode
+            };
       if(record.fields.PageHeroImages){
       var slides = record.fields.PageHeroImages.map((x,i)=>{
 
@@ -220,7 +231,7 @@ class Exhibition extends Component {
           :
           <div className='page-body container-fluid'>
             <div className='row'>
-              <div className={record.fields.PageBigText ? ' text-large baskerville col-12' :' text-medium baskerville col-12'}><ReactMarkdown source={record.fields.PageDescription}/></div>
+              <div className={record.fields.PageBigText ? ' text-large baskerville col-12' :' text-medium baskerville col-12'}><ReactMarkdown renderers={renderers} source={record.fields.PageDescription}/></div>
             </div>
           </div>
         } 

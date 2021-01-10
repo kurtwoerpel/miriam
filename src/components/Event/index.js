@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import ReactMarkdown from "react-markdown";
 import {Navigation} from '../';
 import {Mainmenu, Footer} from '../';
@@ -109,6 +110,17 @@ class Event extends Component {
       var headerStyle = {
         "backgroundImage": (record.fields.HeaderImage ? 'url(' + record.fields.HeaderImage[0].url + ')' : ''),
       }
+      const HtmlCode = props => {
+            console.log(props)
+            return (
+              <div>{ReactHtmlParser(props.value)}</div>
+            );
+          };
+
+          const renderers = {
+              inlineCode: HtmlCode,
+              code: HtmlCode
+            };
       if(record.fields.PageHeroImages){
       var slides = record.fields.PageHeroImages.map((x,i)=>{
 
@@ -176,7 +188,7 @@ class Event extends Component {
 
         
             </div>
-            <div className={record.fields.PageBigText ? ' text-large baskerville' :' text-small baskerville'}><ReactMarkdown source={record.fields.PageDescription}/></div>
+            <div className={record.fields.PageBigText ? ' text-large baskerville' :' text-small baskerville'}><ReactMarkdown renderers={renderers} source={record.fields.PageDescription}/></div>
           </div>
           <div className='col-12 col-sm-6 second-column'>
           {record.fields.PageHeroImages ?
