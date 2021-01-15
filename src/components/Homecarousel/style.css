@@ -125,12 +125,12 @@ display: flex;
 		display: block;
 		margin:0 auto;
 
-margin-bottom:15px;
+		margin-bottom:15px;
 		width:auto;
 
-		max-height:25vw;
-	min-height:25vw;
-	position: relative;
+		max-height:50vw;
+		min-height:25vw;
+		position: relative;
 }
 
 .carousel-slide h1{
